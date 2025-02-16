@@ -1,0 +1,190 @@
+@font-face {
+  font-family: "Zvezda";
+  src: url("./assets/fonts/zvezda_NHZDN/Zvezda NHZDN Bold Italic.ttf");
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik/Rubik-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  z-index: -2;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(26, 29, 55);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 5%;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+.main-left {
+  position: sticky;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 49%;
+  height: 90vh;
+}
+.main-left__text-block {
+  width: 90%;
+  height: 20%;
+}
+.main-right {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  height: auto;
+}
+.main-right__text-block {
+  width: 90%;
+  height: 20%;
+}
+
+.img-block-main {
+  width: 90%;
+  height: 50%;
+}
+.img-block-main__img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.nav-block {
+  width: 90%;
+  height: 50%;
+}
+.nav-block__img {
+  width: 672px;
+  height: 341px;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.background-effect {
+  z-index: -1;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 100px 58px rgba(50, 72, 255, 0.25);
+}
+
+.copy-block {
+  z-index: 1;
+  position: absolute;
+  display: none;
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, #a8f3f3, #eb04f0);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.text-default-color {
+  color: #79c1c1;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.h1-y2k {
+  margin: 0 0 24px 0;
+  font-family: Zvezda;
+  font-size: 42px;
+}
+
+.h1-img {
+  width: 96px;
+  height: 46px;
+}
+
+.h3-header {
+  margin: 0 0 12px 0;
+  font-family: Rubik;
+  font-size: 16px;
+}
+
+.p-read {
+  font-family: Raleway;
+  font-size: 12px;
+}
+
+.p-footer {
+  font-family: Raleway;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 525px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .main-left {
+    position: static;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+  }
+  .main-left__text-block {
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 30px;
+  }
+  .main-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .main-right__text-block {
+    width: 90%;
+    height: auto;
+    padding: 0 0 0 30px;
+  }
+  .nav-block {
+    width: 90%;
+    height: 50%;
+  }
+  .nav-block__img {
+    width: 500px;
+    height: 241px;
+  }
+}/*# sourceMappingURL=App.css.map */
