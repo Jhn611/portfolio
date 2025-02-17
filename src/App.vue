@@ -1,6 +1,13 @@
 <script>
 export default {
-  data() {},
+  data() {
+    return {
+      fullText: 'ivantimofeev1912@gmail.com',
+      displayedText: '',
+      index: 0,
+      interval: null,
+    }
+  },
   methods: {
     mouseMove(event) {
       let el = document.querySelector('.background-effect')
@@ -8,9 +15,10 @@ export default {
         el.style.display = 'none'
       } else {
         el.style.display = 'block'
-        el.style.left = event.clientX + 'px'
-        el.style.top = event.clientY + 'px'
+        el.style.left = event.pageX + 'px'
+        el.style.top = event.pageY + 'px'
       }
+      console.log(event)
       // console.log('move')
       // console.log(event.clientX, event.clientY)
       //console.log(el)
@@ -21,9 +29,28 @@ export default {
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
       let el = document.querySelector('.copy-block')
       el.style.display = 'block'
-      el.style.left = event.clientX + 'px'
-      el.style.top = event.clientY + 'px'
+      el.style.left = event.pageX + 'px'
+      el.style.top = event.pageY + 'px'
     },
+    startTyping() {
+      this.interval = setInterval(() => {
+        if (this.index < this.fullText.length) {
+          this.displayedText += this.fullText[this.index]
+          this.index++
+        } else {
+          clearInterval(this.interval) // Остановить анимацию
+        }
+      }, 100) // Скорость печати (100 мс)
+    },
+  },
+  created() {
+    window.addEventListener('scroll', this.mouseMove)
+  },
+  mounted() {
+    this.startTyping()
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.mouseMove)
   },
 }
 </script>
@@ -43,12 +70,19 @@ export default {
           </p>
         </div>
         <div class="nav-block">
-          <nav class="nav-block__bar"></nav>
+          <nav class="nav-block__bar">
+            <div>
+              <a class="a-nav pointer text-gradient" href="#AboutMe" @click="mouseMove">Обо мне</a>
+            </div>
+            <div>
+              <a class="a-nav pointer text-gradient" href="#Projects" @click="mouseMove">Проекты</a>
+            </div>
+          </nav>
           <img class="nav-block__img" src=".\assets\imgs\bg_obj1.png" alt="" />
         </div>
         <footer>
           <p class="p-footer text-gradient pointer" @click="copyEmail">
-            напишите мне - ivantimofeev1912@gmail.com
+            напишите мне - {{ displayedText }}
           </p>
         </footer>
         <!-- <div class="img-block-main">
@@ -57,7 +91,70 @@ export default {
       </div>
       <div class="main-right">
         <div class="main-right__text-block">
-          <h3 class="h3-header text-default-color">Обо мне</h3>
+          <h3 id="AboutMe" class="h3-header text-default-color">Обо мне</h3>
+          <p class="p-read text-default-color">
+            Учитывая ключевые сценарии поведения, убеждённость некоторых оппонентов обеспечивает
+            широкому кругу (специалистов) участие в формировании переосмысления внешнеэкономических
+            политик. Сложно сказать, почему независимые государства лишь добавляют фракционных
+            разногласий и призваны к ответу.
+          </p>
+          <p class="p-read text-default-color">
+            Для современного мира глубокий уровень погружения является качественно новой ступенью
+            направлений прогрессивного развития. Каждый из нас понимает очевидную вещь: сплочённость
+            команды профессионалов требует от нас анализа инновационных методов управления
+            процессами.
+          </p>
+          <p class="p-read text-default-color">
+            Картельные сговоры не допускают ситуации, при которой диаграммы связей будут
+            ассоциативно распределены по отраслям. А также базовые сценарии поведения пользователей
+            заблокированы в рамках своих собственных рациональных ограничений. А также некоторые
+            особенности внутренней политики и по сей день остаются уделом либералов, которые жаждут
+            быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего
+            возрастает их статус бесполезности.
+          </p>
+          <p class="p-read text-default-color">
+            Учитывая ключевые сценарии поведения, убеждённость некоторых оппонентов обеспечивает
+            широкому кругу (специалистов) участие в формировании переосмысления внешнеэкономических
+            политик. Сложно сказать, почему независимые государства лишь добавляют фракционных
+            разногласий и призваны к ответу.
+          </p>
+          <p class="p-read text-default-color">
+            Для современного мира глубокий уровень погружения является качественно новой ступенью
+            направлений прогрессивного развития. Каждый из нас понимает очевидную вещь: сплочённость
+            команды профессионалов требует от нас анализа инновационных методов управления
+            процессами.
+          </p>
+          <p class="p-read text-default-color">
+            Картельные сговоры не допускают ситуации, при которой диаграммы связей будут
+            ассоциативно распределены по отраслям. А также базовые сценарии поведения пользователей
+            заблокированы в рамках своих собственных рациональных ограничений. А также некоторые
+            особенности внутренней политики и по сей день остаются уделом либералов, которые жаждут
+            быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего
+            возрастает их статус бесполезности.
+          </p>
+          <p class="p-read text-default-color">
+            Учитывая ключевые сценарии поведения, убеждённость некоторых оппонентов обеспечивает
+            широкому кругу (специалистов) участие в формировании переосмысления внешнеэкономических
+            политик. Сложно сказать, почему независимые государства лишь добавляют фракционных
+            разногласий и призваны к ответу.
+          </p>
+          <p class="p-read text-default-color">
+            Для современного мира глубокий уровень погружения является качественно новой ступенью
+            направлений прогрессивного развития. Каждый из нас понимает очевидную вещь: сплочённость
+            команды профессионалов требует от нас анализа инновационных методов управления
+            процессами.
+          </p>
+          <p class="p-read text-default-color">
+            Картельные сговоры не допускают ситуации, при которой диаграммы связей будут
+            ассоциативно распределены по отраслям. А также базовые сценарии поведения пользователей
+            заблокированы в рамках своих собственных рациональных ограничений. А также некоторые
+            особенности внутренней политики и по сей день остаются уделом либералов, которые жаждут
+            быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего
+            возрастает их статус бесполезности.
+          </p>
+        </div>
+        <div class="main-right__text-block">
+          <h3 id="Projects" class="h3-header text-default-color">Проекты</h3>
           <p class="p-read text-default-color">
             Учитывая ключевые сценарии поведения, убеждённость некоторых оппонентов обеспечивает
             широкому кругу (специалистов) участие в формировании переосмысления внешнеэкономических

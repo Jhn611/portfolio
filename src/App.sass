@@ -21,6 +21,9 @@ body
     height: 100%
     background-color: rgb(26, 29, 55)
 
+a
+    all: unset
+
 #app
     width: 100%
     height: 100%    
@@ -38,7 +41,7 @@ body
     height: auto
     &-left
         position: sticky
-        top: 30px
+        top: 40px
         display: flex
         flex-direction: column
         justify-content: space-between
@@ -56,7 +59,7 @@ body
         height: auto
         &__text-block
             width: 90%
-            height: 20%
+            height: auto
 
 
 .img-block-main
@@ -68,11 +71,15 @@ body
         border-radius: 10px
 
 .nav-block
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-evenly
     width: 90%
     height: 50%
     &__img
-        width: 672px
-        height: 341px
+        width: 340px
+        height: 340px
 
 .page
     width: 100%
@@ -102,7 +109,14 @@ body
 
 .pointer
     cursor: pointer
-    
+
+.a-nav
+    font-family: Rubik
+    font-size: 12px
+    font-weight: 500
+    &:hover
+        
+
 .h1-y2k
     margin: 0 0 24px 0
     font-family: Zvezda
@@ -161,6 +175,6 @@ body
         width: 90%
         height: 50%
         &__img
-            width: 500px
-            height: 241px
+            width: 240px
+            height: 240px
 
