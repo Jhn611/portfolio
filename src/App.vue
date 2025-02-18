@@ -12,7 +12,7 @@ export default {
         new URL('@/assets/imgs/js.png', import.meta.url).href,
         new URL('@/assets/imgs/css.jpg', import.meta.url).href,
         new URL('@/assets/imgs/html.jpg', import.meta.url).href,
-        new URL('@/assets/imgs/axios.jpg', import.meta.url).href,
+        new URL('@/assets/imgs/Axios.jpg', import.meta.url).href,
       ],
       // mouseX: 0,
       // mouseY: 0,
