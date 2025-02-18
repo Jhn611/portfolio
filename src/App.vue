@@ -6,24 +6,49 @@ export default {
       displayedText: '',
       index: 0,
       interval: null,
+      opacity: 0.25,
+      stackSrc: [
+        new URL('@/assets/imgs/vue.jpg', import.meta.url).href,
+        new URL('@/assets/imgs/js.png', import.meta.url).href,
+        new URL('@/assets/imgs/css.jpg', import.meta.url).href,
+        new URL('@/assets/imgs/html.jpg', import.meta.url).href,
+        new URL('@/assets/imgs/axios.jpg', import.meta.url).href,
+      ],
+      // mouseX: 0,
+      // mouseY: 0,
+      // smoothX: 0,
+      // smoothY: 0,
+      // animationFrame: null,
+      tiltX: 0, // Угол наклона по X
+      tiltY: 0, // Угол наклона по Y
     }
+  },
+  computed: {
+    // styleObject() {
+    //   return {
+    //     transform: `translate(${this.smoothX}px, ${this.smoothY}px)`,
+    //   }
+    // },
   },
   methods: {
     mouseMove(event) {
       let el = document.querySelector('.background-effect')
-      if (window.screen.width < 600) {
+      if (window.screen.width < 625) {
         el.style.display = 'none'
       } else {
         el.style.display = 'block'
         el.style.left = event.pageX + 'px'
         el.style.top = event.pageY + 'px'
+        this.mouseX = event.pageX
+        this.mouseY = event.pageY
       }
       console.log(event)
-      // console.log('move')
-      // console.log(event.clientX, event.clientY)
-      //console.log(el)
-      //console.log(this.$refs.backgroundEffect)
     },
+    // animate() {
+    //   this.smoothX += (this.mouseX - this.smoothX) * 0.1
+    //   this.smoothY += (this.mouseY - this.smoothY) * 0.1
+    //   this.animationFrame = requestAnimationFrame(this.animate)
+    // },
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -38,19 +63,63 @@ export default {
           this.displayedText += this.fullText[this.index]
           this.index++
         } else {
-          clearInterval(this.interval) // Остановить анимацию
+          clearInterval(this.interval)
         }
-      }, 100) // Скорость печати (100 мс)
+      }, 100)
+    },
+    handleMouseMove(event) {
+      if (window.screen.width > 625) {
+        // Получаем центр экрана
+        const centerX = window.innerWidth / 2 - 100
+        const centerY = window.innerHeight / 2
+
+        // Определяем смещение мыши относительно центра экрана
+        const offsetX = event.clientX - centerX
+        const offsetY = event.clientY - centerY
+
+        // Нормализуем координаты (-1 до 1)
+        const percentX = offsetX / centerX
+        const percentY = offsetY / centerY
+
+        // Максимальный угол наклона
+        const maxTilt = 30
+
+        // Вычисляем углы поворота
+        this.tiltX = percentY * maxTilt * -1 // Инверсия, чтобы движение было естественным
+        this.tiltY = percentX * maxTilt
+
+        const { innerWidth, innerHeight } = window
+        const x = (event.clientX / innerWidth - 0.5) * 30 // От -20 до 20 градусов
+        const y = (event.clientY / innerHeight - 0.5) * 30
+
+        // Применяем трансформацию к объекту
+        let elements = document.getElementsByClassName('tilt-img')
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].style.transform = `rotateX(${this.tiltX}deg) rotateY(${this.tiltY}deg)`
+          elements[i].style.boxShadow = `${-x}px ${-y}px 20px rgba(0, 0, 0, 0.9)`
+        }
+        //document.querySelector('.tilt-img')
+      }
     },
   },
   created() {
-    window.addEventListener('scroll', this.mouseMove)
+    //window.addEventListener('scroll', this.mouseMove)
   },
   mounted() {
     this.startTyping()
+    document.addEventListener('mousemove', this.handleMouseMove)
+    if (window.screen.width < 625) {
+      let elements = document.getElementsByClassName('tilt-img')
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.add('icon')
+      }
+    }
+    // this.animate()
   },
   unmounted() {
     window.removeEventListener('scroll', this.mouseMove)
+    document.removeEventListener('mousemove', this.handleMouseMove)
+    // cancelAnimationFrame(this.animationFrame)
   },
 }
 </script>
@@ -71,14 +140,37 @@ export default {
         </div>
         <div class="nav-block">
           <nav class="nav-block__bar">
-            <div>
-              <a class="a-nav pointer text-gradient" href="#AboutMe" @click="mouseMove">Обо мне</a>
+            <div class="nav-block__bar-element">
+              <img
+                class="a-nav-img-uncheck"
+                src="./assets/imgs/radio_button_unchecked.svg"
+                alt=""
+              />
+              <img class="a-nav-img-check" src="./assets/imgs/radio_button_checked.svg" alt="" />
+              <a class="a-nav pointer" href="#AboutMe" @click="mouseMove">Обо мне</a>
             </div>
             <div>
               <a class="a-nav pointer text-gradient" href="#Projects" @click="mouseMove">Проекты</a>
             </div>
           </nav>
-          <img class="nav-block__img" src=".\assets\imgs\bg_obj1.png" alt="" />
+          <!-- <img class="nav-block__img" src=".\assets\imgs\bg_obj1.png" alt="" /> -->
+          <div class="stack-block">
+            <img
+              class="tilt-img"
+              v-for="(path, index) in stackSrc"
+              :key="path"
+              :src="path"
+              alt="img"
+              :class="{
+                stack_left_up: index === 0,
+                stack_center: index === 1,
+                stack_left_down: index === 2,
+                stack_right_up: index === 3,
+                stack_right_down: index === 4,
+              }"
+            />
+            <!-- <img class="test" src="./assets/imgs/vue.jpg" alt="" /> -->
+          </div>
         </div>
         <footer>
           <p class="p-footer text-gradient pointer" @click="copyEmail">
