@@ -19,7 +19,7 @@ body
     margin: 0    
     width: 100%
     height: 100%
-    background-color: rgb(26, 29, 55)
+    background-color: #f4f4f4
 
 a
     all: unset
@@ -36,70 +36,79 @@ a
 
 .main
     display: flex
-    flex-direction: row
+    flex-direction: column
     width: 100%
     height: auto
-    &-left
-        position: sticky
-        top: 40px
+
+    &-first
         display: flex
-        flex-direction: column
-        justify-content: space-between
+        flex-direction: row
+        justify-content: space-around
         align-items: center
-        width: 49%
+        width: 100%
         height: 90vh
         &__text-block
-            width: 90%
-            height: 20%
-    &-right
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 65%
+            height: 90%
+        &__card-block
+            padding: 20px 0 0 0
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 25%
+            height: 90%
+
+    &-second
         display: flex
-        flex-direction: column
-        //overflow-y: auto
-        width: 49%
-        height: auto
-        &__text-block
-            width: 90%
+        flex-direction: row
+        justify-content: space-around
+        align-items: center
+        width: 100%
+        height: 90vh
+        &__stack-block
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 40%
+            height: auto
+        &____text_block
+            width: 40%
             height: auto
 
 
-.img-block-main
-    width: 90%
-    height: 50%
-    &__img
-        width: 100px
-        height: 100px
-        border-radius: 10px
-
-.nav-block
+.card
+    padding: 10px 0 0 0 
     display: flex
-    flex-direction: row
+    flex-direction: column
     align-items: center
-    justify-content: space-evenly
-    width: 90%
-    height: 50%
-    &__bar
-        width: 140px
-        &-element
-            position: relative
-            display: inline-block
-            &::after
-                content: ''
-                position: absolute
-                top: 0
-                left: 0
-                width: 100%
-                height: 100%
-                background-image: linear-gradient(to right, #a8f3f3, #eb04f0)
-                mix-blend-mode: multiply 
-    &__img
-        width: 340px
-        height: 340px
+    width: 260px
+    height: 390px
+    border-radius: 10px
+    background-color: #D9D9D9
+    &-img
+        margin: 0 0 10px 0
+        width: 240px
+        height: 280px
+        border-radius: 10px
+        object-fit: cover
+        object-position: 50% 50%
+    &-text
+        all: unset
+        padding: 0 0 0 15px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: Rubik
+        font-weight: 600
+        font-size: 22px
 
-.stack-block
+.stacks
     position: relative
-    width: 240px
-    height: 240px
-
+    width: 300px
+    height: 300px
 .stack
     &_center
         top: 50%
@@ -204,6 +213,26 @@ a
         display: block
     &-img-check
         display: none
+
+.h1
+    font-size: 128px
+    font-family: Rubik
+    font-weight: 200
+
+.h2
+    font-size: 78px
+    font-family: Rubik
+    font-weight: 400
+
+.h3
+    font-size: 36px
+    font-family: Rubik
+    font-weight: 300
+
+.p
+    font-size: 24px
+    font-family: Raleway
+    font-weight: 200
 
 .h1-y2k
     margin: 0 0 24px 0
