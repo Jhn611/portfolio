@@ -14,41 +14,16 @@ export default {
         new URL('@/assets/imgs/html.jpg', import.meta.url).href,
         new URL('@/assets/imgs/Axios.jpg', import.meta.url).href,
       ],
-      // mouseX: 0,
-      // mouseY: 0,
-      // smoothX: 0,
-      // smoothY: 0,
-      // animationFrame: null,
+      isFlipped: true,
       tiltX: 0, // Угол наклона по X
       tiltY: 0, // Угол наклона по Y
     }
   },
-  computed: {
-    // styleObject() {
-    //   return {
-    //     transform: `translate(${this.smoothX}px, ${this.smoothY}px)`,
-    //   }
-    // },
-  },
+  computed: {},
   methods: {
-    mouseMove(event) {
-      let el = document.querySelector('.background-effect')
-      if (window.screen.width < 625) {
-        el.style.display = 'none'
-      } else {
-        el.style.display = 'block'
-        el.style.left = event.pageX + 'px'
-        el.style.top = event.pageY + 'px'
-        this.mouseX = event.pageX
-        this.mouseY = event.pageY
-      }
-      console.log(event)
+    toggleFlip() {
+      this.isFlipped = !this.isFlipped
     },
-    // animate() {
-    //   this.smoothX += (this.mouseX - this.smoothX) * 0.1
-    //   this.smoothY += (this.mouseY - this.smoothY) * 0.1
-    //   this.animationFrame = requestAnimationFrame(this.animate)
-    // },
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -69,6 +44,16 @@ export default {
     },
     handleMouseMove(event) {
       if (window.screen.width > 625) {
+        let el = document.querySelector('.background-effect')
+        if (window.screen.width < 625) {
+          el.style.display = 'none'
+        } else {
+          el.style.display = 'block'
+          el.style.left = event.pageX + 'px'
+          el.style.top = event.pageY + 'px'
+          this.mouseX = event.pageX
+          this.mouseY = event.pageY
+        }
         // Получаем центр экрана
         const centerX = window.innerWidth / 2 - 100
         const centerY = window.innerHeight / 2
@@ -102,30 +87,34 @@ export default {
       }
     },
   },
-  created() {
-    //window.addEventListener('scroll', this.mouseMove)
-  },
+
+  created() {},
+
   mounted() {
     this.startTyping()
+
     document.addEventListener('mousemove', this.handleMouseMove)
-    if (window.screen.width < 625) {
+    if (window.screen.width < 525) {
       let elements = document.getElementsByClassName('tilt-img')
       for (let i = 0; i < elements.length; i++) {
         elements[i].classList.add('icon')
       }
     }
-    // this.animate()
+
+    setTimeout(() => {
+      this.isFlipped = false
+    }, 2000)
   },
+
   unmounted() {
     window.removeEventListener('scroll', this.mouseMove)
     document.removeEventListener('mousemove', this.handleMouseMove)
-    // cancelAnimationFrame(this.animationFrame)
   },
 }
 </script>
 
 <template>
-  <div class="page" @mouseenter="mouseMove" @mousemove="mouseMove" @mouseleave="mouseMove">
+  <div class="page">
     <header class="header"></header>
     <main class="main">
       <div class="main-first">
@@ -136,10 +125,15 @@ export default {
             портфолио
           </h1>
         </div>
-        <div class="main-first__card-block">
-          <div class="card">
-            <img class="card-img" src="./assets/imgs/my_photo.jpg" alt="" />
-            <h4 class="card-text">Тимофеев Иван Михайлович</h4>
+        <div class="main-first__card-block" @click="toggleFlip" :class="{ flipped: isFlipped }">
+          <div class="card-container">
+            <div class="card-back">
+              <img class="card-back-img" src="./assets/imgs/card_back.svg" alt="" />
+            </div>
+            <div class="card">
+              <img class="card-img" src="./assets/imgs/my_photo.jpg" alt="" />
+              <h4 class="card-text">Тимофеев Иван Михайлович</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -147,19 +141,19 @@ export default {
         <div class="main-second__stack-block">
           <div class="stacks">
             <img
-            class="tilt-img"
-            v-for="(path, index) in stackSrc"
-            :key="path"
-            :src="path"
-            alt="img"
-            :class="{
-              stack_left_up: index === 0,
-              stack_center: index === 1,
-              stack_left_down: index === 2,
-              stack_right_up: index === 3,
-              stack_right_down: index === 4,
-            }"
-          />
+              class="tilt-img"
+              v-for="(path, index) in stackSrc"
+              :key="path"
+              :src="path"
+              alt="img"
+              :class="{
+                stack_left_up: index === 0,
+                stack_center: index === 1,
+                stack_left_down: index === 2,
+                stack_right_up: index === 3,
+                stack_right_down: index === 4,
+              }"
+            />
           </div>
         </div>
         <div class="main-second__text_block">
