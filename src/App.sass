@@ -74,7 +74,7 @@ a
             align-items: center
             width: 40%
             height: auto
-        &____text_block
+        &__text_block
             width: 40%
             height: auto
 
@@ -109,6 +109,7 @@ a
     position: relative
     width: 300px
     height: 300px
+    
 .stack
     &_center
         top: 50%
@@ -264,39 +265,112 @@ a
         flex-direction: column
         width: 100%
         height: auto
-        &-left
-            position: static 
-            top: 30px
+
+        &-first
             display: flex
             flex-direction: column
-            justify-content: space-between
+            justify-content: space-around
             align-items: center
             width: 100%
-            height: 50vh
+            height: 100vh
             &__text-block
+                display: flex
+                justify-content: center
+                align-items: center
                 width: 100%
-                height: auto
-                padding: 0 0 0 30px
-        &-right
+                height: 45%
+            &__card-block
+                padding: 20px 0 0 0
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100%
+                height: 45%
+
+        &-second
             display: flex
             flex-direction: column
+            justify-content: center
+            align-items: center
             width: 100%
-            height: auto
-            &__text-block
+            height: 100vh
+            &__stack-block
+                display: flex
+                justify-content: center
+                align-items: center
                 width: 90%
-                height: auto
-                padding: 0 0 0 30px
+                height: 45%
+            &__text_block
+                width: 90%
+                height: 45%
 
-    .nav-block
-        width: 90%
-        height: 50%
-        &__bar
-            width: 140px
-        &__img
+
+    .card
+        padding: 10px 0 0 0 
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 260px
+        height: 390px
+        border-radius: 10px
+        background-color: #D9D9D9
+        &-img
+            margin: 0 0 10px 0
             width: 240px
-            height: 240px
+            height: 280px
+            border-radius: 10px
+            object-fit: cover
+            object-position: 50% 50%
+        &-text
+            all: unset
+            padding: 0 0 0 15px
+            display: flex
+            align-items: center
+            justify-content: center
+            font-family: Rubik
+            font-weight: 600
+            font-size: 22px
 
-    .stack-block
-        width: 120px
-        height: 120px
+    .stacks
+        position: relative
+        width: 300px
+        height: 300px
 
+    .stack
+        &_center
+            top: 45%
+            left: 45%
+        &_left
+            &_up
+                top: 0%
+                left: 0%
+            &_down
+                top: 90%
+                left: 0%
+        &_right
+            &_up
+                top: 0%
+                left: 90%
+            &_down
+                top: 90%
+                left: 90%
+
+    .h1
+        font-size: 48px
+        font-family: Rubik
+        font-weight: 200
+
+    .h2
+        font-size: 36px
+        font-family: Rubik
+        font-weight: 400
+
+    .h3
+        font-size: 24px
+        font-family: Rubik
+        font-weight: 300
+
+    .p
+        font-size: 18px
+        font-family: Raleway
+        font-weight: 200
