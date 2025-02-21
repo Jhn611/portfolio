@@ -98,8 +98,8 @@ a {
   width: 260px;
   height: 390px;
   border-radius: 10px;
-  border: 2px solid #6f6f6f;
   background-color: #ffffff;
+  box-shadow: 4px 4px 8px 0px rgba(12, 12, 12, 0.32);
 }
 .card-img {
   margin: 0 0 10px 0;
@@ -113,10 +113,11 @@ a {
 }
 .card-text {
   all: unset;
-  padding: 0 0 0 15px;
+  padding: 0 0 0 10px;
+  width: 90%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-family: Rubik;
   font-weight: 600;
   font-size: 22px;
@@ -131,7 +132,7 @@ a {
   width: 260px;
   height: 390px;
   border-radius: 10px;
-  border: 2px solid #6f6f6f;
+  box-shadow: 4px 4px 8px 0px rgba(12, 12, 12, 0.32);
   transform: rotateY(180deg);
 }
 .card-back-img {
@@ -380,36 +381,6 @@ a {
   .main-second__text_block {
     width: 90%;
     height: 45%;
-  }
-  .card {
-    padding: 10px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 260px;
-    height: 390px;
-    border-radius: 10px;
-    background-color: #D9D9D9;
-  }
-  .card-img {
-    margin: 0 0 10px 0;
-    width: 240px;
-    height: 280px;
-    border-radius: 10px;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: 50% 50%;
-       object-position: 50% 50%;
-  }
-  .card-text {
-    all: unset;
-    padding: 0 0 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Rubik;
-    font-weight: 600;
-    font-size: 22px;
   }
   .stacks {
     position: relative;

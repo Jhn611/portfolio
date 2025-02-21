@@ -103,7 +103,7 @@ export default {
 
     setTimeout(() => {
       this.isFlipped = false
-    }, 2000)
+    }, 1000)
   },
 
   unmounted() {
@@ -128,11 +128,11 @@ export default {
         <div class="main-first__card-block" @click="toggleFlip" :class="{ flipped: isFlipped }">
           <div class="card-container">
             <div class="card-back">
-              <img class="card-back-img" src="./assets/imgs/card_back.svg" alt="" />
+              <img class="card-back-img" src="./assets/imgs/Card_back.svg" alt="" />
             </div>
             <div class="card">
               <img class="card-img" src="./assets/imgs/my_photo.jpg" alt="" />
-              <h4 class="card-text">Тимофеев Иван Михайлович</h4>
+              <h4 class="card-text">Тимофеев Иван</h4>
             </div>
           </div>
         </div>
