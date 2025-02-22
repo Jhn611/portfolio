@@ -112,8 +112,6 @@ a {
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 50% 50%;
-     object-position: 50% 50%;
 }
 .card-text {
   all: unset;

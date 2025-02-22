@@ -103,7 +103,7 @@ export default {
                   src="./assets/imgs/Mail.svg"
                   alt=""
                 />
-                ivantimofeev1912@gmail.com
+                ivantimofeev1912<span>@</span>gmail.com
               </p>
             </div>
           </div>
