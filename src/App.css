@@ -64,7 +64,7 @@ a {
   height: 90%;
 }
 .main-first__card-block {
-  padding: 20px 0 0 0;
+  padding: 10px 0 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,7 +360,7 @@ a {
     height: 10%;
   }
   .main-first__card-block {
-    padding: 20px 0 0 0;
+    padding: 10px 0 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
