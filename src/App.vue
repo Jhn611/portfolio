@@ -82,8 +82,29 @@ export default {
               <img class="card-back-img" src="./assets/imgs/Card_back.svg" alt="" />
             </div>
             <div class="card">
-              <img class="card-img" src="./assets/imgs/my_photo.jpg" alt="" />
+              <img class="card-img" src="./assets/imgs/my_photo_v2.jpg" alt="" />
               <h4 class="card-text">Тимофеев Иван</h4>
+              <p class="card-text-p">
+                <img class="card-text-p-img" src="./assets/imgs/Map pin.svg" alt="" /> Москва
+              </p>
+              <p class="card-text-p">
+                <img
+                  class="card-text-p-img"
+                  style="padding: 0 3px 0 0"
+                  src="./assets/imgs/telegram.png"
+                  alt=""
+                />
+                @IvanAkaJohnny
+              </p>
+              <p class="card-text-p">
+                <img
+                  style="padding: 1px 4px 0 0"
+                  class="card-text-p-img"
+                  src="./assets/imgs/Mail.svg"
+                  alt=""
+                />
+                ivantimofeev1912@gmail.com
+              </p>
             </div>
           </div>
         </div>
