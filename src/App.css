@@ -113,6 +113,7 @@ a {
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: scale(1.5);
   transition: transform 0.5s ease-out;
   will-change: transform;
 }
@@ -125,6 +126,7 @@ a {
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: translate(-100px, 50px) scale(1.25);
   transition: transform 0.5s ease-out;
   will-change: transform;
 }
@@ -135,6 +137,7 @@ a {
   height: 280px;
   border-radius: 10px;
   overflow: hidden;
+  backface-visibility: hidden;
 }
 .card-text {
   all: unset;
