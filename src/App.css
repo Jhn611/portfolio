@@ -167,6 +167,8 @@ a {
 }
 .card-back {
   position: absolute;
+  z-index: 1;
+  backface-visibility: hidden;
   padding: 5px 0 5px 0;
   display: flex;
   align-items: center;
