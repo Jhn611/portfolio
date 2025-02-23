@@ -96,13 +96,33 @@ a
     border-radius: 10px
     //border: 2px solid #6f6f6f
     background-color: #ffffff
-    box-shadow: 4px 4px 8px 0px rgba(12, 12, 12, 0.32)
+    box-shadow: 0px 0px 8px 0px rgba(12, 12, 12, 0.32)
     &-img
+        position: absolute
         margin: 0 0 10px 0
         width: 240px
         height: 280px
         border-radius: 10px
         object-fit: cover
+        transition: transform 0.5s ease-out
+        will-change: transform
+        &-upper
+            position: absolute
+            z-index: 2
+            margin: 0 0 10px 0
+            width: 240px
+            height: 280px
+            border-radius: 10px
+            object-fit: cover
+            transition: transform 0.5s ease-out
+            will-change: transform
+        &-block
+            position: relative
+            margin: 0 0 10px 0
+            width: 240px
+            height: 280px
+            border-radius: 10px
+            overflow: hidden
         
     &-text
         all: unset
@@ -139,7 +159,7 @@ a
         height: 390px
         border-radius: 10px
         //border: 2px solid #6f6f6f
-        box-shadow: 4px 4px 8px 0px rgba(12, 12, 12, 0.32)
+        box-shadow: 0px 0px 8px 0px rgba(12, 12, 12, 0.32)
         transform: rotateY(180deg)
         &-img
             width: 250px

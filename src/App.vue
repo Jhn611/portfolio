@@ -21,7 +21,42 @@ export default {
   methods: {
     toggleFlip() {
       this.isFlipped = !this.isFlipped
+      const upperImage = document.querySelector('.card-img-upper')
+      const lowerImage = document.querySelector('.card-img')
+      if (!this.isFlipped) {
+        upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
+        lowerImage.style.transform = `scale(1.5)`
+        setTimeout(() => {
+          upperImage.style.transform = `translate(0, 0) scale(1.05)` // Возвращаем на место
+          lowerImage.style.transform = `scale(1)`
+        }, 50)
+        setTimeout(() => {
+          document.addEventListener('mousemove', this.handleParallax)
+        }, 800)
+      } else {
+        document.removeEventListener('mousemove', this.handleParallax)
+        upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
+        lowerImage.style.transform = `scale(1.5)`
+      }
     },
+    handleParallax(event) {
+      if (this.isFlipped) {
+        const upperImage = document.querySelector('.card-img-upper')
+        const lowerImage = document.querySelector('.card-img')
+        upperImage.style.transform = 'translate(0, 0)'
+        lowerImage.style.transform = 'translate(0, 0)'
+        return
+      }
+
+      const cardBlock = document.querySelector('.card-img-block')
+      const upperImage = document.querySelector('.card-img-upper')
+      const { left, top, width, height } = cardBlock.getBoundingClientRect()
+      const x = (event.clientX - (left + width / 2)) / 200
+      const y = (event.clientY - (top + height / 2)) / 200
+
+      upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
+    },
+
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -51,7 +86,7 @@ export default {
     this.startTyping()
 
     setTimeout(() => {
-      this.isFlipped = false
+      this.toggleFlip()
     }, 1000)
 
     window.addEventListener('resize', this.checkScreen)
@@ -60,6 +95,7 @@ export default {
   unmounted() {
     window.removeEventListener('scroll', this.mouseMove)
     window.removeEventListener('resize', this.checkScreen)
+    document.removeEventListener('mousemove', this.handleParallax)
   },
 }
 </script>
@@ -82,7 +118,10 @@ export default {
               <img class="card-back-img" src="./assets/imgs/Card_back.svg" alt="" />
             </div>
             <div class="card">
-              <img class="card-img" src="./assets/imgs/my_photo_v2.jpg" alt="" />
+              <div class="card-img-block">
+                <img class="card-img-upper" src="./assets/imgs/my_photo_v2.png" alt="" />
+                <img class="card-img" src="./assets/imgs/my_photo_v2_bg.jpg" alt="" />
+              </div>
               <h4 class="card-text">Тимофеев Иван</h4>
               <p class="card-text-p">
                 <img class="card-text-p-img" src="./assets/imgs/Map pin.svg" alt="" /> Москва
