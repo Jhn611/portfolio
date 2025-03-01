@@ -1,6 +1,7 @@
 <script>
 import Stacks from './views/MyStacks.vue'
 import Page2TextVue from './views/Page2Text.vue'
+import MyCard from './views/MyCard.vue'
 export default {
   data() {
     return {
@@ -11,11 +12,13 @@ export default {
       opacity: 0.25,
       isFlipped: true,
       isMobile: window.innerWidth < 525,
+      scrollNow: 0,
     }
   },
   components: {
     Stacks,
     Page2TextVue,
+    MyCard,
   },
   computed: {},
   methods: {
@@ -56,6 +59,12 @@ export default {
 
       upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
     },
+    handleScroll() {
+      this.scrollNow = window.scrollY
+      if (this.scrollNow > 10) {
+        //console.log(this.scrollNow)
+      }
+    },
 
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
@@ -90,6 +99,7 @@ export default {
     }, 1000)
 
     window.addEventListener('resize', this.checkScreen)
+    window.addEventListener('scroll', this.handleScroll)
   },
 
   unmounted() {
@@ -102,7 +112,6 @@ export default {
 
 <template>
   <div class="page">
-    <header class="header"></header>
     <main class="main">
       <div class="main-first">
         <div class="main-first__text-block">
@@ -112,63 +121,41 @@ export default {
             портфолио
           </h1>
         </div>
-        <div class="main-first__card-block" @click="toggleFlip" :class="{ flipped: isFlipped }">
-          <div class="card-container">
-            <div class="card-back">
-              <img class="card-back-img" src="./assets/imgs/Card_back.svg" alt="" />
-            </div>
-            <div class="card">
-              <div class="card-img-block">
-                <img class="card-img-upper" src="./assets/imgs/my_photo_v2.png" alt="" />
-                <img class="card-img" src="./assets/imgs/my_photo_v2_bg.jpg" alt="" />
-              </div>
-              <h4 class="card-text">Тимофеев Иван</h4>
-              <p class="card-text-p">
-                <img class="card-text-p-img" src="./assets/imgs/Map pin.svg" alt="" /> Москва
-              </p>
-              <p class="card-text-p">
-                <img
-                  class="card-text-p-img"
-                  style="padding: 0 3px 0 0"
-                  src="./assets/imgs/telegram.png"
-                  alt=""
-                />
-                @IvanAkaJohnny
-              </p>
-              <p class="card-text-p">
-                <img
-                  style="padding: 1px 4px 0 0"
-                  class="card-text-p-img"
-                  src="./assets/imgs/Mail.svg"
-                  alt=""
-                />
-                ivantimofeev1912@gmail.com
-              </p>
-            </div>
-          </div>
+        <div class="bg">
+          <div class="bg-first"></div>
+          <div class="bg-second"></div>
+          <div class="bg-third"></div>
+          <div class="bg-fourth"></div>
         </div>
       </div>
-      <div class="main-second" v-if="isMobile">
+      <div class="main-second">
         <div class="main-second__text_block">
+          <h2 class="h2">Обо мне</h2>
+          <h3 class="h3">Обучение</h3>
+          <p class="p">
+            Сейчас я учусь на 2м курсе в РТУ МИРЭА<br />
+            на направлении “Фуллстек разработка” 2025 г.
+          </p>
+        </div>
+        <MyCard :scroll="scrollNow" />
+      </div>
+
+      <div class="main-third" v-if="isMobile">
+        <div class="main-third__text_block">
           <Page2TextVue />
         </div>
-        <div class="main-second__stack-block">
+        <div class="main-third__stack-block">
           <Stacks />
         </div>
       </div>
-      <div class="main-second" v-if="!isMobile">
-        <div class="main-second__stack-block">
+      <div class="main-third" v-if="!isMobile">
+        <div class="main-third__stack-block">
           <Stacks />
         </div>
-        <div class="main-second__text_block">
+        <div class="main-third__text_block">
           <Page2TextVue />
         </div>
       </div>
-      <!-- <footer>
-        <p class="p-footer text-gradient pointer" @click="copyEmail">
-          напишите мне - {{ displayedText }}
-        </p>
-      </footer> -->
     </main>
     <div class="background-effect" ref="backgroundEffect"></div>
     <div class="copy-block"></div>

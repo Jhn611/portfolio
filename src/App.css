@@ -49,12 +49,13 @@ a {
   height: auto;
 }
 .main-first {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 .main-first__text-block {
   display: flex;
@@ -75,19 +76,29 @@ a {
 .main-second {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff7f2;
+}
+.main-third {
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 90vh;
+  background-color: #f8e8dd;
 }
-.main-second__stack-block {
+.main-third__stack-block {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40%;
   height: auto;
 }
-.main-second__text_block {
+.main-third__text_block {
   width: 40%;
   height: auto;
 }
@@ -276,6 +287,53 @@ a {
   height: 100%;
 }
 
+.bg {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bg-first {
+  z-index: -4;
+  position: absolute;
+  background-image: url("./assets/imgs/bg1.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.bg-second {
+  z-index: -3;
+  position: absolute;
+  background-image: url("./assets/imgs/bg2.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.bg-third {
+  z-index: -2;
+  position: absolute;
+  background-image: url("./assets/imgs/bg3.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.bg-fourth {
+  z-index: -1;
+  position: absolute;
+  background-image: url("./assets/imgs/bg4.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
 .background-effect {
   z-index: -1;
   position: absolute;
@@ -292,18 +350,10 @@ a {
 }
 
 .text-gradient {
-  background-image: linear-gradient(to right, #a8f3f3, #eb04f0);
+  background-image: linear-gradient(to right, #ffffeb, #4a6544);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
-}
-
-.opacity-25 {
-  opacity: 0.25;
-}
-
-.text-default-color {
-  color: #79c1c1;
 }
 
 .pointer {
@@ -429,6 +479,52 @@ a {
   .main-second__text_block {
     width: 90%;
     height: 45%;
+  }
+  .bg {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .bg-first {
+    z-index: -4;
+    position: absolute;
+    background-image: url("./assets/imgs/bg1.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 75% 100%;
+    background-repeat: no-repeat;
+  }
+  .bg-second {
+    z-index: -3;
+    position: absolute;
+    background-image: url("./assets/imgs/bg2.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 75% 100%;
+    background-repeat: no-repeat;
+  }
+  .bg-third {
+    z-index: -2;
+    position: absolute;
+    background-image: url("./assets/imgs/bg3.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 75% 100%;
+    background-repeat: no-repeat;
+  }
+  .bg-fourth {
+    z-index: -1;
+    position: absolute;
+    background-image: url("./assets/imgs/bg4.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 75% 100%;
+    background-repeat: no-repeat;
   }
   .stacks {
     position: relative;
