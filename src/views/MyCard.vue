@@ -30,6 +30,23 @@ export default {
         lowerImage.style.transform = `scale(1.5)`
       }
     },
+    handleParallax(event) {
+      if (this.isFlipped) {
+        const upperImage = document.querySelector('.card-img-upper')
+        const lowerImage = document.querySelector('.card-img')
+        upperImage.style.transform = 'translate(0, 0)'
+        lowerImage.style.transform = 'translate(0, 0)'
+        return
+      }
+
+      const cardBlock = document.querySelector('.card-img-block')
+      const upperImage = document.querySelector('.card-img-upper')
+      const { left, top, width, height } = cardBlock.getBoundingClientRect()
+      const x = (event.clientX - (left + width / 2)) / 200
+      const y = (event.clientY - (top + height / 2)) / 200
+
+      upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
+    },
   },
   watch: {
     scroll(newScroll) {
@@ -47,9 +64,6 @@ export default {
     },
   },
   mounted() {
-    // setTimeout(() => {
-    //   this.toggleFlip()
-    // }, 1000)
   },
 
   unmounted() {

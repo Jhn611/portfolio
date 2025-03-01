@@ -15,9 +15,9 @@ export default {
   },
   methods: {
     handleMouseMove(event) {
-      let bgMouseEffect = document.querySelector('.background-effect')
+      // let bgMouseEffect = document.querySelector('.background-effect')
       if (window.screen.width < 525) {
-        bgMouseEffect.style.display = 'none'
+        // bgMouseEffect.style.display = 'none'
         let elements = document.getElementsByClassName('tilt-img')
         if (!elements.classList.contains('icon')) {
           for (let i = 0; i < elements.length; i++) {
@@ -26,9 +26,9 @@ export default {
         }
       }
       if (window.screen.width > 525) {
-        bgMouseEffect.style.display = 'block'
-        bgMouseEffect.style.left = event.pageX + 'px'
-        bgMouseEffect.style.top = event.pageY + 'px'
+        // bgMouseEffect.style.display = 'block'
+        // bgMouseEffect.style.left = event.pageX + 'px'
+        // bgMouseEffect.style.top = event.pageY + 'px'
 
         this.mouseX = event.pageX
         this.mouseY = event.pageY
@@ -61,7 +61,6 @@ export default {
           elements[i].style.transform = `rotateX(${this.tiltX}deg) rotateY(${this.tiltY}deg)`
           elements[i].style.boxShadow = `${-x}px ${-y}px 20px rgba(0, 0, 0, 0.9)`
         }
-        //document.querySelector('.tilt-img')
       }
     },
   },

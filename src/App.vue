@@ -5,12 +5,11 @@ import MyCard from './views/MyCard.vue'
 export default {
   data() {
     return {
-      fullText: 'ivantimofeev1912@gmail.com',
-      displayedText: '',
-      index: 0,
-      interval: null,
-      opacity: 0.25,
-      isFlipped: true,
+      // fullText: 'ivantimofeev1912@gmail.com',
+      // displayedText: '',
+      // index: 0,
+      // interval: null,
+      // opacity: 0.25,
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
     }
@@ -22,43 +21,6 @@ export default {
   },
   computed: {},
   methods: {
-    toggleFlip() {
-      this.isFlipped = !this.isFlipped
-      const upperImage = document.querySelector('.card-img-upper')
-      const lowerImage = document.querySelector('.card-img')
-      if (!this.isFlipped) {
-        upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
-        lowerImage.style.transform = `scale(1.5)`
-        setTimeout(() => {
-          upperImage.style.transform = `translate(0, 0) scale(1.05)` // Возвращаем на место
-          lowerImage.style.transform = `scale(1)`
-        }, 50)
-        setTimeout(() => {
-          document.addEventListener('mousemove', this.handleParallax)
-        }, 800)
-      } else {
-        document.removeEventListener('mousemove', this.handleParallax)
-        upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
-        lowerImage.style.transform = `scale(1.5)`
-      }
-    },
-    handleParallax(event) {
-      if (this.isFlipped) {
-        const upperImage = document.querySelector('.card-img-upper')
-        const lowerImage = document.querySelector('.card-img')
-        upperImage.style.transform = 'translate(0, 0)'
-        lowerImage.style.transform = 'translate(0, 0)'
-        return
-      }
-
-      const cardBlock = document.querySelector('.card-img-block')
-      const upperImage = document.querySelector('.card-img-upper')
-      const { left, top, width, height } = cardBlock.getBoundingClientRect()
-      const x = (event.clientX - (left + width / 2)) / 200
-      const y = (event.clientY - (top + height / 2)) / 200
-
-      upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
-    },
     handleScroll() {
       this.scrollTop = window.scrollY
       document.body.style.cssText = `--scrollTop: ${this.scrollTop}px`
@@ -72,16 +34,16 @@ export default {
       el.style.left = event.pageX + 'px'
       el.style.top = event.pageY + 'px'
     },
-    startTyping() {
-      this.interval = setInterval(() => {
-        if (this.index < this.fullText.length) {
-          this.displayedText += this.fullText[this.index]
-          this.index++
-        } else {
-          clearInterval(this.interval)
-        }
-      }, 100)
-    },
+    // startTyping() {
+    //   this.interval = setInterval(() => {
+    //     if (this.index < this.fullText.length) {
+    //       this.displayedText += this.fullText[this.index]
+    //       this.index++
+    //     } else {
+    //       clearInterval(this.interval)
+    //     }
+    //   }, 100)
+    // },
     checkScreen() {
       this.isMobile = window.innerWidth < 525
     },
@@ -90,20 +52,14 @@ export default {
   created() {},
 
   mounted() {
-    this.startTyping()
-
-    setTimeout(() => {
-      this.toggleFlip()
-    }, 1000)
-
+    // this.startTyping()
     window.addEventListener('resize', this.checkScreen)
     window.addEventListener('scroll', this.handleScroll)
   },
 
   unmounted() {
-    window.removeEventListener('scroll', this.mouseMove)
+    window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('resize', this.checkScreen)
-    document.removeEventListener('mousemove', this.handleParallax)
   },
 }
 </script>
@@ -155,7 +111,7 @@ export default {
         </div>
       </div>
     </main>
-    <div class="background-effect" ref="backgroundEffect"></div>
+    <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
     <div class="copy-block"></div>
   </div>
 </template>
