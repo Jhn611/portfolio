@@ -296,7 +296,7 @@ a {
 .bg-first {
   z-index: -4;
   position: absolute;
-  background-image: url("./assets/imgs/bg1.png");
+  background-image: url("./assets/imgs/bg.jpg");
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -312,6 +312,7 @@ a {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 15), 0);
 }
 .bg-third {
   z-index: -2;
@@ -322,6 +323,7 @@ a {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 5), 0);
 }
 .bg-fourth {
   z-index: -1;
@@ -332,6 +334,7 @@ a {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
 }
 
 .background-effect {
@@ -480,51 +483,17 @@ a {
     width: 90%;
     height: 45%;
   }
-  .bg {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
   .bg-first {
-    z-index: -4;
-    position: absolute;
-    background-image: url("./assets/imgs/bg1.png");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
     background-position: 75% 100%;
-    background-repeat: no-repeat;
   }
   .bg-second {
-    z-index: -3;
-    position: absolute;
-    background-image: url("./assets/imgs/bg2.png");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
     background-position: 75% 100%;
-    background-repeat: no-repeat;
   }
   .bg-third {
-    z-index: -2;
-    position: absolute;
-    background-image: url("./assets/imgs/bg3.png");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
     background-position: 75% 100%;
-    background-repeat: no-repeat;
   }
   .bg-fourth {
-    z-index: -1;
-    position: absolute;
-    background-image: url("./assets/imgs/bg4.png");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
     background-position: 75% 100%;
-    background-repeat: no-repeat;
   }
   .stacks {
     position: relative;

@@ -12,7 +12,7 @@ export default {
       opacity: 0.25,
       isFlipped: true,
       isMobile: window.innerWidth < 525,
-      scrollNow: 0,
+      scrollTop: 0,
     }
   },
   components: {
@@ -60,10 +60,8 @@ export default {
       upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
     },
     handleScroll() {
-      this.scrollNow = window.scrollY
-      if (this.scrollNow > 10) {
-        //console.log(this.scrollNow)
-      }
+      this.scrollTop = window.scrollY
+      document.body.style.cssText = `--scrollTop: ${this.scrollTop}px`
     },
 
     copyEmail(event) {
@@ -137,7 +135,7 @@ export default {
             на направлении “Фуллстек разработка” 2025 г.
           </p>
         </div>
-        <MyCard :scroll="scrollNow" />
+        <MyCard :scroll="scrollTop" />
       </div>
 
       <div class="main-third" v-if="isMobile">
