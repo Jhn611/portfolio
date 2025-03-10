@@ -80,15 +80,22 @@ export default {
           <div class="bg-second"></div>
           <div class="bg-third"></div>
           <div class="bg-fourth"></div>
+          <div class="bg-firth"></div>
         </div>
       </div>
       <div class="main-second">
         <div class="main-second__text_block">
-          <h2 class="h2">Обо мне</h2>
+          <h2 class="h2">Обо мне <img src="./assets/imgs/stars.png" alt="" /></h2>
           <h3 class="h3">Обучение</h3>
           <p class="p">
             Сейчас я учусь на 2м курсе в РТУ МИРЭА<br />
             на направлении “Фуллстек разработка” 2025 г.
+          </p>
+          <h3 class="h3">Цели</h3>
+          <p class="p">
+            Получить опыт работы, больше знаний и навыков в своей области.<br />
+            На данный момент ищу стажировку,<br />
+            на которой смогу работать параллельно учёбе в вузе.
           </p>
         </div>
         <MyCard :scroll="scrollTop" />
@@ -109,6 +116,7 @@ export default {
         <div class="main-third__text_block">
           <Page2TextVue />
         </div>
+        <div class="bg3"></div>
       </div>
     </main>
     <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
