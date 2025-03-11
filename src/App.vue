@@ -1,7 +1,8 @@
 <script>
 import Stacks from './views/MyStacks.vue'
-import Page2TextVue from './views/Page2Text.vue'
+import PageText3 from './views/PageText3.vue'
 import MyCard from './views/MyCard.vue'
+import PageText4 from './views/PageText4.vue'
 export default {
   data() {
     return {
@@ -16,8 +17,9 @@ export default {
   },
   components: {
     Stacks,
-    Page2TextVue,
+    PageText3,
     MyCard,
+    PageText4,
   },
   computed: {},
   methods: {
@@ -103,7 +105,7 @@ export default {
 
       <div class="main-third" v-if="isMobile">
         <div class="main-third__text_block">
-          <Page2TextVue />
+          <PageText3 />
         </div>
         <div class="main-third__stack-block">
           <Stacks />
@@ -114,9 +116,29 @@ export default {
           <Stacks />
         </div>
         <div class="main-third__text_block">
-          <Page2TextVue />
+          <PageText3 />
         </div>
         <div class="bg3"></div>
+      </div>
+      <div class="main-fourth" v-if="isMobile">
+        <div class="main-fourth__img">
+          <div class="main-fourth__text_block">
+            <PageText4 />
+          </div>
+          <div class="main-fourth__img-conteiner">
+            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="main-fourth" v-if="!isMobile">
+        <div class="main-fourth__img">
+          <div class="main-fourth__img-conteiner">
+            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+          </div>
+        </div>
+        <div class="main-fourth__text_block">
+          <PageText4 />
+        </div>
       </div>
     </main>
     <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
