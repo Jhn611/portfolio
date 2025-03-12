@@ -121,19 +121,19 @@ export default {
         <div class="bg3"></div>
       </div>
       <div class="main-fourth" v-if="isMobile">
+        <div class="main-fourth__text_block">
+          <PageText4 />
+        </div>
         <div class="main-fourth__img">
-          <div class="main-fourth__text_block">
-            <PageText4 />
-          </div>
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
           </div>
         </div>
       </div>
       <div class="main-fourth" v-if="!isMobile">
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
           </div>
         </div>
         <div class="main-fourth__text_block">
