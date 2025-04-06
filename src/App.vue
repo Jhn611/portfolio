@@ -1,8 +1,9 @@
 <script>
-import Stacks from './views/MyStacks.vue'
-import PageText3 from './views/PageText3.vue'
-import MyCard from './views/MyCard.vue'
-import PageText4 from './views/PageText4.vue'
+//import Stacks from './components/MyStacks.vue'
+import PageText3 from './components/PageText3.vue'
+import MyCard from './components/MyCard.vue'
+import PageText4 from './components/PageText4.vue'
+import StackLikeApps from './components/StackLikeApps.vue'
 export default {
   data() {
     return {
@@ -16,10 +17,11 @@ export default {
     }
   },
   components: {
-    Stacks,
+    //Stacks,
     PageText3,
     MyCard,
     PageText4,
+    StackLikeApps,
   },
   computed: {},
   methods: {
@@ -108,12 +110,14 @@ export default {
           <PageText3 />
         </div>
         <div class="main-third__stack-block">
-          <Stacks />
+          <StackLikeApps />
         </div>
       </div>
       <div class="main-third" v-if="!isMobile">
         <div class="main-third__stack-block">
-          <Stacks />
+          <StackLikeApps />
+          <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
+          <p>Нажми на меня</p>
         </div>
         <div class="main-third__text_block">
           <PageText3 />
@@ -126,14 +130,14 @@ export default {
         </div>
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.png" alt="" />
           </div>
         </div>
       </div>
       <div class="main-fourth" v-if="!isMobile">
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.png" alt="" />
           </div>
         </div>
         <div class="main-fourth__text_block">
@@ -143,6 +147,7 @@ export default {
     </main>
     <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
     <div class="copy-block"></div>
+    <footer class="footer"></footer>
   </div>
 </template>
 

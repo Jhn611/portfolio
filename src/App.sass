@@ -38,6 +38,10 @@ a
     height: 5%
     //background-color: #000
 
+.footer
+    width: 100%
+    height: 30px
+    background-color: #3e3e3e
 .main
     display: flex
     flex-direction: column
@@ -85,11 +89,30 @@ a
         height: 100vh
         //background-color: #f8e8dd
         &__stack-block
+            position: relative
             display: flex
             justify-content: center
             align-items: center
             width: 40%
             height: 90%
+            .arrow
+                position: absolute
+                left: 25%
+                top: 36%
+                width: 50px
+                height: 61px
+            p
+                position: absolute
+                left: 20%
+                top: 30%
+                font-family: Raleway
+                font-weight: 800
+            .home-screen
+                position: absolute
+                left: 8%
+                top: 43%
+
+
         &__text_block
             width: 40%
             height: 90%
@@ -109,13 +132,14 @@ a
         &__img
             display: flex
             justify-content: center
-            align-items: center
+            align-items: end
             width: 40%  
             height: 90%
             img
                 border-radius: 11px
                 width: 350px
                 height: 486px
+                scale: 1.2
                 
         &__text_block
             width: 40%
@@ -257,38 +281,6 @@ a
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out
     transform-style: preserve-3d
     border-radius: 20px
-
-.icon
-    width: 40px
-    height: 40px
-    border-radius: 11px
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9)
-
-.icon:nth-child(2n) 
-    animation: keyframes1 0.3s infinite
-    transform-origin: 50% 10%
-
-.icon:nth-child(2n-1) 
-    animation: keyframes2 0.3s infinite alternate
-    transform-origin: 30% 5%
-
-@keyframes keyframes1 
-    0% 
-        transform: rotate(-1.1deg)
-        animation-timing-function: ease-in
-
-    50% 
-        transform: rotate(1.6deg)
-        animation-timing-function: ease-out
-  
-@keyframes keyframes2 
-    0% 
-        transform: rotate(1.1deg)
-        animation-timing-function: ease-in
-
-    50% 
-        transform: rotate(-1.6deg)
-        animation-timing-function: ease-out
 
 
 .page
@@ -450,6 +442,72 @@ a
     font-family: Raleway
     font-size: 10px
 
+// StackLikeApp.vue
+.home-screen
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+    padding: 20px
+    max-width: 400px
+    img
+        width: 60px
+        height: 60px
+        border-radius: 10px
+.app-item 
+    width: 60px
+    height: 60px
+    background: #ffffff
+    border-radius: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
+    cursor: move
+    transition: all 0.3s ease
+    user-select: none
+    touch-action: none
+
+.app-item.dragging 
+    opacity: 1
+    transform: scale(0.9)
+
+.drag-preview 
+    position: fixed
+    pointer-events: none
+    z-index: 1000
+    width: 60px
+    height: 60px
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.icon:nth-child(2n) 
+    animation: keyframes1 0.3s infinite
+    transform-origin: 50% 10%
+
+.icon:nth-child(2n-1) 
+    animation: keyframes2 0.3s infinite alternate
+    transform-origin: 30% 5%
+
+@keyframes keyframes1 
+    0% 
+        transform: rotate(-1.1deg)
+        animation-timing-function: ease-in
+
+    50% 
+        transform: rotate(1.6deg)
+        animation-timing-function: ease-out
+  
+@keyframes keyframes2 
+    0% 
+        transform: rotate(1.1deg)
+        animation-timing-function: ease-in
+
+    50% 
+        transform: rotate(-1.6deg)
+        animation-timing-function: ease-out
+        
+
 
 
 @media  screen and (max-width: 525px)
@@ -597,3 +655,5 @@ a
         font-size: 18px
         font-family: Raleway
         font-weight: 200
+
+
