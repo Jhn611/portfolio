@@ -80,11 +80,41 @@ export default {
           </h1>
         </div>
         <div class="bg">
-          <div class="bg-first"></div>
-          <div class="bg-second"></div>
-          <div class="bg-third"></div>
-          <div class="bg-fourth"></div>
-          <div class="bg-firth"></div>
+          <svg class="clip-svg" style="position: absolute; width: 0; height: 0">
+            <defs>
+              <clipPath id="customShape" clipPathUnits="objectBoundingBox">
+                <!-- Основная форма с закруглениями всех углов -->
+                <path
+                  d="
+          M 0,0.06
+          C 0,0.03 0,0 0.025,0
+          H 0.78
+          C 0.79,0 0.8,0 0.8,0.04
+          V 0.1
+          C 0.8,0.20 0.83,0.18 0.88,0.18
+          H 0.98
+          C 1,0.18 1,0.2 1,0.22
+          V 0.95
+          C 1, 0.97 1, 1 0.98, 1
+          H 0.20
+          C 0.20,1 0.18,1 0.18,0.96
+          V 0.88
+          C 0.18,0.86 0.18,0.8 0.15,0.8
+          H 0.02
+          C 0.02,0.8 0,0.8 0,0.75 
+          V 0.08
+          Z
+        "
+                />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <div class="bg-layer first"></div>
+          <div class="bg-layer second"></div>
+          <div class="bg-layer third"></div>
+          <div class="bg-layer fourth"></div>
+          <div class="bg-layer fifth"></div>
         </div>
       </div>
       <div class="main-second">
