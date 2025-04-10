@@ -14,6 +14,7 @@ export default {
       // opacity: 0.25,
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
+      modelInp: "",
     }
   },
   components: {
@@ -139,6 +140,7 @@ export default {
           <div class="bg-layer third"></div>
           <div class="bg-layer fourth"></div>
           <div class="bg-layer fifth"></div>
+          <div class="bg-layer zero"></div>
         </div>
       </div>
       <div class="main-second">
@@ -201,7 +203,18 @@ export default {
     </main>
     <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
     <div class="copy-block"></div>
-    <footer class="footer"></footer>
+    
+    <footer class="footer">
+      <label class="input">
+        <input
+          v-model="modelInp"
+          class="input__field"
+          type="number"
+          placeholder=" "
+        />
+        <span class="input__label">Напишите вашу почту</span>
+        </label>
+    </footer>
   </div>
 </template>
 

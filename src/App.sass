@@ -39,9 +39,14 @@ a
     //background-color: #000
 
 .footer
+    display: flex 
+    flex-direction: column
+    align-items: center
+    justify-content: center
     width: 100%
-    height: 30px
+    height: 100vh
     background-color: #3e3e3e
+
 .main
     display: flex
     flex-direction: column
@@ -314,31 +319,57 @@ a
       right: 0
       bottom: 0
       border-radius: inherit
-      box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
+      
+
+    &.zero
+        background-image: url("./assets/imgs/zero.png")
+        z-index: -6
+        box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
 
     &.first
-      background-image: url("./assets/imgs/bg.jpg")
+      background-image: url("./assets/imgs/shape5.png")
+      transform: translate3d(0, calc(var(--scrollTop)/5), 0)
+      left: 40%
+      top: 40%
       z-index: -5
+      width: 300px
+      height: 300px
 
     &.second
-      background-image: url("./assets/imgs/bg2.png")
-      transform: translate3d(0, calc(var(--scrollTop)/15), 0)
+      background-image: url("./assets/imgs/shape4.png")
+      transform: translate3d(0, calc(var(--scrollTop)/1.5), 0)
+      left: 60%
+      top: 0%
       z-index: -4
+      width: 300px
+      height: 300px
 
     &.third
-      background-image: url("./assets/imgs/bg3.png")
-      transform: translate3d(0, calc(var(--scrollTop)/5), 0)
+      background-image: url("./assets/imgs/shape3.png")
+      transform: translate3d(0, calc(var(--scrollTop)/1.8), 0)
+      left: 20%
+      top: 10%
       z-index: -3
+      width: 300px
+      height: 300px
 
     &.fourth
-      background-image: url("./assets/imgs/bg4.png")
-      transform: translate3d(0, calc(var(--scrollTop)/2), 0)
+      background-image: url("./assets/imgs/shape2.png")
+      transform: translate3d(0, calc(var(--scrollTop)/1.4), 0)
+      left: -5%
+      top: 2%
       z-index: -2
+      width: 300px
+      height: 300px
 
     &.fifth
-      background-image: url("./assets/imgs/bg5.png")
-      transform: translate3d(0, calc(var(--scrollTop)/2), 0)
+      background-image: url("./assets/imgs/shape1.png")
+      transform: translate3d(0, calc(var(--scrollTop)/1.9), 0)
+      left: 85%
+      top: 13%
       z-index: -1
+      width: 300px
+      height: 300px
       
 .bg3
     z-index: -1
@@ -367,7 +398,7 @@ a
     display: none
 
 .text-gradient
-    background-image: linear-gradient(to right, #c28b8b, #7fc76e)
+    background-image: linear-gradient(to right, #172310, #062b06)
     background-clip: text
     color: transparent
 
@@ -594,20 +625,83 @@ a
                 background-clip: text
                 color: transparent
     .bg
-        &-first
-            background-position: 25% 100%
-            
-        &-second
-            background-position: 25% 100%
-            
-        &-third
-            background-position: 25% 100%
-            
-        &-fourth
-            background-position: 25% 100%
+        position: absolute
+        width: 90%
+        height: 90%
+        z-index: -1
+        clip-path: url(#customShape)
+        overflow: hidden
+        border-radius: 8px  // Общее закругление контейнера
 
-        &-firth
-            background-position: 25% 100%
+        .bg-layer
+            position: absolute
+            width: 100%
+            height: 100%
+            background-size: cover
+            background-position: bottom
+            border-radius: inherit  // Наследуем закругление от родителя
+            transform-origin: center
+
+            // Градиентная маска для сглаживания краев
+            &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            border-radius: inherit
+            
+
+            &.zero
+                background-image: url("./assets/imgs/zero.png")
+                z-index: -6
+                box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
+
+            &.first
+                background-image: url("./assets/imgs/shape5.png")
+                transform: translate3d(0, calc(var(--scrollTop)/1.9), 0)
+                left: 30%
+                top: 30%
+                z-index: -5
+                width: 200px
+                height: 200px
+
+            &.second
+                background-image: url("./assets/imgs/shape4.png")
+                transform: translate3d(0, calc(var(--scrollTop)/1.1), 0)
+                left: 50%
+                top: 0%
+                z-index: -4
+                width: 200px
+                height: 200px
+
+            &.third
+                background-image: url("./assets/imgs/shape3.png")
+                transform: translate3d(0, calc(var(--scrollTop)/5), 0)
+                left: 15%
+                top: 55%
+                z-index: -3
+                width: 200px
+                height: 200px
+
+            &.fourth
+                background-image: url("./assets/imgs/shape2.png")
+                transform: translate3d(0, calc(var(--scrollTop)/1.13), 0)
+                left: -15%
+                top: 2%
+                z-index: -2
+                width: 200px
+                height: 200px
+
+            &.fifth
+                background-image: url("./assets/imgs/shape1.png")
+                transform: translate3d(0, calc(var(--scrollTop)/1.37), 0)
+                left: 85%
+                top: 13%
+                z-index: -1
+                width: 200px
+                height: 200px
 
 
     .stacks
@@ -654,4 +748,110 @@ a
         font-family: Raleway
         font-weight: 200
 
+//inputs
 
+input
+    all: unset
+    //position: relative
+    //top: 2px
+    //left: 16px
+    //font-size: 16px
+    //font-family: Roboto
+    //font-weight: 500
+    //color: #252525
+    //margin: 0
+    //width: 391px
+.input_text
+    position: relative
+    top: 10px
+    left: 16px
+    font-size: 12px
+    font-family: Roboto
+    font-weight: 400
+    color: var(--inputtext)
+    margin: 0
+.input_div
+    background-color: var(--inputbg)
+    border-radius: 10px
+    width: 450px
+    height: 56px
+.input_img
+    position: relative
+    width: 24px
+    height: 24px
+    top: 2px
+    left: 25px
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+    -webkit-appearance: none
+    margin: 0
+
+
+.input 
+    position: relative
+    width: 400px
+    height: 40px
+    //border: 1px solid #ffffff
+    &__s
+        width: 300px
+    &__label 
+        position: absolute
+        left: 10px
+        top: 12px
+        padding: 0
+        margin: 0
+        //background-color: #ffffff
+        white-space: nowrap
+        transform: translate(0, 0)
+        transform-origin: 0 0
+        transition: transform 120ms ease-in
+        font-size: 16px
+        font-family: Roboto
+        font-weight: 400
+        color: #ffffff
+        margin: 0
+        cursor: pointer
+
+    &__img
+        position: relative
+        width: 24px
+        height: 24px
+        top: -32px
+        left: 384px
+        cursor: pointer
+        filter: invert(var(--img))
+        &:hover
+            animation: 0.3s close_anim
+
+    &__field 
+        position: relative
+        top: 0 
+        left: 0
+        display: block
+        width: 100%
+        border: 1px solid #ffffff
+        padding: 0 0 0 14px
+        color: #ffffff
+        background: transparent
+        border-radius: 1px
+        width: 400px
+        height: 40px
+        font-size: 16px
+        font-family: Roboto
+        font-weight: 400
+        cursor: pointer
+        &__s
+            width: 300px
+        &:focus
+            cursor: text
+        &:focus,
+        &:not(:placeholder-shown) 
+            & + .input__label 
+                transform: translate(.25rem, -145%) scale(.8)
+                color: #ffffff
+    &__date
+        width: 362px
+
+input[type='date']::-webkit-calendar-picker-indicator 
+    filter: invert(var(--img))
