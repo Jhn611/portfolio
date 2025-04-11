@@ -777,6 +777,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: #e9ecef;
 }
 
+.success-message {
+  color: #42b983;
+  text-align: center;
+}
+.success-message p {
+  margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 1300px) {
   .h1 {
     font-size: 100px;
