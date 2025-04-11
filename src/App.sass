@@ -83,7 +83,7 @@ a
         align-items: center
         width: 100%
         height: 100vh
-        background-color: #fff7f2
+        //background-color: #fff7f2
 
     &-third
         display: flex
@@ -121,10 +121,10 @@ a
         &__text_block
             width: 40%
             height: 90%
-            background-image: url("./assets/imgs/bgSecond.jpg")
-            background-size: cover
-            background-clip: text
-            color: transparent
+            // background-image: url("./assets/imgs/bgSecond.jpg")
+            // background-size: cover
+            // background-clip: text
+            color: #000000
 
     &-fourth
         display: flex
@@ -149,10 +149,10 @@ a
         &__text_block
             width: 40%
             height: 90%
-            background-image: url("./assets/imgs/bgSecond.jpg")
-            background-size: cover
-            background-clip: text
-            color: transparent
+            //background-image: url("./assets/imgs/bgSecond.jpg")
+            //background-size: cover
+            //background-clip: text
+            color: #000000
 
 
 .card
@@ -380,7 +380,7 @@ a
     background-size: cover
     background-position: bottom
     background-repeat: no-repeat
-    box-shadow: 0px 14px 10px -12px rgba(255, 247, 242, 1) inset
+    //box-shadow: 0px 14px 10px -12px rgba(255, 247, 242, 1) inset
     overflow: hidden
 
 
@@ -417,6 +417,10 @@ a
         display: block
     &-img-check
         display: none
+.rubic
+    font-family: Rubik
+.raleway
+    font-family: Raleway
 
 .h1
     font-size: 128px
@@ -531,7 +535,183 @@ a
     50% 
         transform: rotate(-1.6deg)
         animation-timing-function: ease-out
-        
+
+//inputs
+
+input
+    all: unset
+    //position: relative
+    //top: 2px
+    //left: 16px
+    //font-size: 16px
+    //font-family: Roboto
+    //font-weight: 500
+    //color: #252525
+    //margin: 0
+    //width: 391px
+.input_text
+    position: relative
+    top: 10px
+    left: 16px
+    font-size: 12px
+    font-family: Roboto
+    font-weight: 400
+    color: #ffffff
+    margin: 0
+.input_div
+    background-color: transparent
+    border-radius: 10px
+    width: 450px
+    height: 56px
+.input_img
+    position: relative
+    width: 24px
+    height: 24px
+    top: 2px
+    left: 25px
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+    -webkit-appearance: none
+    margin: 0
+
+
+.input 
+    position: relative
+    width: 400px
+    height: 40px
+    margin: 0 0 50px 0
+    //border: 1px solid #ffffff
+    &__s
+        width: 300px
+    &__label 
+        position: absolute
+        left: 10px
+        top: 12px
+        padding: 0
+        margin: 0
+        //background-color: #ffffff
+        white-space: nowrap
+        transform: translate(0, 0)
+        transform-origin: 0 0
+        transition: transform 120ms ease-in
+        font-size: 16px
+        font-family: Roboto
+        font-weight: 400
+        color: #ffffff
+        margin: 0
+        cursor: pointer
+
+    &__img
+        position: relative
+        width: 24px
+        height: 24px
+        top: -32px
+        left: 384px
+        cursor: pointer
+        filter: invert(var(--img))
+        &:hover
+            animation: 0.3s close_anim
+
+    &__field 
+        position: relative
+        top: 0 
+        left: 0
+        display: block
+        width: 100%
+        border: 1px solid #ffffff
+        padding: 0 0 0 14px
+        color: #ffffff
+        background: transparent
+        border-radius: 1px
+        width: 400px
+        height: 40px
+        font-size: 16px
+        font-family: Roboto
+        font-weight: 400
+        cursor: pointer
+        &__s
+            width: 300px
+        &:focus
+            cursor: text
+        &:focus,
+        &:not(:placeholder-shown) 
+            & + .input__label 
+                transform: translate(.25rem, -145%) scale(.8)
+                color: #ffffff
+
+    &__textarea
+        height: 30vh
+    &__date
+        width: 362px
+    &:last-child
+        margin: 0 0 60px 0
+    textarea
+        height: 30vh
+        &:focus
+            outline: none
+
+input[type='date']::-webkit-calendar-picker-indicator 
+    filter: invert(var(--img))
+
+.request-form-container
+    display: flex
+    flex-direction: column
+    align-items: start
+    height: 98%   
+    h2
+        font-weight: 400
+        color: #ffffff
+        margin: 30px 0
+
+.form
+    display: flex
+    flex-direction: column
+    align-items: start
+    height: 100% 
+.error
+    display: block
+    margin-top: 0.25rem
+    color: #ff4444
+    font-size: 0.85rem
+.invalid
+    border-color: #ff4444
+.send
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-evenly
+    width: 400px
+
+.submit-btn 
+    width: 160px
+    padding: 0.75rem
+    background-color: #42b983
+    color: white
+    border: none
+    border-radius: 4px
+    font-size: 1rem
+    cursor: pointer
+    transition: background-color 0.3s
+
+    &:hover 
+        background-color: #3aa876
+    &:disabled 
+        background-color: #cccccc
+        cursor: not-allowed
+
+.reset-btn 
+    padding: 0.5rem 1rem
+    background-color: #f8f9fa
+    border: 1px solid #ddd
+    border-radius: 4px
+    cursor: pointer
+    transition: all 0.3s
+    &:hover 
+        background-color: #e9ecef
+
+
+
 @media  screen and (max-width: 1300px)
     .h1
         font-size: 100px
@@ -596,7 +776,7 @@ a
                 height: 40%
             &__text_block
                 width: 95%
-                height: 50%
+                height: 60%
 
         &-fourth
             display: flex
@@ -748,110 +928,30 @@ a
         font-family: Raleway
         font-weight: 200
 
-//inputs
-
-input
-    all: unset
-    //position: relative
-    //top: 2px
-    //left: 16px
-    //font-size: 16px
-    //font-family: Roboto
-    //font-weight: 500
-    //color: #252525
-    //margin: 0
-    //width: 391px
-.input_text
-    position: relative
-    top: 10px
-    left: 16px
-    font-size: 12px
-    font-family: Roboto
-    font-weight: 400
-    color: var(--inputtext)
-    margin: 0
-.input_div
-    background-color: var(--inputbg)
-    border-radius: 10px
-    width: 450px
-    height: 56px
-.input_img
-    position: relative
-    width: 24px
-    height: 24px
-    top: 2px
-    left: 25px
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button 
-    -webkit-appearance: none
-    margin: 0
+    input
+    .input_text
+    .input_div
+    .input_img
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button
 
 
-.input 
-    position: relative
-    width: 400px
-    height: 40px
-    //border: 1px solid #ffffff
-    &__s
+    .input 
         width: 300px
-    &__label 
-        position: absolute
-        left: 10px
-        top: 12px
-        padding: 0
-        margin: 0
-        //background-color: #ffffff
-        white-space: nowrap
-        transform: translate(0, 0)
-        transform-origin: 0 0
-        transition: transform 120ms ease-in
-        font-size: 16px
-        font-family: Roboto
-        font-weight: 400
-        color: #ffffff
-        margin: 0
-        cursor: pointer
-
-    &__img
-        position: relative
-        width: 24px
-        height: 24px
-        top: -32px
-        left: 384px
-        cursor: pointer
-        filter: invert(var(--img))
-        &:hover
-            animation: 0.3s close_anim
-
-    &__field 
-        position: relative
-        top: 0 
-        left: 0
-        display: block
-        width: 100%
-        border: 1px solid #ffffff
-        padding: 0 0 0 14px
-        color: #ffffff
-        background: transparent
-        border-radius: 1px
-        width: 400px
-        height: 40px
-        font-size: 16px
-        font-family: Roboto
-        font-weight: 400
-        cursor: pointer
         &__s
             width: 300px
-        &:focus
-            cursor: text
-        &:focus,
-        &:not(:placeholder-shown) 
-            & + .input__label 
-                transform: translate(.25rem, -145%) scale(.8)
-                color: #ffffff
-    &__date
-        width: 362px
+        &__label 
+        &__img
+        &__field 
+            width: 270px
+            &__s
+                width: 300px
+            &:focus
+            &:focus,
+            &:not(:placeholder-shown) 
+                & + .input__label 
+        &__date
+            width: 362px
 
-input[type='date']::-webkit-calendar-picker-indicator 
-    filter: invert(var(--img))
+    input[type='date']::-webkit-calendar-picker-indicator 
+

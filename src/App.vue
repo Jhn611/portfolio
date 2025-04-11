@@ -4,6 +4,7 @@ import PageText3 from './components/PageText3.vue'
 import MyCard from './components/MyCard.vue'
 import PageText4 from './components/PageText4.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
+import MyForm from './components/MyForm.vue'
 export default {
   data() {
     return {
@@ -14,7 +15,7 @@ export default {
       // opacity: 0.25,
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
-      modelInp: "",
+      modelInp: '',
     }
   },
   components: {
@@ -23,6 +24,7 @@ export default {
     MyCard,
     PageText4,
     StackLikeApps,
+    MyForm,
   },
   computed: {},
   methods: {
@@ -203,17 +205,9 @@ export default {
     </main>
     <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
     <div class="copy-block"></div>
-    
+
     <footer class="footer">
-      <label class="input">
-        <input
-          v-model="modelInp"
-          class="input__field"
-          type="number"
-          placeholder=" "
-        />
-        <span class="input__label">Напишите вашу почту</span>
-        </label>
+      <MyForm />
     </footer>
   </div>
 </template>
