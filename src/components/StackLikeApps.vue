@@ -7,7 +7,7 @@
     <div
       v-for="(app, index) in apps"
       :key="index"
-      class="app-item"
+      class="app-item icon"
       :class="{
         dragging: draggingIndex === index,
         'drop-target': dropTargetIndex === index,
