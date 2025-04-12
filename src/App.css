@@ -323,6 +323,8 @@ a {
   background-position: bottom;
   border-radius: inherit;
   transform-origin: center;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 .bg .bg-layer::after {
   content: "";

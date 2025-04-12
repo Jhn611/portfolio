@@ -3,8 +3,9 @@ import { useClientRequestStore } from '../stores/form.js'
 import { storeToRefs } from 'pinia'
 
 export default {
-  setup() {
+  data() {
     const store = useClientRequestStore()
+
     const { formData, errors, status, isValidForm } = storeToRefs(store)
 
     return {
