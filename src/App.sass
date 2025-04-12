@@ -480,6 +480,7 @@ a
     gap: 20px
     padding: 20px
     max-width: 400px
+    //user-select: none
     img
         width: 60px
         height: 60px
@@ -497,6 +498,7 @@ a
     transition: all 0.3s ease
     user-select: none
     touch-action: none
+    will-change: transform
 
 .app-item.dragging 
     opacity: 1
@@ -511,6 +513,14 @@ a
     display: flex
     flex-direction: column
     align-items: center
+    will-change: left, top
+
+.app-icon 
+    width: 60px
+    height: 60px
+    border-radius: 12px
+    object-fit: cover
+    pointer-events: none
 
 .icon:nth-child(2n) 
     animation: keyframes1 0.3s infinite
