@@ -327,7 +327,7 @@ a
         background-image: url("./assets/imgs/zero.png")
         z-index: -6
         box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
-
+        background-color: #f0f0f0
     &.first
       background-image: url("./assets/imgs/shape5.png")
       transform: translate3d(0, calc(var(--scrollTop)/5), 0)
@@ -755,6 +755,7 @@ input[type='date']::-webkit-calendar-picker-indicator
             align-items: center
             width: 100%
             height: 90vh
+           
             &__text-block
                 display: flex
                 justify-content: center
@@ -834,7 +835,7 @@ input[type='date']::-webkit-calendar-picker-indicator
         clip-path: url(#customShape)
         overflow: hidden
         border-radius: 8px  // Общее закругление контейнера
-
+        
         .bg-layer
             position: absolute
             width: 100%
@@ -843,6 +844,7 @@ input[type='date']::-webkit-calendar-picker-indicator
             background-position: bottom
             border-radius: inherit  // Наследуем закругление от родителя
             transform-origin: center
+            
 
             // Градиентная маска для сглаживания краев
             &::after
@@ -859,7 +861,7 @@ input[type='date']::-webkit-calendar-picker-indicator
                 background-image: url("./assets/imgs/zero.png")
                 z-index: -6
                 box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
-
+                
             &.first
                 background-image: url("./assets/imgs/shape5.png")
                 transform: translate3d(0, calc(var(--scrollTop)/1.9), 0)
