@@ -105,7 +105,7 @@ export default {
                   V 0.88
                   C 0.18,0.86 0.18,0.8 0.15,0.8
                   H 0.02
-                  C 0.02,0.8 0,0.8 0,0.75 
+                  C 0.02,0.8 0,0.8 0,0.75
                   V 0.08
                   Z
                 "
@@ -128,7 +128,7 @@ export default {
                   V 0.88
                   C 0.38,0.86 0.39,0.8 0.28,0.8
                   H 0.07
-                  C 0.08,0.8 0,0.8 0,0.75 
+                  C 0.08,0.8 0,0.8 0,0.75
                   V 0.08
                   Z
                 "
@@ -169,13 +169,15 @@ export default {
         </div>
         <div class="main-third__stack-block">
           <StackLikeApps />
+          <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
+          <p>Перетащи меня</p>
         </div>
       </div>
       <div class="main-third" v-if="!isMobile">
         <div class="main-third__stack-block">
           <StackLikeApps />
           <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
-          <p>Нажми на меня</p>
+          <p>Перетащи меня</p>
         </div>
         <div class="main-third__text_block">
           <PageText3 />

@@ -868,6 +868,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
     width: 95%;
     height: 40%;
   }
+  .main-third__stack-block .arrow {
+    position: absolute;
+    left: 40%;
+    top: 24%;
+    width: 50px;
+    height: 61px;
+  }
+  .main-third__stack-block p {
+    position: absolute;
+    left: 30%;
+    top: 12%;
+    font-family: Raleway;
+    font-weight: 800;
+  }
   .main-third__text_block {
     width: 95%;
     height: 60%;
