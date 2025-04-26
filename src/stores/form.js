@@ -20,7 +20,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
       errorMessage: '',
     },
   }),
-
+  persist: true,
   getters: {
     isValidForm(state) {
       return (

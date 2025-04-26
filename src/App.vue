@@ -5,6 +5,7 @@ import MyCard from './components/MyCard.vue'
 import PageText4 from './components/PageText4.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
+import LearnWindow from './components/LearnWindow.vue'
 export default {
   data() {
     return {
@@ -16,6 +17,7 @@ export default {
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
       modelInp: '',
+      showVideoModal: false,
     }
   },
   components: {
@@ -25,6 +27,7 @@ export default {
     PageText4,
     StackLikeApps,
     MyForm,
+    LearnWindow,
   },
   computed: {},
   methods: {
@@ -53,6 +56,9 @@ export default {
     // },
     checkScreen() {
       this.isMobile = window.innerWidth < 525
+    },
+    handleModalClose() {
+      console.log('Модальное окно закрыто')
     },
   },
 
@@ -169,15 +175,17 @@ export default {
         </div>
         <div class="main-third__stack-block">
           <StackLikeApps />
-          <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
-          <p>Перетащи меня</p>
+          <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
+          <!-- <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
+          <p>Перетащи меня</p> -->
         </div>
       </div>
       <div class="main-third" v-if="!isMobile">
         <div class="main-third__stack-block">
           <StackLikeApps />
-          <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
-          <p>Перетащи меня</p>
+          <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
+          <!-- <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
+          <p>Перетащи меня</p> -->
         </div>
         <div class="main-third__text_block">
           <PageText3 />

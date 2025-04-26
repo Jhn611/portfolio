@@ -63,8 +63,7 @@ export default {
       }
     },
   },
-  mounted() {
-  },
+  mounted() {},
 
   unmounted() {
     document.removeEventListener('mousemove', this.handleParallax)

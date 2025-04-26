@@ -1,0 +1,94 @@
+@charset "UTF-8";
+.macos-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.macos-modal-window {
+  width: 580px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #555;
+}
+
+.macos-titlebar {
+  height: 40px;
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.macos-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.macos-btn.close {
+  background: #ff5f56;
+}
+
+.macos-btn.minimize {
+  background: #ffbd2e;
+}
+
+.macos-btn.maximize {
+  background: #27c93f;
+}
+
+.macos-title {
+  margin-left: 15px;
+  font-family: Rubik;
+  font-size: 20px;
+  font-weight: 400;
+  color: #dedede;
+}
+
+.macos-content {
+  padding: 0;
+}
+
+.macos-content video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Анимации */
+.macos-modal-enter-active,
+.macos-modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.macos-modal-enter-from,
+.macos-modal-leave-to {
+  opacity: 0;
+}
+
+.macos-modal-enter-active .macos-modal-window,
+.macos-modal-leave-active .macos-modal-window {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.macos-modal-enter-from .macos-modal-window,
+.macos-modal-leave-to .macos-modal-window {
+  transform: scale(0.95);
+}/*# sourceMappingURL=LearnWindow.css.map */
