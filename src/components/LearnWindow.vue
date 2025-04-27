@@ -5,23 +5,31 @@
       v-if="wasOpened && !forceClosed"
       class="macos-modal-window"
       @dragstart="handleDragStart"
-      @dragenter.prevent="handleDragEnter"
-      @dragleave="handleDragLeave"
+      @drag="handleDrag"
       @dragend="handleDragEnd"
       @touchstart="handleTouchStart"
       @touchmove.prevent="handleTouchMove"
       @touchend="handleTouchEnd"
+      draggable="true"
+      :style="{
+        left: `${currentX}px`,
+        top: `${currentY}px`,
+        cursor: isDragging ? 'grabbing' : 'grab',
+      }"
     >
       <div class="macos-titlebar">
         <div class="macos-title">Перетаскивание</div>
         <span class="macos-btn close" @click="handleClose"></span>
       </div>
 
-      <div class="macos-content">
-        <slot>
-          <video autoplay loop muted playsinline src="../assets/video/learn2.webm"></video>
-        </slot>
-      </div>
+      <video
+        class="macos-content"
+        autoplay
+        loop
+        muted
+        playsinline
+        src="../assets/video/learn2.webm"
+      ></video>
     </div>
     <!-- </div> -->
   </transition>
@@ -40,6 +48,12 @@ export default {
     return {
       wasOpened: false,
       forceClosed: false,
+      currentX: window.innerWidth <= 525 ? window.innerWidth / 2 : window.innerWidth * 0.16,
+      currentY: window.innerWidth <= 525 ? window.innerHeight * 0.15 : window.innerHeight * 0.18,
+
+      dragOffsetX: 0,
+      dragOffsetY: 0,
+      isDragging: false,
     }
   },
 
@@ -49,12 +63,47 @@ export default {
       this.forceClosed = true
       this.$emit('closed')
     },
-    handleDragStart() {},
-    handleDragEnter() {},
-    handleDragLeave() {},
-    handleTouchStart() {},
-    handleTouchMove() {},
-    handleTouchEnd() {},
+    handleDragStart(e) {
+      const rect = e.target.getBoundingClientRect()
+
+      this.dragOffsetX = e.clientX - rect.left
+      this.dragOffsetY = e.clientY - rect.top
+
+      e.dataTransfer.setData('text/plain', '')
+
+      const dragIcon = document.createElement('div')
+      dragIcon.style.display = 'none'
+      e.dataTransfer.setDragImage(dragIcon, 0, 0)
+    },
+
+    handleDrag(e) {
+      if (e.clientX === 0 && e.clientY === 0) return
+
+      this.currentX = e.clientX - this.dragOffsetX
+      this.currentY = e.clientY - this.dragOffsetY
+    },
+
+    handleDragEnd() {
+      this.isDragging = false
+    },
+
+    handleTouchStart(e) {
+      this.isDragging = true
+      const touch = e.touches[0]
+      this.dragOffsetX = touch.clientX - this.currentX
+      this.dragOffsetY = touch.clientY - this.currentY
+    },
+
+    handleTouchMove(e) {
+      if (!this.isDragging) return
+      const touch = e.touches[0]
+      this.currentX = touch.clientX - this.dragOffsetX
+      this.currentY = touch.clientY - this.dragOffsetY
+    },
+
+    handleTouchEnd() {
+      this.isDragging = false
+    },
   },
 
   watch: {
