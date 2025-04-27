@@ -1,7 +1,17 @@
 <template>
   <transition name="macos-modal">
     <!-- <div v-if="wasOpened && !forceClosed" class="macos-modal-overlay" @click.self="handleClose"> -->
-    <div v-if="wasOpened && !forceClosed" class="macos-modal-window">
+    <div
+      v-if="wasOpened && !forceClosed"
+      class="macos-modal-window"
+      @dragstart="handleDragStart"
+      @dragenter.prevent="handleDragEnter"
+      @dragleave="handleDragLeave"
+      @dragend="handleDragEnd"
+      @touchstart="handleTouchStart"
+      @touchmove.prevent="handleTouchMove"
+      @touchend="handleTouchEnd"
+    >
       <div class="macos-titlebar">
         <div class="macos-title">Перетаскивание</div>
         <span class="macos-btn close" @click="handleClose"></span>
@@ -39,6 +49,12 @@ export default {
       this.forceClosed = true
       this.$emit('closed')
     },
+    handleDragStart() {},
+    handleDragEnter() {},
+    handleDragLeave() {},
+    handleTouchStart() {},
+    handleTouchMove() {},
+    handleTouchEnd() {},
   },
 
   watch: {
