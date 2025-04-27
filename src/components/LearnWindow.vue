@@ -1,19 +1,19 @@
 <template>
   <transition name="macos-modal">
-    <div v-if="wasOpened && !forceClosed" class="macos-modal-overlay" @click.self="handleClose">
-      <div class="macos-modal-window">
-        <div class="macos-titlebar">
-          <div class="macos-title">Перетаскивание</div>
-          <span class="macos-btn close" @click="handleClose"></span>
-        </div>
+    <!-- <div v-if="wasOpened && !forceClosed" class="macos-modal-overlay" @click.self="handleClose"> -->
+    <div v-if="wasOpened && !forceClosed" class="macos-modal-window">
+      <div class="macos-titlebar">
+        <div class="macos-title">Перетаскивание</div>
+        <span class="macos-btn close" @click="handleClose"></span>
+      </div>
 
-        <div class="macos-content">
-          <slot>
-            <video autoplay loop muted playsinline src="../assets/video/learn2.webm"></video>
-          </slot>
-        </div>
+      <div class="macos-content">
+        <slot>
+          <video autoplay loop muted playsinline src="../assets/video/learn2.webm"></video>
+        </slot>
       </div>
     </div>
+    <!-- </div> -->
   </transition>
 </template>
 
