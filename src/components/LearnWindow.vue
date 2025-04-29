@@ -28,7 +28,7 @@
         loop
         muted
         playsinline
-        src="../assets/video/learn2.webm"
+        :src="`${videoSrc}`"
         ref="videoPlayer"
       ></video>
     </div>
@@ -47,6 +47,8 @@ export default {
 
   data() {
     return {
+      videoSrc: new URL('@/assets/video/learn2.webm', import.meta.url).href,
+
       wasOpened: false,
       forceClosed: false,
       currentX: window.innerWidth <= 525 ? window.innerWidth / 2 : window.innerWidth * 0.16,
