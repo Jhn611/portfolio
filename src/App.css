@@ -809,13 +809,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: Rubik;
     font-weight: 500;
   }
-  h2 {
+  .h2 {
     font-size: 52px;
   }
-  h3 {
+  .h3 {
     font-size: 28px;
   }
-  p {
+  .p {
     font-size: 18px;
   }
   .card p {
