@@ -24,6 +24,7 @@
 
       <video
         class="macos-content"
+        preload="auto"
         autoplay
         loop
         muted
