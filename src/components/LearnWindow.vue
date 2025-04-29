@@ -22,7 +22,7 @@
         <span class="macos-btn close" @click="handleClose"></span>
       </div>
 
-      <video class="macos-content" preload="auto" autoplay loop muted playsinline ref="videoPlayer">
+      <video class="macos-content" autoplay loop muted playsinline ref="videoPlayer">
         <source id="video1" src="../assets/video/learn2.webm" type="video/webm" />
         <source id="video2" src="../assets/video/learn1.mp4" type="video/mp4" />
       </video>
