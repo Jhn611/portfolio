@@ -2,7 +2,7 @@
   <transition name="macos-modal">
     <!-- <div v-if="wasOpened && !forceClosed" class="macos-modal-overlay" @click.self="handleClose"> -->
     <div
-      v-if="wasOpened && !forceClosed"
+      v-show="wasOpened && !forceClosed"
       class="macos-modal-window"
       @dragstart="handleDragStart"
       @drag="handleDrag"
@@ -24,6 +24,7 @@
 
       <video
         class="macos-content"
+        preload="auto"
         autoplay
         loop
         muted

@@ -809,6 +809,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: Rubik;
     font-weight: 500;
   }
+  h2 {
+    font-size: 52px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 18px;
+  }
+  .card p {
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 525px) {
   .main {
@@ -899,7 +911,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: 58%;
+    height: 54%;
   }
   .main-fourth__img img {
     border-radius: 11px;
@@ -908,8 +920,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
   .main-fourth__text_block {
     width: 95%;
-    height: 42%;
+    height: 46%;
     color: #000000;
+  }
+  .card p {
+    font-size: 16px;
   }
   .bg {
     position: absolute;
