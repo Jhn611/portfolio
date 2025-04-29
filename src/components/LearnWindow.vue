@@ -137,8 +137,8 @@ export default {
     },
   },
   mounted() {
-    const video1 = document.getElementsByClassName('macos-content')[0]
-    video1.load()
+    // const video1 = document.getElementsByClassName('macos-content')[0]
+    // video1.load()
   },
   beforeUnmount() {
     document.body.style.overflow = ''
