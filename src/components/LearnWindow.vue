@@ -24,7 +24,6 @@
 
       <video
         class="macos-content"
-        
         autoplay
         loop
         muted
@@ -142,7 +141,10 @@ export default {
       }
     },
   },
-
+  mounted() {
+    const video1 = document.getElementsByClassName('macos-content')
+    video1.load()
+  },
   beforeUnmount() {
     document.body.style.overflow = ''
   },
