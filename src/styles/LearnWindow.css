@@ -37,14 +37,17 @@
 }
 
 .macos-btn {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .macos-btn.close {
   background: #ff5f56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .macos-btn.minimize {
@@ -58,9 +61,9 @@
 .macos-title {
   margin-left: 15px;
   font-family: Rubik;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
-  color: #dedede;
+  color: #ececec;
   padding: 0;
   margin: 0;
 }
