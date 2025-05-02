@@ -45,7 +45,7 @@ export default {
       wasOpened: false,
       forceClosed: false,
       currentX: window.innerWidth <= 525 ? window.innerWidth / 2 : window.innerWidth * 0.16,
-      currentY: window.innerWidth <= 525 ? window.innerHeight * 0.15 : window.innerHeight * 0.18,
+      currentY: window.innerWidth <= 525 ? window.innerHeight * 0.2 : window.innerHeight * 0.18,
 
       dragOffsetX: 0,
       dragOffsetY: 0,
