@@ -1,5 +1,10 @@
 <template>
-  <div class="theme_switch__bg">
+  <div
+    class="theme_switch__bg"
+    :class="{
+      sticky: scroll > firstBlock,
+    }"
+  >
     <img
       class="sun_icon"
       :class="{
@@ -39,10 +44,15 @@
 
 <script>
 export default {
-  props: {},
+  props: {
+    scroll: {
+      type: Number,
+      required: true,
+    },
+  },
 
   data() {
-    return { theme_flag: false }
+    return { theme_flag: false, firstBlock: null }
   },
 
   methods: {
@@ -126,7 +136,20 @@ export default {
     },
   },
 
-  watch: {},
+  watch: {
+    scroll(newScroll) {
+      const switcher = document.querySelector('.theme_switch__bg')
+      if (newScroll > this.firstBlock) {
+        switcher.style.position = 'fixed'
+        switcher.style.right = '8%'
+        switcher.style.top = '4%'
+      } else {
+        switcher.style.position = 'absolute'
+        switcher.style.right = '3%'
+        switcher.style.top = '4%'
+      }
+    },
+  },
   mounted() {
     const theme = localStorage.getItem('theme')
     if (theme != null) {
@@ -137,6 +160,7 @@ export default {
       }
       this.switch_theme()
     }
+    this.firstBlock = document.querySelector('.main-first').clientHeight
   },
   beforeUnmount() {},
 }

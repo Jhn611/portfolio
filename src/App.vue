@@ -91,7 +91,7 @@ export default {
           </h1>
         </div>
         <div class="toggle-container">
-          <ThemeToggle />
+          <ThemeToggle :scroll="scrollTop" />
         </div>
 
         <div class="bg">
