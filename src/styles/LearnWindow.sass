@@ -4,7 +4,7 @@
   left: 0
   right: 0
   bottom: 0
-  background-color: rgba(0, 0, 0, 0.7)
+  background-color: var(--black-transparent-hight)
   display: flex
   justify-content: center
   align-items: center
@@ -18,13 +18,13 @@
   height: 320px
   border-radius: 8px
   overflow: hidden
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2)
-  background: #555
+  box-shadow: 0 10px 25px var(--black-transparent-pre-low)
+  background: var(--grey)
 
 
 .macos-titlebar 
   height: 40px
-  background: #555
+  background: var(--grey)
   display: flex
   align-items: center
   justify-content: space-between
@@ -41,18 +41,10 @@
 
 
 .macos-btn.close 
-  background: #ff5f56
+  background: var(--light-coral)
   display: flex
   align-items: center
   justify-content: center
-
-
-
-.macos-btn.minimize 
-  background: #ffbd2e
-
-.macos-btn.maximize 
-  background: #27c93f
 
 
 .macos-title 
@@ -60,7 +52,7 @@
   font-family: Rubik
   font-size: 22px
   font-weight: 400
-  color: #ececec
+  color: var(--white-light-grey)
   padding: 0
   margin: 0
 

@@ -6,6 +6,7 @@ import PageText4 from './components/PageText4.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
 import LearnWindow from './components/LearnWindow.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 export default {
   data() {
     return {
@@ -28,6 +29,7 @@ export default {
     StackLikeApps,
     MyForm,
     LearnWindow,
+    ThemeToggle,
   },
   computed: {},
   methods: {
@@ -82,12 +84,16 @@ export default {
     <main class="main">
       <div class="main-first">
         <div class="main-first__text-block">
-          <h1 class="h1 text-gradient">
+          <h1 class="h1">
             Здравствуйте,<br />
             это моё <br />
             портфолио
           </h1>
         </div>
+        <div class="toggle-container">
+          <ThemeToggle />
+        </div>
+
         <div class="bg">
           <svg class="clip-svg" style="position: absolute; width: 0; height: 0">
             <defs>
@@ -190,7 +196,6 @@ export default {
         <div class="main-third__text_block">
           <PageText3 />
         </div>
-        <div class="bg3"></div>
       </div>
       <div class="main-fourth" v-if="isMobile">
         <div class="main-fourth__text_block">
@@ -213,7 +218,7 @@ export default {
         </div>
       </div>
     </main>
-    <!-- <div class="background-effect" ref="backgroundEffect"></div> -->
+
     <div class="copy-block"></div>
 
     <footer class="footer">

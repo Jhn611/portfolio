@@ -14,6 +14,32 @@
     font-family: 'Rubik_Puddles' 
     src: url("./assets/fonts/Rubik_Puddles/RubikPuddles-Regular.ttf")
 
+:root
+    --white: #ffffff
+    --white-grey: #f4f4f4
+    --white-blue-grey: #e9ecef
+    --white-light-grey: #f8f9fa
+    --light-grey: #ddd
+    --pre-grey: #cccccc
+    --grey: #555
+    --dark-grey: #3e3e3e
+    --black: #000000
+    --black-transparent-hight: rgba(255, 255, 255, 0.7)
+    --black-transparent-medium: rgba(12, 12, 12, 0.32)
+    --black-transparent-pre-low: rgba(0, 0, 0, 0.2)
+    --black-transparent-low: rgba(0,0,0,0.08)
+    --coral: #ff4444
+    --light-coral: #ff5f56
+    --emerald: #42b983
+    --dark-emerald: #3aa876
+    --img: 0
+    --img-reverse: 1
+    --img-opacity: 1
+
+
+
+
+  
 html
     width: 100%
     height: 100%
@@ -23,7 +49,7 @@ body
     margin: 0    
     width: 100%
     height: 100%
-    background-color: #f4f4f4
+    background-color: var(--white-grey)
 
 a
     all: unset
@@ -36,7 +62,6 @@ a
     display: flex
     width: 100%
     height: 5%
-    //background-color: #000
 
 .footer
     display: flex 
@@ -45,7 +70,7 @@ a
     justify-content: center
     width: 100%
     height: 100vh
-    background-color: #3e3e3e
+    background-color: var(--dark-grey)
 
 .main
     display: flex
@@ -61,6 +86,7 @@ a
         align-items: center
         width: 100%
         height: 100vh
+        color: var(--black)
         &__text-block
             display: flex
             justify-content: center
@@ -83,7 +109,7 @@ a
         align-items: center
         width: 100%
         height: 100vh
-        //background-color: #fff7f2
+        color: var(--black)
 
     &-third
         display: flex
@@ -92,7 +118,6 @@ a
         align-items: center
         width: 100%
         height: 100vh
-        //background-color: #f8e8dd
         &__stack-block
             position: relative
             display: flex
@@ -121,10 +146,7 @@ a
         &__text_block
             width: 40%
             height: 90%
-            // background-image: url("./assets/imgs/bgSecond.jpg")
-            // background-size: cover
-            // background-clip: text
-            color: #000000
+            color: var(--black)
 
     &-fourth
         display: flex
@@ -133,7 +155,6 @@ a
         align-items: center
         width: 100%
         height: 100vh
-        //background-color: #f8e8dd
         &__img
             display: flex
             justify-content: center
@@ -149,10 +170,7 @@ a
         &__text_block
             width: 40%
             height: 90%
-            //background-image: url("./assets/imgs/bgSecond.jpg")
-            //background-size: cover
-            //background-clip: text
-            color: #000000
+            color: var(--black)
 
 
 .card
@@ -165,9 +183,9 @@ a
     width: 260px
     height: 390px
     border-radius: 10px
-    //border: 2px solid #6f6f6f
-    background-color: #ffffff
-    box-shadow: 0px 0px 8px 0px rgba(12, 12, 12, 0.32)
+    background-color: var(--white-grey)
+    box-shadow: 0px 0px 8px 0px var(--black-transparent-medium)
+    color: var(--black)
     &-img
         position: absolute
         z-index: 2
@@ -226,6 +244,7 @@ a
                 padding: 0 4px 0 0
                 width: 14px
                 height: 14px
+                filter: invert(var(--img))
     &-back
         position: absolute
         z-index: 4
@@ -237,12 +256,13 @@ a
         width: 260px
         height: 390px
         border-radius: 10px
-        background-color: #ffffff
-        box-shadow: 0px 0px 8px 0px rgba(12, 12, 12, 0.32)
+        background-color: var(--white-grey)
+        box-shadow: 0px 0px 8px 0px var(--black-transparent-medium)
         transform: rotateY(180deg)
         &-img
             width: 250px
             height: 380px
+            filter: invert(var(--img))
     
             
 .card-container 
@@ -292,6 +312,11 @@ a
     width: 100%
     height: 100%
 
+.toggle-container
+    position: absolute
+    width: 90%
+    height: 90%
+    
 .bg
   position: absolute
   width: 90%
@@ -299,7 +324,8 @@ a
   z-index: -1
   clip-path: url(#customShape)
   overflow: hidden
-  border-radius: 8px  // Общее закругление контейнера
+  border-radius: 8px  
+  
 
   .bg-layer
     position: absolute
@@ -307,12 +333,12 @@ a
     height: 100%
     background-size: cover
     background-position: bottom
-    border-radius: inherit  // Наследуем закругление от родителя
+    border-radius: inherit 
     transform-origin: center
     transition: transform 0.1s ease-out
     will-change: transform
+    
 
-    // Градиентная маска для сглаживания краев
     &::after
       content: ''
       position: absolute
@@ -322,12 +348,12 @@ a
       bottom: 0
       border-radius: inherit
       
-
     &.zero
         background-image: url("./assets/imgs/zero.png")
         z-index: -6
-        box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
-        background-color: #f0f0f0
+        box-shadow: inset 0 0 12px var(--black-transparent-low)
+        background-color: var(--white-grey)
+
     &.first
       background-image: url("./assets/imgs/shape5.png")
       transform: translate3d(0, calc(var(--scrollTop)/5), 0)
@@ -336,6 +362,7 @@ a
       z-index: -5
       width: 300px
       height: 300px
+      opacity: var(--img-opacity)
 
     &.second
       background-image: url("./assets/imgs/shape4.png")
@@ -345,6 +372,7 @@ a
       z-index: -4
       width: 300px
       height: 300px
+      opacity: var(--img-opacity)
 
     &.third
       background-image: url("./assets/imgs/shape3.png")
@@ -354,6 +382,7 @@ a
       z-index: -3
       width: 300px
       height: 300px
+      opacity: var(--img-opacity)
 
     &.fourth
       background-image: url("./assets/imgs/shape2.png")
@@ -363,6 +392,7 @@ a
       z-index: -2
       width: 300px
       height: 300px
+      opacity: var(--img-opacity)
 
     &.fifth
       background-image: url("./assets/imgs/shape1.png")
@@ -372,28 +402,8 @@ a
       z-index: -1
       width: 300px
       height: 300px
+      opacity: var(--img-opacity)
       
-.bg3
-    z-index: -1
-    position: absolute
-    width: 100%
-    height: 100%
-    //background-image: url("./assets/imgs/bgSecond.jpg")
-    background-size: cover
-    background-position: bottom
-    background-repeat: no-repeat
-    //box-shadow: 0px 14px 10px -12px rgba(255, 247, 242, 1) inset
-    overflow: hidden
-
-
-.background-effect
-    z-index: -1
-    position: absolute
-    width: 1px
-    height: 1px
-    border-radius: 10px
-    box-shadow: 0px 0px 100px 58px rgb(216, 216, 216)
-
 .copy-block
     z-index: 1
     position: absolute
@@ -419,8 +429,10 @@ a
         display: block
     &-img-check
         display: none
+
 .rubic
     font-family: Rubik
+
 .raleway
     font-family: Raleway
 
@@ -437,7 +449,7 @@ a
     img
         width: 110px
         height: 70px
-        filter: invert(1)
+        filter: invert(var(--img-reverse))
 
 .h3
     font-size: 36px
@@ -515,7 +527,7 @@ a
 .app-item 
     width: 60px
     height: 60px
-    background: #ffffff
+    background: var(--white)
     border-radius: 15px
     display: flex
     justify-content: center
@@ -557,15 +569,7 @@ a
 
 input
     all: unset
-    //position: relative
-    //top: 2px
-    //left: 16px
-    //font-size: 16px
-    //font-family: Roboto
-    //font-weight: 500
-    //color: #252525
-    //margin: 0
-    //width: 391px
+
 .input_text
     position: relative
     top: 10px
@@ -573,7 +577,7 @@ input
     font-size: 12px
     font-family: Roboto
     font-weight: 400
-    color: #ffffff
+    color: var(--white)
     margin: 0
 .input_div
     background-color: transparent
@@ -598,7 +602,6 @@ input::-webkit-inner-spin-button
     width: 400px
     height: 40px
     margin: 0 0 50px 0
-    //border: 1px solid #ffffff
     &__s
         width: 300px
     &__label 
@@ -607,7 +610,6 @@ input::-webkit-inner-spin-button
         top: 12px
         padding: 0
         margin: 0
-        //background-color: #ffffff
         white-space: nowrap
         transform: translate(0, 0)
         transform-origin: 0 0
@@ -615,7 +617,7 @@ input::-webkit-inner-spin-button
         font-size: 16px
         font-family: Roboto
         font-weight: 400
-        color: #ffffff
+        color: var(--white)
         margin: 0
         cursor: pointer
 
@@ -636,9 +638,9 @@ input::-webkit-inner-spin-button
         left: 0
         display: block
         width: 100%
-        border: 1px solid #ffffff
+        border: 1px solid var(--white)
         padding: 0 0 0 14px
-        color: #ffffff
+        color: var(--white)
         background: transparent
         border-radius: 1px
         width: 400px
@@ -655,7 +657,7 @@ input::-webkit-inner-spin-button
         &:not(:placeholder-shown) 
             & + .input__label 
                 transform: translate(.25rem, -145%) scale(.8)
-                color: #ffffff
+                color: var(--white)
 
     &__textarea
         height: 30vh
@@ -668,9 +670,6 @@ input::-webkit-inner-spin-button
         &:focus
             outline: none
 
-input[type='date']::-webkit-calendar-picker-indicator 
-    filter: invert(var(--img))
-
 .request-form-container
     display: flex
     flex-direction: column
@@ -678,7 +677,7 @@ input[type='date']::-webkit-calendar-picker-indicator
     height: 98%   
     h2
         font-weight: 400
-        color: #ffffff
+        color: var(--white)
         margin: 30px 0
 
 .form
@@ -689,10 +688,11 @@ input[type='date']::-webkit-calendar-picker-indicator
 .error
     display: block
     margin-top: 0.25rem
-    color: #ff4444
+    color: var(--coral)
     font-size: 0.85rem
+
 .invalid
-    border-color: #ff4444
+    border-color: var(--coral)
 .send
     display: flex
     flex-direction: row
@@ -703,7 +703,7 @@ input[type='date']::-webkit-calendar-picker-indicator
 .submit-btn 
     width: 160px
     padding: 0.75rem
-    background-color: #42b983
+    background-color: var(--emerald)
     color: white
     border: none
     border-radius: 4px
@@ -712,23 +712,23 @@ input[type='date']::-webkit-calendar-picker-indicator
     transition: background-color 0.3s
 
     &:hover 
-        background-color: #3aa876
+        background-color: var(--dark-emerald)
     &:disabled 
-        background-color: #cccccc
+        background-color: var(--pre-grey)
         cursor: not-allowed
 
 .reset-btn 
     padding: 0.5rem 1rem
-    background-color: #f8f9fa
-    border: 1px solid #ddd
+    background-color: var(--white-light-grey)
+    border: 1px solid var(--light-grey)
     border-radius: 4px
     cursor: pointer
     transition: all 0.3s
     &:hover 
-        background-color: #e9ecef
+        background-color: var(--white-blue-grey)
 
 .success-message 
-    color: #42b983
+    color: var(--emerald)
     text-align: center
     p 
         margin-bottom: 1rem
@@ -787,7 +787,6 @@ input[type='date']::-webkit-calendar-picker-indicator
             align-items: center
             width: 100%
             height: 120vh
-            //background-color: #fff7f2
             &__text_block
                 width: 95%
                 height: 50%
@@ -829,7 +828,6 @@ input[type='date']::-webkit-calendar-picker-indicator
             align-items: center
             width: 100%
             height: 100vh
-            //background-color: #f8e8dd
             &__img
                 display: flex
                 justify-content: center
@@ -844,10 +842,7 @@ input[type='date']::-webkit-calendar-picker-indicator
             &__text_block
                 width: 95%
                 height: 46%
-                // background-image: url("./assets/imgs/bgSecond.jpg")
-                // background-size: cover
-                // background-clip: text
-                color: #000000
+                color: var(--black)
 
     .card
         p
@@ -859,7 +854,7 @@ input[type='date']::-webkit-calendar-picker-indicator
         z-index: -1
         clip-path: url(#customShape)
         overflow: hidden
-        border-radius: 8px  // Общее закругление контейнера
+        border-radius: 8px 
         
         .bg-layer
             position: absolute
@@ -867,11 +862,10 @@ input[type='date']::-webkit-calendar-picker-indicator
             height: 100%
             background-size: cover
             background-position: bottom
-            border-radius: inherit  // Наследуем закругление от родителя
+            border-radius: inherit  
             transform-origin: center
             
 
-            // Градиентная маска для сглаживания краев
             &::after
             content: ''
             position: absolute
@@ -885,7 +879,7 @@ input[type='date']::-webkit-calendar-picker-indicator
             &.zero
                 background-image: url("./assets/imgs/zero.png")
                 z-index: -6
-                box-shadow: inset 0 0 12px rgba(0,0,0,0.08)
+                box-shadow: inset 0 0 12px var(--black-transparent-low)
                 
             &.first
                 background-image: url("./assets/imgs/shape5.png")
@@ -898,7 +892,7 @@ input[type='date']::-webkit-calendar-picker-indicator
 
             &.second
                 background-image: url("./assets/imgs/shape4.png")
-                transform: translate3d(0, calc(var(--scrollTop)/1.1), 0)
+                transform: translate3d(0, calc(var(--scrollTop)/1.09), 0)
                 left: 50%
                 top: 0%
                 z-index: -4
@@ -1004,7 +998,7 @@ input[type='date']::-webkit-calendar-picker-indicator
         height: 98%   
         h2
             font-weight: 400
-            color: #ffffff
+            color: var(--white)
             margin: 30px 0
 
     .form
@@ -1016,10 +1010,10 @@ input[type='date']::-webkit-calendar-picker-indicator
     .error
         display: block
         margin-top: 0.25rem
-        color: #ff4444
+        color: var(--coral)
         font-size: 0.85rem
     .invalid
-        border-color: #ff4444
+        border-color: var(--coral)
     .send
         display: flex
         flex-direction: row
@@ -1030,7 +1024,7 @@ input[type='date']::-webkit-calendar-picker-indicator
     .submit-btn 
         width: 160px
         padding: 0.75rem
-        background-color: #42b983
+        background-color: var(--emerald)
         color: white
         border: none
         border-radius: 4px
@@ -1039,23 +1033,23 @@ input[type='date']::-webkit-calendar-picker-indicator
         transition: background-color 0.3s
 
         &:hover 
-            background-color: #3aa876
+            background-color: var(--dark-emerald)
         &:disabled 
-            background-color: #cccccc
+            background-color: var(--pre-grey)
             cursor: not-allowed
 
     .reset-btn 
         padding: 0.5rem 1rem
-        background-color: #f8f9fa
-        border: 1px solid #ddd
+        background-color: var(--white-light-grey)
+        border: 1px solid var(--light-grey)
         border-radius: 4px
         cursor: pointer
         transition: all 0.3s
         &:hover 
-            background-color: #e9ecef
+            background-color: var(--white-blue-grey)
 
     .success-message 
-        color: #42b983
+        color: var(--emerald)
         text-align: center
         p 
             margin-bottom: 1rem
