@@ -73,7 +73,9 @@
     animation: 1s fade
 
 .notSticky
-    animation: 0.2s fade reverse
+    animation: 0.2s fade_out 
+    opacity: 0
+
     
 @keyframes switcher
     0% 
@@ -112,4 +114,10 @@
         opacity: 0
     100%
         opacity: 1
-    
+
+        
+@keyframes fade_out 
+    0%
+        opacity: 1
+    100%
+        opacity: 0

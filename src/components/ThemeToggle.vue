@@ -2,8 +2,8 @@
   <div
     class="theme_switch__bg"
     :class="{
-      sticky: scroll > firstBlock + 30,
-      notSticky: scroll < firstBlock + 15,
+      sticky: scroll >= firstBlock + 40,
+      notSticky: scroll < firstBlock + 40 && scroll > firstBlock - 40,
     }"
   >
     <img
@@ -141,12 +141,13 @@ export default {
 
   watch: {
     scroll(newScroll) {
+      console.log(this.scroll, this.firstBlock, this.firstBlock + 40, this.firstBlock + 30)
       const switcher = document.querySelector('.theme_switch__bg')
-      if (newScroll > this.firstBlock + 30) {
+      if (newScroll > this.firstBlock + 40) {
         switcher.style.position = 'fixed'
         switcher.style.right = '8%'
         switcher.style.top = '4%'
-      } else {
+      } else if (newScroll < this.firstBlock - 40) {
         switcher.style.position = 'absolute'
         switcher.style.right = '3%'
         switcher.style.top = '4%'
