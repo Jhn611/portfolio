@@ -139,10 +139,10 @@ export default {
     },
   },
   mounted() {
-    // const video = this.$refs.videoPlayer
-    // if (video) {
-    //   video.load()
-    // }
+    const video = this.$refs.videoPlayer
+    if (video) {
+      video.load()
+    }
   },
   beforeUnmount() {
     document.body.style.overflow = ''
