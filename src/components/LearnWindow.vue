@@ -22,6 +22,7 @@
       </div>
 
       <video
+        @click="playVideo"
         class="macos-content"
         preload="metadata"
         autoplay
@@ -29,10 +30,8 @@
         muted
         playsinline
         ref="videoPlayer"
-      >
-        <source id="video1" src="../assets/video/learn2.webm" type="video/webm" />
-        <source id="video2" src="../assets/video/learn1.mp4" type="video/mp4" />
-      </video>
+        src="../assets/video/learn1.mp4"
+      ></video>
     </div>
   </transition>
 </template>
@@ -64,6 +63,12 @@ export default {
       this.wasOpened = false
       this.forceClosed = true
       this.$emit('closed')
+    },
+    playVideo() {
+      const video = this.$refs.videoPlayer
+      if (video && video.paused) {
+        video.play().catch((e) => console.log('Autoplay blocked:', e))
+      }
     },
     handleDragStart(e) {
       const rect = e.target.getBoundingClientRect()
@@ -115,12 +120,12 @@ export default {
       let secondBlock = document.querySelector('.main-third').clientHeight + firstBlock
       firstBlock = firstBlock - firstBlock * 0.2 + startBlock
       secondBlock = secondBlock - secondBlock * 0.2 + startBlock
-      if (newScroll >= firstBlock - 500 && newScroll <= secondBlock + 500 && this.forceClosed) {
-        const video = this.$refs.videoPlayer
-        if (video) {
-          video.load()
-        }
-      }
+      // if (newScroll >= firstBlock - 500 && newScroll <= secondBlock + 500 && this.forceClosed) {
+      //   const video = this.$refs.videoPlayer
+      //   if (video) {
+      //     video.load()
+      //   }
+      // }
       if (
         newScroll >= firstBlock &&
         newScroll <= secondBlock &&
