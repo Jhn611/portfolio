@@ -108,8 +108,8 @@ export default {
       firstBlock = firstBlock - firstBlock * 0.2 + startBlock
       secondBlock = secondBlock - secondBlock * 0.2 + startBlock
       if (
-        newScroll >= firstBlock - 100 &&
-        newScroll <= secondBlock + 100 &&
+        newScroll >= firstBlock - 200 &&
+        newScroll <= secondBlock + 200 &&
         !this.wasOpened &&
         !this.forceClosed
       ) {
