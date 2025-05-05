@@ -107,12 +107,7 @@ export default {
       let secondBlock = document.querySelector('.main-third').clientHeight + firstBlock
       firstBlock = firstBlock - firstBlock * 0.2 + startBlock
       secondBlock = secondBlock - secondBlock * 0.2 + startBlock
-      if (
-        newScroll >= firstBlock - 200 &&
-        newScroll <= secondBlock + 200 &&
-        !this.wasOpened &&
-        !this.forceClosed
-      ) {
+      if (newScroll >= firstBlock - 200 && newScroll <= secondBlock + 200 && this.forceClosed) {
         const video = this.$refs.videoPlayer
         if (video) {
           video.load()
