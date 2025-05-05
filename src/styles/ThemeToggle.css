@@ -23,7 +23,7 @@
 .switcher {
   width: 56px;
   height: 34px;
-  background-color: var(--grey);
+  background-color: var(--dark-blue);
   border-radius: 25px;
   cursor: pointer;
 }
@@ -82,6 +82,10 @@
 
 .sticky {
   animation: 1s fade;
+}
+
+.notSticky {
+  animation: 0.2s fade reverse;
 }
 
 @keyframes switcher {

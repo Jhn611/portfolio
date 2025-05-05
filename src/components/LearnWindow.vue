@@ -1,6 +1,5 @@
 <template>
   <transition name="macos-modal">
-    <!-- <div v-if="wasOpened && !forceClosed" class="macos-modal-overlay" @click.self="handleClose"> -->
     <div
       v-show="wasOpened && !forceClosed"
       class="macos-modal-window"
@@ -27,7 +26,6 @@
         <source id="video2" src="../assets/video/learn1.mp4" type="video/mp4" />
       </video>
     </div>
-    <!-- </div> -->
   </transition>
 </template>
 

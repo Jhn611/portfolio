@@ -2,7 +2,8 @@
   <div
     class="theme_switch__bg"
     :class="{
-      sticky: scroll > firstBlock,
+      sticky: scroll > firstBlock + 30,
+      notSticky: scroll < firstBlock + 15,
     }"
   >
     <img
@@ -71,12 +72,12 @@ export default {
       console.log(this.theme_flag)
       if (!this.theme_flag) {
         document.documentElement.style.setProperty('--white', '#000000')
-        document.documentElement.style.setProperty('--white-grey', '#0f0f0f')
+        document.documentElement.style.setProperty('--white-grey', '#1e1e1e')
         document.documentElement.style.setProperty('--white-blue-grey', '#141515')
         document.documentElement.style.setProperty('--white-light-grey', '#0c0c0c')
         document.documentElement.style.setProperty('--light-grey', '#262626')
         document.documentElement.style.setProperty('--pre-grey', '#3b3b3b')
-        document.documentElement.style.setProperty('--grey', '#9a9a9a')
+        document.documentElement.style.setProperty('--grey', '#c0c0c0')
         document.documentElement.style.setProperty('--dark-grey', '#cecece')
         document.documentElement.style.setProperty('--black', '#ffffff')
         document.documentElement.style.setProperty(
@@ -99,6 +100,7 @@ export default {
         document.documentElement.style.setProperty('--light-coral', '#ff5f56')
         document.documentElement.style.setProperty('--emerald', '#2d835c')
         document.documentElement.style.setProperty('--dark-emerald', '#226547')
+        document.documentElement.style.setProperty('--dark-blue', '#494957')
         document.documentElement.style.setProperty('--img', '1')
         document.documentElement.style.setProperty('--img-reverse', '0')
         document.documentElement.style.setProperty('--img-opacity', '0.85')
@@ -129,6 +131,7 @@ export default {
         document.documentElement.style.setProperty('--light-coral', '#ff5f56')
         document.documentElement.style.setProperty('--emerald', '#42b983')
         document.documentElement.style.setProperty('--dark-emerald', '#3aa876')
+        document.documentElement.style.setProperty('--dark-blue', '#4f5749')
         document.documentElement.style.setProperty('--img', '0')
         document.documentElement.style.setProperty('--img-reverse', '1')
         document.documentElement.style.setProperty('--img-opacity', '1')
@@ -139,7 +142,7 @@ export default {
   watch: {
     scroll(newScroll) {
       const switcher = document.querySelector('.theme_switch__bg')
-      if (newScroll > this.firstBlock) {
+      if (newScroll > this.firstBlock + 30) {
         switcher.style.position = 'fixed'
         switcher.style.right = '8%'
         switcher.style.top = '4%'
@@ -160,6 +163,7 @@ export default {
       }
       this.switch_theme()
     }
+
     this.firstBlock = document.querySelector('.main-first').clientHeight
   },
   beforeUnmount() {},

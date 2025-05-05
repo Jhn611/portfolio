@@ -1,19 +1,4 @@
 @charset "UTF-8";
-.macos-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--black-transparent-hight);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-}
-
 .macos-modal-window {
   position: fixed;
   width: 552px;
@@ -21,7 +6,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 25px var(--black-transparent-pre-low);
-  background: var(--grey);
+  background: transparent;
 }
 
 .macos-titlebar {
