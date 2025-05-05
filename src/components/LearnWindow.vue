@@ -125,7 +125,12 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    const video = this.$refs.videoPlayer
+    if (video) {
+      video.load()
+    }
+  },
   beforeUnmount() {
     document.body.style.overflow = ''
   },

@@ -81,6 +81,10 @@
     width: 321px;
     height: 164px;
   }
+  .macos-content source {
+    width: 321px;
+    height: 164px;
+  }
   .macos-modal-window {
     position: fixed;
     transform: translate(-50%, -25%);

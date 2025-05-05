@@ -141,7 +141,6 @@ export default {
 
   watch: {
     scroll(newScroll) {
-      console.log(this.scroll, this.firstBlock, this.firstBlock + 40, this.firstBlock + 30)
       const switcher = document.querySelector('.theme_switch__bg')
       if (newScroll > this.firstBlock + 40) {
         switcher.style.position = 'fixed'
