@@ -78,7 +78,7 @@ export default {
         document.documentElement.style.setProperty('--light-grey', '#262626')
         document.documentElement.style.setProperty('--pre-grey', '#3b3b3b')
         document.documentElement.style.setProperty('--grey', '#c0c0c0')
-        document.documentElement.style.setProperty('--dark-grey', '#cecece')
+        document.documentElement.style.setProperty('--dark-grey', '#3e3e3e')
         document.documentElement.style.setProperty('--black', '#ffffff')
         document.documentElement.style.setProperty(
           '--black-transparent-hight',

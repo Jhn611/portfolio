@@ -56,7 +56,7 @@ export default {
           placeholder=" "
         />
         <span class="input__label">Напишите ваш email</span>
-        <span class="error" v-if="errors.clientEmail">{{ errors.clientEmail }}</span>
+        <span class="error raleway" v-if="errors.clientEmail">{{ errors.clientEmail }}</span>
       </label>
 
       <label class="input">
@@ -71,7 +71,7 @@ export default {
           :class="{ invalid: errors.clientName }"
         />
         <span class="input__label">Как к вам обращаться</span>
-        <span class="error" v-if="errors.clientName">{{ errors.clientName }}</span>
+        <span class="error raleway" v-if="errors.clientName">{{ errors.clientName }}</span>
       </label>
 
       <label class="input input__textarea">
@@ -86,7 +86,7 @@ export default {
           :class="{ invalid: errors.projectDescription }"
         ></textarea>
         <span class="input__label">Опишите что вам нужно</span>
-        <span class="error" v-if="errors.projectDescription">
+        <span class="error raleway" v-if="errors.projectDescription">
           {{ errors.projectDescription }}
         </span>
       </label>
