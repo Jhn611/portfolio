@@ -1,4 +1,5 @@
 <script>
+import { useTextStore } from '@/stores/text'
 export default {
   props: {
     scroll: {
@@ -8,7 +9,9 @@ export default {
   },
 
   data() {
+    const store = useTextStore()
     return {
+      store,
       wasOpened: false,
       forceClosed: false,
       currentX: window.innerWidth <= 525 ? window.innerWidth / 2 : window.innerWidth * 0.16,
@@ -19,7 +22,11 @@ export default {
       isDragging: false,
     }
   },
-
+  computed: {
+    lang() {
+      return this.store.chooseLang ? this.store.ru.modal_window : this.store.en.modal_window
+    },
+  },
   methods: {
     handleClose() {
       this.wasOpened = false
@@ -138,7 +145,7 @@ export default {
       }"
     >
       <div class="macos-titlebar">
-        <div class="macos-title">Перетаскивание</div>
+        <div class="macos-title" v-html="lang"></div>
         <span class="macos-btn close" @click="handleClose"></span>
       </div>
 

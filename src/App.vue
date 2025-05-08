@@ -1,6 +1,5 @@
 <script>
 import MyCard from './components/MyCard.vue'
-import PageText4 from './components/PageText4.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
 import LearnWindow from './components/LearnWindow.vue'
@@ -26,7 +25,6 @@ export default {
   components: {
     //Stacks,
     MyCard,
-    PageText4,
     StackLikeApps,
     MyForm,
     LearnWindow,
@@ -201,7 +199,9 @@ export default {
       </div>
       <div class="main-fourth" v-if="isMobile">
         <div class="main-fourth__text_block">
-          <PageText4 />
+          <h2 class="h2" v-html="lang.block4_H2"></h2>
+          <h3 class="h3" v-html="lang.block4_H3"></h3>
+          <p class="p" v-html="lang.block4_P"></p>
         </div>
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
