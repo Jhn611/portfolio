@@ -1,20 +1,22 @@
 <script>
-//import Stacks from './components/MyStacks.vue'
-import PageText3 from './components/PageText3.vue'
 import MyCard from './components/MyCard.vue'
 import PageText4 from './components/PageText4.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
 import LearnWindow from './components/LearnWindow.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
+import LanguageToggle from './components/LanguageToggle.vue'
+import { useTextStore } from './stores/text'
 export default {
   data() {
+    const store = useTextStore()
     return {
       // fullText: 'ivantimofeev1912@gmail.com',
       // displayedText: '',
       // index: 0,
       // interval: null,
       // opacity: 0.25,
+      store,
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
       modelInp: '',
@@ -23,15 +25,19 @@ export default {
   },
   components: {
     //Stacks,
-    PageText3,
     MyCard,
     PageText4,
     StackLikeApps,
     MyForm,
     LearnWindow,
     ThemeToggle,
+    LanguageToggle,
   },
-  computed: {},
+  computed: {
+    lang() {
+      return this.store.chooseLang ? this.store.ru : this.store.en
+    },
+  },
   methods: {
     handleScroll() {
       this.scrollTop = window.scrollY
@@ -63,7 +69,7 @@ export default {
       console.log('Модальное окно закрыто')
     },
   },
-
+  watch() {},
   created() {},
 
   mounted() {
@@ -84,14 +90,11 @@ export default {
     <main class="main">
       <div class="main-first">
         <div class="main-first__text-block">
-          <h1 class="h1">
-            Здравствуйте,<br />
-            это моё <br />
-            портфолио
-          </h1>
+          <h1 class="h1" v-html="lang.block1_H1"></h1>
         </div>
         <div class="toggle-container">
           <ThemeToggle :scroll="scrollTop" />
+          <LanguageToggle :scroll="scrollTop" />
         </div>
 
         <div class="bg">
@@ -159,42 +162,41 @@ export default {
       </div>
       <div class="main-second">
         <div class="main-second__text_block">
-          <h2 class="h2">Обо мне <img src="./assets/imgs/stars.png" alt="" /></h2>
-          <h3 class="h3">Обучение</h3>
-          <p class="p">
-            Сейчас я учусь на 2м курсе в РТУ МИРЭА<br />
-            на направлении “Фуллстек разработка” 2025 г.
-          </p>
-          <h3 class="h3">Цели</h3>
-          <p class="p">
-            Получить опыт работы, больше знаний и навыков в своей области.<br />
-            На данный момент ищу стажировку,<br />
-            на которой смогу работать параллельно учёбе в вузе.
-          </p>
+          <h2 class="h2">
+            <span v-html="lang.block2_H2"></span> <img src="./assets/imgs/stars.png" alt="" />
+          </h2>
+          <h3 class="h3" v-html="lang.block2_H3_part1"></h3>
+          <p class="p" v-html="lang.block2_P_part1"></p>
+          <h3 class="h3" v-html="lang.block2_H3_part2"></h3>
+          <p class="p" v-html="lang.block2_P_part2"></p>
         </div>
         <MyCard :scroll="scrollTop" />
       </div>
 
       <div class="main-third" v-if="isMobile">
         <div class="main-third__text_block">
-          <PageText3 />
+          <h2 class="h2" v-html="lang.block3_H2"></h2>
+          <h3 class="h3" v-html="lang.block3_H3_part1"></h3>
+          <p class="p" v-html="lang.block3_P_part1"></p>
+          <h3 class="h3" v-html="lang.block3_H3_part2"></h3>
+          <p class="p" v-html="lang.block3_P_part2"></p>
         </div>
         <div class="main-third__stack-block">
           <StackLikeApps />
           <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
-          <!-- <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
-          <p>Перетащи меня</p> -->
         </div>
       </div>
       <div class="main-third" v-if="!isMobile">
         <div class="main-third__stack-block">
           <StackLikeApps />
           <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
-          <!-- <img class="arrow" src="./assets/imgs/result_arrow2.png" alt="" />
-          <p>Перетащи меня</p> -->
         </div>
         <div class="main-third__text_block">
-          <PageText3 />
+          <h2 class="h2" v-html="lang.block3_H2"></h2>
+          <h3 class="h3" v-html="lang.block3_H3_part1"></h3>
+          <p class="p" v-html="lang.block3_P_part1"></p>
+          <h3 class="h3" v-html="lang.block3_H3_part2"></h3>
+          <p class="p" v-html="lang.block3_P_part2"></p>
         </div>
       </div>
       <div class="main-fourth" v-if="isMobile">
@@ -214,7 +216,9 @@ export default {
           </div>
         </div>
         <div class="main-fourth__text_block">
-          <PageText4 />
+          <h2 class="h2" v-html="lang.block4_H2"></h2>
+          <h3 class="h3" v-html="lang.block4_H3"></h3>
+          <p class="p" v-html="lang.block4_P"></p>
         </div>
       </div>
     </main>

@@ -1,13 +1,21 @@
 <script>
+import { useTextStore } from '@/stores/text'
 export default {
   data() {
+    const store = useTextStore()
     return {
+      store,
       isFlipped: true,
       startFlip: true,
     }
   },
   props: {
     scroll: Number,
+  },
+  computed: {
+    lang() {
+      return this.store.chooseLang ? this.store.ru : this.store.en
+    },
   },
   methods: {
     toggleFlip() {
@@ -82,9 +90,10 @@ export default {
           <img class="card-img-upper" src="../assets/imgs/my_photo_v2.png" alt="" />
           <img class="card-img" src="../assets/imgs/my_photo_v2_bg.jpg" alt="" />
         </div>
-        <h4 class="card-text">Тимофеев Иван</h4>
+        <h4 class="card-text" v-html="lang.card_name"></h4>
         <p class="card-text-p">
-          <img class="card-text-p-img" src="../assets/imgs/Map pin.svg" alt="" /> Москва
+          <img class="card-text-p-img" src="../assets/imgs/Map pin.svg" alt="" />
+          <span v-html="lang.card_country"></span>
         </p>
         <p class="card-text-p">
           <img

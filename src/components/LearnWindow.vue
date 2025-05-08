@@ -1,41 +1,3 @@
-<template>
-  <transition name="macos-modal">
-    <div
-      v-show="wasOpened && !forceClosed"
-      class="macos-modal-window"
-      @dragstart="handleDragStart"
-      @drag="handleDrag"
-      @dragend="handleDragEnd"
-      @touchstart="handleTouchStart"
-      @touchmove.prevent="handleTouchMove"
-      @touchend="handleTouchEnd"
-      draggable="true"
-      :style="{
-        left: `${currentX}px`,
-        top: `${currentY}px`,
-        cursor: isDragging ? 'grabbing' : 'grab',
-      }"
-    >
-      <div class="macos-titlebar">
-        <div class="macos-title">Перетаскивание</div>
-        <span class="macos-btn close" @click="handleClose"></span>
-      </div>
-
-      <video
-        @click="playVideo"
-        class="macos-content"
-        preload="metadata"
-        autoplay
-        loop
-        muted
-        playsinline
-        ref="videoPlayer"
-        src="../assets/video/learn1.mp4"
-      ></video>
-    </div>
-  </transition>
-</template>
-
 <script>
 export default {
   props: {
@@ -65,6 +27,7 @@ export default {
       this.$emit('closed')
     },
     playVideo() {
+      console.log('click')
       const video = this.$refs.videoPlayer
       if (video && video.paused) {
         video.play().catch((e) => console.log('Autoplay blocked:', e))
@@ -154,5 +117,43 @@ export default {
   },
 }
 </script>
+
+<template>
+  <transition name="macos-modal">
+    <div
+      v-show="wasOpened && !forceClosed"
+      class="macos-modal-window"
+      @click="playVideo"
+      @dragstart="handleDragStart"
+      @drag="handleDrag"
+      @dragend="handleDragEnd"
+      @touchstart="handleTouchStart"
+      @touchmove.prevent="handleTouchMove"
+      @touchend="handleTouchEnd"
+      draggable="true"
+      :style="{
+        left: `${currentX}px`,
+        top: `${currentY}px`,
+        cursor: isDragging ? 'grabbing' : 'grab',
+      }"
+    >
+      <div class="macos-titlebar">
+        <div class="macos-title">Перетаскивание</div>
+        <span class="macos-btn close" @click="handleClose"></span>
+      </div>
+
+      <video
+        class="macos-content"
+        preload="metadata"
+        autoplay
+        loop
+        muted
+        playsinline
+        ref="videoPlayer"
+        src="../assets/video/learn1.mp4"
+      ></video>
+    </div>
+  </transition>
+</template>
 
 <style src="../styles/LearnWindow.css"></style>

@@ -1,43 +1,3 @@
-<template>
-  <div
-    class="home-screen"
-    @dragover.prevent="handleContainerDragOver"
-    @dragleave="handleContainerDragLeave"
-  >
-    <div
-      v-for="(app, index) in apps"
-      :key="index"
-      class="app-item icon"
-      :class="{
-        dragging: draggingIndex === index,
-        'drop-target': dropTargetIndex === index,
-      }"
-      draggable="true"
-      @dragstart="handleDragStart($event, index)"
-      @dragenter.prevent="handleDragEnter(index)"
-      @dragleave="handleDragLeave(index)"
-      @dragend="handleDragEnd"
-      @touchstart="handleTouchStart($event, index)"
-      @touchmove.prevent="handleTouchMove"
-      @touchend="handleTouchEnd"
-      :data-index="index"
-    >
-      <img :src="app" class="app-icon" />
-    </div>
-
-    <div
-      v-if="draggingIndex !== null"
-      class="drag-preview"
-      :style="{
-        left: `${currentX - 30}px`,
-        top: `${currentY - 30}px`,
-      }"
-    >
-      <img :src="apps[draggingIndex]" class="app-icon" />
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -136,5 +96,45 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div
+    class="home-screen"
+    @dragover.prevent="handleContainerDragOver"
+    @dragleave="handleContainerDragLeave"
+  >
+    <div
+      v-for="(app, index) in apps"
+      :key="index"
+      class="app-item icon"
+      :class="{
+        dragging: draggingIndex === index,
+        'drop-target': dropTargetIndex === index,
+      }"
+      draggable="true"
+      @dragstart="handleDragStart($event, index)"
+      @dragenter.prevent="handleDragEnter(index)"
+      @dragleave="handleDragLeave(index)"
+      @dragend="handleDragEnd"
+      @touchstart="handleTouchStart($event, index)"
+      @touchmove.prevent="handleTouchMove"
+      @touchend="handleTouchEnd"
+      :data-index="index"
+    >
+      <img :src="app" class="app-icon" />
+    </div>
+
+    <div
+      v-if="draggingIndex !== null"
+      class="drag-preview"
+      :style="{
+        left: `${currentX - 30}px`,
+        top: `${currentY - 30}px`,
+      }"
+    >
+      <img :src="apps[draggingIndex]" class="app-icon" />
+    </div>
+  </div>
+</template>
 
 <style></style>

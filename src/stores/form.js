@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useTextStore } from './text'
 
 export const useClientRequestStore = defineStore('clientRequest', {
   state: () => ({
@@ -45,28 +46,31 @@ export const useClientRequestStore = defineStore('clientRequest', {
 
     // Валидация конкретного поля
     validateField(field, value) {
+      const textStore = useTextStore()
+      const errorTexts = textStore.chooseLang ? textStore.ru.form_errors : textStore.en.form_errors
+
       switch (field) {
         case 'clientEmail':
           this.errors.clientEmail = !value
-            ? 'Email обязателен'
+            ? errorTexts.emailRequired
             : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-              ? 'Некорректный email'
+              ? errorTexts.emailInvalid
               : ''
           break
 
         case 'clientName':
           this.errors.clientName = !value
-            ? 'Укажите, как к вам обращаться'
+            ? errorTexts.nameRequired
             : value.length < 2
-              ? 'Слишком короткое имя'
+              ? errorTexts.nameTooShort
               : ''
           break
 
         case 'projectDescription':
           this.errors.projectDescription = !value
-            ? 'Опишите ваш проект'
+            ? errorTexts.descriptionRequired
             : value.length < 15
-              ? 'Опишите подробнее (минимум 15 символов)'
+              ? errorTexts.descriptionTooShort
               : ''
           break
       }
@@ -74,23 +78,21 @@ export const useClientRequestStore = defineStore('clientRequest', {
 
     // Отправка формы
     async submitRequest() {
-      // Проверка валидности
       if (this.hasErrors) return false
 
       this.status.isSending = true
       this.status.errorMessage = ''
 
       try {
-        // Имитация запроса к API (замените на реальный)
         await new Promise((resolve) => setTimeout(resolve, 1500))
-
-        // Здесь будет реальный запрос:
-        // const response = await api.post('/requests', this.formData)
-
         this.status.isSuccess = true
         return true
       } catch (error) {
-        this.status.errorMessage = error.message || 'Ошибка при отправке запроса'
+        const textStore = useTextStore()
+        const errorTexts = textStore.chooseLang
+          ? textStore.ru.form_errors
+          : textStore.en.form_errors
+        this.status.errorMessage = error.message || errorTexts.submitError
         return false
       } finally {
         this.status.isSending = false
@@ -114,6 +116,11 @@ export const useClientRequestStore = defineStore('clientRequest', {
         isSuccess: false,
         errorMessage: '',
       }
+    },
+    revalidateAllFields() {
+      this.validateField('clientEmail', this.formData.clientEmail)
+      this.validateField('clientName', this.formData.clientName)
+      this.validateField('projectDescription', this.formData.projectDescription)
     },
   },
 })

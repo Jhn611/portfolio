@@ -1,1 +1,153 @@
-/*# sourceMappingURL=LanguageToggle.css.map */
+.language_switch__bg {
+  position: absolute;
+  left: 3%;
+  top: 88%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--white-grey);
+  border-radius: 20px;
+  border: 1px solid var(--light-grey);
+  width: 110px;
+  height: 45px;
+  z-index: 2000;
+}
+
+.switcher {
+  width: 56px;
+  height: 34px;
+  background-color: var(--dark-blue);
+  border-radius: 25px;
+  cursor: pointer;
+}
+.switcher__round {
+  position: relative;
+  left: 29px;
+  top: 5px;
+  transform: translate(0, 0);
+}
+
+.ru_lang {
+  font-size: 23px;
+  font-family: Rubik;
+  color: var(--black);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.en_lang {
+  font-size: 23px;
+  font-family: Rubik;
+  color: var(--black);
+  opacity: 0;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch_animate_on {
+  animation: 0.3s switcher;
+  transform: translate(-26px, 0);
+}
+
+.switch_animate_off {
+  animation: 0.3s switcher_reverse;
+  transform: translate(0, 0);
+}
+
+.ru_on {
+  animation: 0.3s ru_left_animation;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.ru_off {
+  transform: translate(30px, 0);
+  opacity: 0;
+}
+
+.en_on {
+  animation: 0.3s en_left_animation;
+  transform: translate(-32px, 0);
+  opacity: 1;
+}
+
+.en_off {
+  transform: translate(30px, 0);
+  opacity: 0;
+}
+
+.sticky {
+  animation: 1s fade;
+}
+
+.notSticky {
+  animation: 0.2s fade_out;
+  opacity: 0;
+}
+
+@keyframes switcher {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-26px, 0);
+  }
+}
+@keyframes switcher_reverse {
+  0% {
+    transform: translate(-26px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes ru_left_animation {
+  0% {
+    transform: translate(30px, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes en_left_animation {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-32px, 0);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=LanguageToggle.css.map */

@@ -13,12 +13,6 @@
   height: 45px;
   z-index: 2000;
 }
-.theme_switch__bg__empty {
-  width: 110px;
-}
-.theme_switch__bg__empty2 {
-  width: 10px;
-}
 
 .switcher {
   width: 56px;
