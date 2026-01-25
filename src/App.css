@@ -154,6 +154,10 @@ a {
   top: 43%;
 }
 .main-third__text_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   width: 40%;
   height: 90%;
   color: var(--black);
@@ -169,17 +173,21 @@ a {
 .main-fourth__img {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   width: 40%;
   height: 90%;
 }
 .main-fourth__img img {
   border-radius: 11px;
-  width: 350px;
-  height: 486px;
+  width: 400px;
+  height: 531px;
   scale: 1.2;
 }
 .main-fourth__text_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   width: 40%;
   height: 90%;
   color: var(--black);
@@ -346,8 +354,7 @@ a {
   width: 90%;
   height: 90%;
   z-index: -1;
-  -webkit-clip-path: url(#customShape);
-          clip-path: url(#customShape);
+  clip-path: url(#customShape);
   overflow: hidden;
   border-radius: 8px;
 }
@@ -719,7 +726,7 @@ input::-webkit-inner-spin-button {
 .input__field:focus {
   cursor: text;
 }
-.input__field:not(:-moz-placeholder-shown) + .input__label {
+.input__field:not(:-moz-placeholder) + .input__label {
   transform: translate(0.25rem, -145%) scale(0.8);
   color: var(--white-no-switch);
 }
@@ -922,23 +929,23 @@ input::-webkit-inner-spin-button {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
   }
   .main-fourth__img {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: 54%;
+    height: 60%;
   }
   .main-fourth__img img {
     border-radius: 11px;
     width: 300px;
-    height: 416px;
+    height: 398px;
   }
   .main-fourth__text_block {
     width: 95%;
-    height: 46%;
+    height: 40%;
     color: var(--black);
   }
   .card p {
@@ -949,8 +956,7 @@ input::-webkit-inner-spin-button {
     width: 90%;
     height: 90%;
     z-index: -1;
-    -webkit-clip-path: url(#customShape);
-            clip-path: url(#customShape);
+    clip-path: url(#customShape);
     overflow: hidden;
     border-radius: 8px;
   }
