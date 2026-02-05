@@ -86,7 +86,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
       this.status.isSuccess = false
 
       try {
-        const response = await axios.post('https://mail-sender-neon.vercel.app/', {
+        await axios.post('https://mail-sender-neon.vercel.app/', {
           name: this.formData.clientName,
           email: this.formData.clientEmail,
           text: this.formData.projectDescription,
