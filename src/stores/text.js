@@ -6,8 +6,8 @@ export const useTextStore = defineStore('textStore', {
       block1_H1: `Hello,<br /> this is my <br /> portfolio`,
       block2_H2: `About me`,
       block2_H3_part1: `Education`,
-      block2_P_part1: `I am currently a 2nd year student at RTU MIREA<br />
-        majoring in "Fullstack Development" (2025).`,
+      block2_P_part1: `I am currently a 3nd year student at RTU MIREA<br />
+        majoring in "Fullstack Development" (2026).`,
       block2_H3_part2: `Goals`,
       block2_P_part2: `Gain work experience, more knowledge and skills in my field.<br />
         Currently looking for an internship<br />
@@ -54,8 +54,8 @@ export const useTextStore = defineStore('textStore', {
       block1_H1: `Здравствуйте,<br /> это моё <br /> портфолио`,
       block2_H2: `Обо мне`,
       block2_H3_part1: `Обучение`,
-      block2_P_part1: `Сейчас я учусь на 2м курсе в РТУ МИРЭА<br />
-            на направлении “Фуллстек разработка” 2025 г.`,
+      block2_P_part1: `Сейчас я учусь на 3м курсе в РТУ МИРЭА<br />
+            на направлении “Фуллстек разработка” 2026 г.`,
       block2_H3_part2: `Цели`,
       block2_P_part2: ` Получить опыт работы, больше знаний и навыков в своей области.<br />
             На данный момент ищу стажировку,<br />
