@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useTextStore } from './text'
-import { axios } from 'axios'
+import axios from 'axios'
 
 export const useClientRequestStore = defineStore('clientRequest', {
   state: () => ({
@@ -89,7 +89,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
         const response = await axios.post('https://mail-sender-neon.vercel.app/', {
           name: this.formData.clientName,
           email: this.formData.clientEmail,
-          text: this.formData.projectDescription,  
+          text: this.formData.projectDescription,
         }, {
           headers: {
             'Content-Type': 'application/json'
@@ -104,7 +104,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
           ? textStore.ru.form_errors
           : textStore.en.form_errors
 
-        
+
         let errorMsg = errorTexts.submitError || 'Не удалось отправить форму'
 
         if (error.response) {
