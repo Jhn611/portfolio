@@ -659,6 +659,8 @@ input::-webkit-inner-spin-button
         font-family: Raleway
         font-weight: 400
         cursor: pointer
+        &__textarea
+            padding: 12px 0 0 14px
         &__s
             width: 300px
         &:focus
@@ -666,7 +668,7 @@ input::-webkit-inner-spin-button
         &:focus,
         &:not(:placeholder-shown) 
             & + .input__label 
-                transform: translate(.25rem, -145%) scale(.8)
+                transform: translate(-0.3rem, -145%) scale(.8)
                 color: var(--white-no-switch)
 
     &__textarea
@@ -990,6 +992,7 @@ input::-webkit-inner-spin-button
         &__img
         &__field 
             width: 270px
+            &__textarea
             &__s
                 width: 300px
             &:focus

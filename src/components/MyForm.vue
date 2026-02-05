@@ -82,7 +82,7 @@ export default {
 
       <label class="input input__textarea">
         <textarea
-          class="input__field"
+          class="input__field input__field__textarea"
           id="projectDescription"
           v-model="formData.projectDescription"
           @input="updateField('projectDescription', $event.target.value)"

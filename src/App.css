@@ -720,6 +720,9 @@ input::-webkit-inner-spin-button {
   font-weight: 400;
   cursor: pointer;
 }
+.input__field__textarea {
+  padding: 12px 0 0 14px;
+}
 .input__field__s {
   width: 300px;
 }
@@ -727,11 +730,11 @@ input::-webkit-inner-spin-button {
   cursor: text;
 }
 .input__field:not(:-moz-placeholder) + .input__label {
-  transform: translate(0.25rem, -145%) scale(0.8);
+  transform: translate(-0.3rem, -145%) scale(0.8);
   color: var(--white-no-switch);
 }
 .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
-  transform: translate(0.25rem, -145%) scale(0.8);
+  transform: translate(-0.3rem, -145%) scale(0.8);
   color: var(--white-no-switch);
 }
 .input__textarea {
