@@ -77,7 +77,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
       }
     },
 
-   // Отправка формы на сервер
+    // Отправка формы на сервер
     async submitRequest() {
       if (this.hasErrors) return false
 
@@ -86,15 +86,19 @@ export const useClientRequestStore = defineStore('clientRequest', {
       this.status.isSuccess = false
 
       try {
-        await axios.post('https://mail-sender-neon.vercel.app/', {
-          name: this.formData.clientName,
-          email: this.formData.clientEmail,
-          text: this.formData.projectDescription,
-        }, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        await axios.post(
+          'https://mail-sender3.vercel.app/',
+          {
+            name: this.formData.clientName,
+            email: this.formData.clientEmail,
+            text: this.formData.projectDescription,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        )
 
         this.status.isSuccess = true
         return true
@@ -104,14 +108,14 @@ export const useClientRequestStore = defineStore('clientRequest', {
           ? textStore.ru.form_errors
           : textStore.en.form_errors
 
-
         let errorMsg = errorTexts.submitError || 'Не удалось отправить форму'
 
         if (error.response) {
           // Сервер ответил с кодом ошибки (4xx, 5xx)
-          errorMsg = error.response.data?.error ||
-                     error.response.data?.message ||
-                     `Ошибка ${error.response.status}: ${error.response.statusText}`
+          errorMsg =
+            error.response.data?.error ||
+            error.response.data?.message ||
+            `Ошибка ${error.response.status}: ${error.response.statusText}`
         } else if (error.request) {
           // Запрос отправлен, но ответа нет (проблемы с сетью, CORS и т.д.)
           errorMsg = 'Нет ответа от сервера. Проверьте соединение.'
