@@ -205,14 +205,14 @@ export default {
         </div>
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl2.png" alt="" />
+            <img src="./assets/imgs/anime_girl3.png" alt="" />
           </div>
         </div>
       </div>
       <div class="main-fourth" v-if="!isMobile">
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl2.png" alt="" />
+            <img src="./assets/imgs/anime_girl3.png" alt="" />
           </div>
         </div>
         <div class="main-fourth__text_block">
