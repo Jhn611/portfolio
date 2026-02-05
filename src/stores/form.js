@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useTextStore } from './text'
+import { axios } from 'axios'
 
 export const useClientRequestStore = defineStore('clientRequest', {
   state: () => ({
@@ -76,15 +77,25 @@ export const useClientRequestStore = defineStore('clientRequest', {
       }
     },
 
-    // Отправка формы
+   // Отправка формы на сервер
     async submitRequest() {
       if (this.hasErrors) return false
 
       this.status.isSending = true
       this.status.errorMessage = ''
+      this.status.isSuccess = false
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1500))
+        const response = await axios.post('https://mail-sender-neon.vercel.app/', {
+          name: this.formData.clientName,
+          email: this.formData.clientEmail,
+          text: this.formData.projectDescription,  
+        }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+
         this.status.isSuccess = true
         return true
       } catch (error) {
@@ -92,7 +103,25 @@ export const useClientRequestStore = defineStore('clientRequest', {
         const errorTexts = textStore.chooseLang
           ? textStore.ru.form_errors
           : textStore.en.form_errors
-        this.status.errorMessage = error.message || errorTexts.submitError
+
+        
+        let errorMsg = errorTexts.submitError || 'Не удалось отправить форму'
+
+        if (error.response) {
+          // Сервер ответил с кодом ошибки (4xx, 5xx)
+          errorMsg = error.response.data?.error ||
+                     error.response.data?.message ||
+                     `Ошибка ${error.response.status}: ${error.response.statusText}`
+        } else if (error.request) {
+          // Запрос отправлен, но ответа нет (проблемы с сетью, CORS и т.д.)
+          errorMsg = 'Нет ответа от сервера. Проверьте соединение.'
+        } else {
+          // Ошибка при настройке запроса
+          errorMsg = error.message || 'Ошибка при отправке запроса'
+        }
+
+        this.status.errorMessage = errorMsg
+        console.error('Ошибка отправки формы:', error)
         return false
       } finally {
         this.status.isSending = false
