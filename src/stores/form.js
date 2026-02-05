@@ -87,7 +87,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
 
       try {
         await axios.post(
-          'https://mail-sender-eta-steel.vercel.app/',
+          'https://mail-sender-eta-steel.vercel.app/api/form',
           {
             name: this.formData.clientName,
             email: this.formData.clientEmail,
