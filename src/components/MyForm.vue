@@ -103,18 +103,22 @@ export default {
           <span v-else v-html="lang.form_button_text"></span>
         </button>
 
-        <div v-if="status.isSuccess" class="success-message">
-          <button @click="resetForm" class="reset-btn" v-html="lang.form_reset_button"></button>
-        </div>
+        <button
+          v-if="status.isSuccess"
+          @click="resetForm"
+          class="reset-btn"
+          v-html="lang.form_reset_button"
+        ></button>
       </div>
-      <div v-if="status.isSuccess" class="success-message">
-        <p v-html="lang.form_success_msg"></p>
+      <div class="message-block">
+        <p class="success-message" v-if="status.isSuccess" v-html="lang.form_success_msg"></p>
+        <div v-if="status.errorMessage" class="error-message">
+        {{ status.errorMessage }}
+        </div>
       </div>
 
       <!-- Сообщения о статусе -->
-      <div v-if="status.errorMessage" class="error-message">
-        {{ status.errorMessage }}
-      </div>
+
     </form>
   </div>
 </template>

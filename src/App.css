@@ -831,6 +831,11 @@ input::-webkit-inner-spin-button {
   margin-bottom: 1rem;
 }
 
+.message-block {
+  width: 95%;
+  height: 80px;
+}
+
 @media screen and (max-width: 1400px) {
   .h1 {
     font-size: 100px;
@@ -1119,10 +1124,11 @@ input::-webkit-inner-spin-button {
   }
   .send {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     width: 300px;
+    height: 100px;
   }
   .submit-btn {
     width: 160px;
@@ -1150,6 +1156,9 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     transition: all 0.3s;
   }
+  .reset-btn-block {
+    height: 50px;
+  }
   .reset-btn:hover {
     background-color: var(--white-blue-grey);
   }
@@ -1159,5 +1168,9 @@ input::-webkit-inner-spin-button {
   }
   .success-message p {
     margin-bottom: 1rem;
+  }
+  .message-block {
+    width: 95%;
+    height: 80px;
   }
 }/*# sourceMappingURL=App.css.map */

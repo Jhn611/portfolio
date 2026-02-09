@@ -697,6 +697,7 @@ input::-webkit-inner-spin-button
     flex-direction: column
     align-items: start
     height: 100% 
+    
 .error
     display: block
     margin-top: 0.25rem
@@ -745,6 +746,10 @@ input::-webkit-inner-spin-button
     text-align: center
     p 
         margin-bottom: 1rem
+
+.message-block
+        width: 95%
+        height: 80px
 
 
 @media  screen and (max-width: 1400px)
@@ -1030,10 +1035,11 @@ input::-webkit-inner-spin-button
         border-color: var(--coral)
     .send
         display: flex
-        flex-direction: row
+        flex-direction: column
         align-items: center
         justify-content: space-evenly
         width: 300px
+        height: 100px
 
     .submit-btn 
         width: 160px
@@ -1059,6 +1065,8 @@ input::-webkit-inner-spin-button
         border-radius: 4px
         cursor: pointer
         transition: all 0.3s
+        &-block
+            height: 50px
         &:hover 
             background-color: var(--white-blue-grey)
 
@@ -1067,3 +1075,6 @@ input::-webkit-inner-spin-button
         text-align: center
         p 
             margin-bottom: 1rem
+    .message-block
+        width: 95%
+        height: 80px
