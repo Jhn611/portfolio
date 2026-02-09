@@ -666,7 +666,7 @@ input::-webkit-inner-spin-button {
 
 .input {
   position: relative;
-  width: 400px;
+  width: 420px;
   height: 40px;
   margin: 0 0 50px 0;
 }
@@ -768,7 +768,7 @@ input::-webkit-inner-spin-button {
 .form {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   height: 100%;
 }
 
@@ -789,7 +789,7 @@ input::-webkit-inner-spin-button {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: 400px;
+  width: 420px;
 }
 
 .submit-btn {
@@ -832,7 +832,7 @@ input::-webkit-inner-spin-button {
 }
 
 .message-block {
-  width: 95%;
+  width: 420px;
   height: 80px;
 }
 
@@ -1080,7 +1080,7 @@ input::-webkit-inner-spin-button {
     font-weight: 200;
   }
   .input {
-    width: 300px;
+    width: 286px;
   }
   .input__s {
     width: 300px;
@@ -1099,6 +1099,7 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 90%;
     height: 98%;
   }
   .request-form-container h2 {
@@ -1112,6 +1113,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
+    width: 90%;
   }
   .error {
     display: block;
