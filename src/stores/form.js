@@ -52,12 +52,13 @@ export const useClientRequestStore = defineStore('clientRequest', {
       const email = this.formData.clientEmail,
         name = this.formData.clientName,
         text = this.formData.projectDescription
+      console.log(!value && (name || text), !value && (email || text), !value && (email || name))
       switch (field) {
         case 'clientEmail':
           this.errors.clientEmail =
             !value && (name || text)
               ? errorTexts.emailRequired
-              : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+              : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && (name || text)
                 ? errorTexts.emailInvalid
                 : value.trim().length > 50
                   ? errorTexts.emailTooLong
@@ -66,9 +67,9 @@ export const useClientRequestStore = defineStore('clientRequest', {
 
         case 'clientName':
           this.errors.clientName =
-            !value && (email || name)
+            !value && (email || text)
               ? errorTexts.nameRequired
-              : value.trim().length < 2
+              : value.trim().length < 2 && (name || text)
                 ? errorTexts.nameTooShort
                 : value.trim().length > 50
                   ? errorTexts.nameTooLong
@@ -79,7 +80,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
           this.errors.projectDescription =
             !value && (email || name)
               ? errorTexts.descriptionRequired
-              : value.trim().length < 15
+              : value.trim().length < 15 && (name || text)
                 ? errorTexts.descriptionTooShort
                 : value.trim().length > 400
                   ? errorTexts.descriptionTooLong
