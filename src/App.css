@@ -976,6 +976,8 @@ input::-webkit-inner-spin-button {
     background-position: bottom;
     border-radius: inherit;
     transform-origin: center;
+  }
+  .bg .bg-layer {
     content: "";
     position: absolute;
     top: 0;
@@ -1174,5 +1176,46 @@ input::-webkit-inner-spin-button {
   .message-block {
     width: 95%;
     height: 80px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .main-first {
+    height: 95vh;
+  }
+  .main-first__text-block {
+    height: 20%;
+  }
+  .main-first__card-block {
+    height: 45%;
+  }
+  .main-second {
+    height: 145vh;
+  }
+  .main-second__text_block {
+    height: 45%;
+  }
+  .main-third {
+    height: 105vh;
+  }
+  .main-third__stack-block {
+    height: 40%;
+  }
+  .main-third__stack-block .arrow {
+    height: 61px;
+  }
+  .main-third__text_block {
+    height: 60%;
+  }
+  .main-fourth {
+    height: 135vh;
+  }
+  .main-fourth__img {
+    height: 60%;
+  }
+  .main-fourth__img img {
+    height: 388px;
+  }
+  .main-fourth__text_block {
+    height: 40%;
   }
 }/*# sourceMappingURL=App.css.map */
