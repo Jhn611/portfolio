@@ -16,6 +16,11 @@ export default {
       errors,
       status,
       isValidForm,
+      toched: {
+        clientEmail: false,
+        clientName: false,
+        projectDescription: false,
+      },
     }
   },
   computed: {
@@ -25,16 +30,19 @@ export default {
   },
   methods: {
     updateField(field, value) {
-      this.store.updateField(field, value)
+      if (this.toched) {
+        this.store.updateField(field, value)
+      }
     },
 
     validateField(field, value) {
+      this.toched[field] = true
       this.store.validateField(field, value)
     },
 
     async handleSubmit() {
       if (await this.store.submitRequest()) {
-        // Дополнительные действия после успешной отправки
+        // Дополнительные действия после успешной отправки (так и не понадобилось)
       }
     },
 
@@ -113,12 +121,11 @@ export default {
       <div class="message-block">
         <p class="success-message" v-if="status.isSuccess" v-html="lang.form_success_msg"></p>
         <div v-if="status.errorMessage" class="error-message">
-        {{ status.errorMessage }}
+          {{ status.errorMessage }}
         </div>
       </div>
 
       <!-- Сообщения о статусе -->
-
     </form>
   </div>
 </template>
