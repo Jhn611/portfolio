@@ -49,30 +49,41 @@ export const useClientRequestStore = defineStore('clientRequest', {
     validateField(field, value) {
       const textStore = useTextStore()
       const errorTexts = textStore.chooseLang ? textStore.ru.form_errors : textStore.en.form_errors
-
+      const email = this.formData.clientEmail,
+        name = this.formData.clientName,
+        text = this.formData.projectDescription
       switch (field) {
         case 'clientEmail':
-          this.errors.clientEmail = !value
-            ? errorTexts.emailRequired
-            : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-              ? errorTexts.emailInvalid
-              : ''
+          this.errors.clientEmail =
+            !value && (name || text)
+              ? errorTexts.emailRequired
+              : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+                ? errorTexts.emailInvalid
+                : value.trim().length > 50
+                  ? errorTexts.emailTooLong
+                  : ''
           break
 
         case 'clientName':
-          this.errors.clientName = !value
-            ? errorTexts.nameRequired
-            : value.length < 2
-              ? errorTexts.nameTooShort
-              : ''
+          this.errors.clientName =
+            !value && (email || name)
+              ? errorTexts.nameRequired
+              : value.trim().length < 2
+                ? errorTexts.nameTooShort
+                : value.trim().length > 50
+                  ? errorTexts.nameTooLong
+                  : ''
           break
 
         case 'projectDescription':
-          this.errors.projectDescription = !value
-            ? errorTexts.descriptionRequired
-            : value.length < 15
-              ? errorTexts.descriptionTooShort
-              : ''
+          this.errors.projectDescription =
+            !value && (email || name)
+              ? errorTexts.descriptionRequired
+              : value.trim().length < 15
+                ? errorTexts.descriptionTooShort
+                : value.trim().length > 400
+                  ? errorTexts.descriptionTooLong
+                  : ''
           break
       }
     },
@@ -89,9 +100,9 @@ export const useClientRequestStore = defineStore('clientRequest', {
         await axios.post(
           'https://mail-sender-eta-steel.vercel.app/api/form',
           {
-            name: this.formData.clientName,
-            email: this.formData.clientEmail,
-            text: this.formData.projectDescription,
+            name: this.formData.clientName.trim(),
+            email: this.formData.clientEmail.trim(),
+            text: this.formData.projectDescription.trim(),
           },
           {
             headers: {
