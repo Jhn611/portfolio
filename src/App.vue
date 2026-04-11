@@ -207,7 +207,7 @@ export default {
           <p class="p" v-html="lang.block3_P_part2"></p>
         </div>
         <div class="main-third__stack-block">
-          <StackLikeA pps />
+          <StackLikeApps />
           <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
         </div>
       </div>
