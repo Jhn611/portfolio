@@ -51,7 +51,7 @@ export const useTextStore = defineStore('textStore', {
       },
       card_name: `Timofeev Ivan`,
       card_country: `Moscow`,
-      modal_window:`Drag`,
+      modal_window: `Drag`,
     },
     ru: {
       block1_H1: `Здравствуйте,<br /> это моё <br /> портфолио`,
@@ -102,7 +102,7 @@ export const useTextStore = defineStore('textStore', {
       },
       card_name: `Тимофеев Иван`,
       card_country: `Москва`,
-      modal_window:`Перетаскивание`,
+      modal_window: `Перетаскивание`,
     },
     chooseLang: true,
   }),

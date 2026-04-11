@@ -358,81 +358,71 @@ a {
   overflow: hidden;
   border-radius: 8px;
 }
-.bg .bg-layer {
+
+.bg-layer {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
   background-size: cover;
-  background-position: bottom;
-  border-radius: inherit;
-  transform-origin: center;
-  transition: transform 0.1s ease-out;
+  background-position: center;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
-.bg .bg-layer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
+
+.bg-layer.first {
+  background-image: url("./assets/imgs/shape5.png");
+  left: 40%;
+  top: 40%;
+  width: 300px;
+  height: 300px;
+  z-index: -5;
 }
-.bg .bg-layer.zero {
+
+.bg-layer.second {
+  background-image: url("./assets/imgs/shape4.png");
+  left: 60%;
+  top: 0%;
+  width: 300px;
+  height: 300px;
+  z-index: -4;
+}
+
+.bg-layer.third {
+  background-image: url("./assets/imgs/shape3.png");
+  left: 20%;
+  top: 10%;
+  width: 300px;
+  height: 300px;
+  z-index: -3;
+}
+
+.bg-layer.fourth {
+  background-image: url("./assets/imgs/shape2.png");
+  left: -5%;
+  top: 2%;
+  width: 300px;
+  height: 300px;
+  z-index: -2;
+}
+
+.bg-layer.fifth {
+  background-image: url("./assets/imgs/shape1.png");
+  left: 85%;
+  top: 13%;
+  width: 300px;
+  height: 300px;
+  z-index: -1;
+}
+
+.bg-layer.zero {
   background-image: url("./assets/imgs/zero.png");
   z-index: -6;
   box-shadow: inset 0 0 12px var(--black-transparent-low);
   background-color: var(--white-grey);
-}
-.bg .bg-layer.first {
-  background-image: url("./assets/imgs/shape5.png");
-  transform: translate3d(0, calc(var(--scrollTop) / 5), 0);
-  left: 40%;
-  top: 40%;
-  z-index: -5;
-  width: 300px;
-  height: 300px;
-  opacity: var(--img-opacity);
-}
-.bg .bg-layer.second {
-  background-image: url("./assets/imgs/shape4.png");
-  transform: translate3d(0, calc(var(--scrollTop) / 1.5), 0);
-  left: 60%;
-  top: 0%;
-  z-index: -4;
-  width: 300px;
-  height: 300px;
-  opacity: var(--img-opacity);
-}
-.bg .bg-layer.third {
-  background-image: url("./assets/imgs/shape3.png");
-  transform: translate3d(0, calc(var(--scrollTop) / 1.8), 0);
-  left: 20%;
-  top: 10%;
-  z-index: -3;
-  width: 300px;
-  height: 300px;
-  opacity: var(--img-opacity);
-}
-.bg .bg-layer.fourth {
-  background-image: url("./assets/imgs/shape2.png");
-  transform: translate3d(0, calc(var(--scrollTop) / 1.4), 0);
-  left: -5%;
-  top: 2%;
-  z-index: -2;
-  width: 300px;
-  height: 300px;
-  opacity: var(--img-opacity);
-}
-.bg .bg-layer.fifth {
-  background-image: url("./assets/imgs/shape1.png");
-  transform: translate3d(0, calc(var(--scrollTop) / 1.9), 0);
-  left: 85%;
-  top: 13%;
-  z-index: -1;
-  width: 300px;
-  height: 300px;
-  opacity: var(--img-opacity);
+  width: 100%;
+  height: 100%;
 }
 
 .copy-block {
@@ -959,82 +949,56 @@ input::-webkit-inner-spin-button {
   .card p {
     font-size: 16px;
   }
-  .bg {
+  .bg-layer {
     position: absolute;
-    width: 90%;
-    height: 90%;
-    z-index: -1;
-    clip-path: url(#customShape);
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .bg .bg-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 300px;
     background-size: cover;
-    background-position: bottom;
-    border-radius: inherit;
-    transform-origin: center;
+    background-position: center;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
-  .bg .bg-layer {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-  }
-  .bg .bg-layer.zero {
-    background-image: url("./assets/imgs/zero.png");
-    z-index: -6;
-    box-shadow: inset 0 0 12px var(--black-transparent-low);
-  }
-  .bg .bg-layer.first {
+  .bg-layer.first {
     background-image: url("./assets/imgs/shape5.png");
-    transform: translate3d(0, calc(var(--scrollTop) / 1.9), 0);
-    left: 30%;
-    top: 30%;
+    left: 40%;
+    top: 40%;
+    width: 200px;
+    height: 200px;
     z-index: -5;
-    width: 200px;
-    height: 200px;
   }
-  .bg .bg-layer.second {
+  .bg-layer.second {
     background-image: url("./assets/imgs/shape4.png");
-    transform: translate3d(0, calc(var(--scrollTop) / 1.09), 0);
-    left: 50%;
+    left: 60%;
     top: 0%;
+    width: 200px;
+    height: 200px;
     z-index: -4;
-    width: 200px;
-    height: 200px;
   }
-  .bg .bg-layer.third {
+  .bg-layer.third {
     background-image: url("./assets/imgs/shape3.png");
-    transform: translate3d(0, calc(var(--scrollTop) / 5), 0);
-    left: 15%;
-    top: 55%;
+    left: 20%;
+    top: 10%;
+    width: 200px;
+    height: 200px;
     z-index: -3;
-    width: 200px;
-    height: 200px;
   }
-  .bg .bg-layer.fourth {
+  .bg-layer.fourth {
     background-image: url("./assets/imgs/shape2.png");
-    transform: translate3d(0, calc(var(--scrollTop) / 1.13), 0);
-    left: -15%;
+    left: -5%;
     top: 2%;
-    z-index: -2;
     width: 200px;
     height: 200px;
+    z-index: -2;
   }
-  .bg .bg-layer.fifth {
+  .bg-layer.fifth {
     background-image: url("./assets/imgs/shape1.png");
-    transform: translate3d(0, calc(var(--scrollTop) / 1.37), 0);
     left: 85%;
     top: 13%;
-    z-index: -1;
     width: 200px;
     height: 200px;
+    z-index: -1;
   }
   .stacks {
     position: relative;

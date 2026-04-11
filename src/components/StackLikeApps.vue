@@ -8,6 +8,7 @@ export default {
         new URL('@/assets/imgs/css.jpg', import.meta.url).href,
         new URL('@/assets/imgs/html.jpg', import.meta.url).href,
         new URL('@/assets/imgs/Axios.jpg', import.meta.url).href,
+        new URL('@/assets/imgs/react.jpg', import.meta.url).href,
       ],
       draggingIndex: null,
       dropTargetIndex: null,

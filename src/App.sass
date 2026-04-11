@@ -38,10 +38,6 @@
     --img-opacity: 1
     --white-no-switch: #ffffff
 
-
-
-
-  
 html
     width: 100%
     height: 100%
@@ -337,83 +333,61 @@ a
   border-radius: 8px  
   
 
-  .bg-layer
-    position: absolute
-    width: 100%
-    height: 100%
-    background-size: cover
-    background-position: bottom
-    border-radius: inherit 
-    transform-origin: center
-    transition: transform 0.1s ease-out
-    will-change: transform
-    
+.bg-layer 
+  position: absolute
+  width: 300px
+  height: 300px
+  background-size: cover
+  background-position: center
+  will-change: transform
+  transform: translate3d(0, 0, 0)
+  backface-visibility: hidden
+  -webkit-backface-visibility: hidden
 
-    &::after
-      content: ''
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      border-radius: inherit
-      
-    &.zero
-        background-image: url("./assets/imgs/zero.png")
-        z-index: -6
-        box-shadow: inset 0 0 12px var(--black-transparent-low)
-        background-color: var(--white-grey)
+.bg-layer.first
+    background-image: url("./assets/imgs/shape5.png")
+    left: 40% 
+    top: 40%
+    width: 300px
+    height: 300px
+    z-index: -5
+.bg-layer.second
+    background-image: url("./assets/imgs/shape4.png")
+    left: 60%
+    top: 0%
+    width: 300px
+    height: 300px
+    z-index: -4
+.bg-layer.third
+    background-image: url("./assets/imgs/shape3.png")
+    left: 20%
+    top: 10%
+    width: 300px
+    height: 300px
+    z-index: -3
+.bg-layer.fourth
+    background-image: url("./assets/imgs/shape2.png")
+    left: -5%
+    top: 2%
+    width: 300px
+    height: 300px
+    z-index: -2
+.bg-layer.fifth
+    background-image: url("./assets/imgs/shape1.png")
+    left: 85% 
+    top: 13%
+    width: 300px
+    height: 300px
+    z-index: -1
 
-    &.first
-      background-image: url("./assets/imgs/shape5.png")
-      transform: translate3d(0, calc(var(--scrollTop)/5), 0)
-      left: 40%
-      top: 40%
-      z-index: -5
-      width: 300px
-      height: 300px
-      opacity: var(--img-opacity)
+.bg-layer.zero
+  background-image: url("./assets/imgs/zero.png")
+  z-index: -6
+  box-shadow: inset 0 0 12px var(--black-transparent-low)
+  background-color: var(--white-grey)
+  width: 100%
+  height: 100%
 
-    &.second
-      background-image: url("./assets/imgs/shape4.png")
-      transform: translate3d(0, calc(var(--scrollTop)/1.5), 0)
-      left: 60%
-      top: 0%
-      z-index: -4
-      width: 300px
-      height: 300px
-      opacity: var(--img-opacity)
-
-    &.third
-      background-image: url("./assets/imgs/shape3.png")
-      transform: translate3d(0, calc(var(--scrollTop)/1.8), 0)
-      left: 20%
-      top: 10%
-      z-index: -3
-      width: 300px
-      height: 300px
-      opacity: var(--img-opacity)
-
-    &.fourth
-      background-image: url("./assets/imgs/shape2.png")
-      transform: translate3d(0, calc(var(--scrollTop)/1.4), 0)
-      left: -5%
-      top: 2%
-      z-index: -2
-      width: 300px
-      height: 300px
-      opacity: var(--img-opacity)
-
-    &.fifth
-      background-image: url("./assets/imgs/shape1.png")
-      transform: translate3d(0, calc(var(--scrollTop)/1.9), 0)
-      left: 85%
-      top: 13%
-      z-index: -1
-      width: 300px
-      height: 300px
-      opacity: var(--img-opacity)
-      
 .copy-block
     z-index: 1
     position: absolute
@@ -751,6 +725,7 @@ input::-webkit-inner-spin-button
         width: 420px
         height: 80px
 
+@media  screen and (min-width: 2000px)
 
 @media  screen and (max-width: 1400px)
     .h1
@@ -763,7 +738,6 @@ input::-webkit-inner-spin-button
         font-size: 28px
     .p
         font-size: 18px
-        
     .card
         p
             font-size: 14px
@@ -865,86 +839,54 @@ input::-webkit-inner-spin-button
     .card
         p
             font-size: 16px
-    .bg
+    
+    .bg-layer 
         position: absolute
-        width: 90%
-        height: 90%
+        width: 300px
+        height: 300px
+        background-size: cover
+        background-position: center
+        will-change: transform
+        transform: translate3d(0, 0, 0)
+        backface-visibility: hidden
+        -webkit-backface-visibility: hidden
+
+    .bg-layer.first
+        background-image: url("./assets/imgs/shape5.png")
+        left: 40% 
+        top: 40%
+        width: 200px
+        height: 200px
+        z-index: -5
+    .bg-layer.second
+        background-image: url("./assets/imgs/shape4.png")
+        left: 60%
+        top: 0%
+        width: 200px
+        height: 200px
+        z-index: -4
+    .bg-layer.third
+        background-image: url("./assets/imgs/shape3.png")
+        left: 20%
+        top: 10%
+        width: 200px
+        height: 200px
+        z-index: -3
+    .bg-layer.fourth
+        background-image: url("./assets/imgs/shape2.png")
+        left: -5%
+        top: 2%
+        width: 200px
+        height: 200px
+        z-index: -2
+    .bg-layer.fifth
+        background-image: url("./assets/imgs/shape1.png")
+        left: 85% 
+        top: 13%
+        width: 200px
+        height: 200px
         z-index: -1
-        clip-path: url(#customShape)
-        overflow: hidden
-        border-radius: 8px 
-        
-        .bg-layer
-            position: absolute
-            width: 100%
-            height: 100%
-            background-size: cover
-            background-position: bottom
-            border-radius: inherit  
-            transform-origin: center
-            
-
-            &::after
-            content: ''
-            position: absolute
-            top: 0
-            left: 0
-            right: 0
-            bottom: 0
-            border-radius: inherit
-            
-
-            &.zero
-                background-image: url("./assets/imgs/zero.png")
-                z-index: -6
-                box-shadow: inset 0 0 12px var(--black-transparent-low)
-                
-            &.first
-                background-image: url("./assets/imgs/shape5.png")
-                transform: translate3d(0, calc(var(--scrollTop)/1.9), 0)
-                left: 30%
-                top: 30%
-                z-index: -5
-                width: 200px
-                height: 200px
-
-            &.second
-                background-image: url("./assets/imgs/shape4.png")
-                transform: translate3d(0, calc(var(--scrollTop)/1.09), 0)
-                left: 50%
-                top: 0%
-                z-index: -4
-                width: 200px
-                height: 200px
-
-            &.third
-                background-image: url("./assets/imgs/shape3.png")
-                transform: translate3d(0, calc(var(--scrollTop)/5), 0)
-                left: 15%
-                top: 55%
-                z-index: -3
-                width: 200px
-                height: 200px
-
-            &.fourth
-                background-image: url("./assets/imgs/shape2.png")
-                transform: translate3d(0, calc(var(--scrollTop)/1.13), 0)
-                left: -15%
-                top: 2%
-                z-index: -2
-                width: 200px
-                height: 200px
-
-            &.fifth
-                background-image: url("./assets/imgs/shape1.png")
-                transform: translate3d(0, calc(var(--scrollTop)/1.37), 0)
-                left: 85%
-                top: 13%
-                z-index: -1
-                width: 200px
-                height: 200px
-
-
+    
     .stacks
         position: relative
         width: 150px

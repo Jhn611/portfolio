@@ -52,7 +52,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
       const email = this.formData.clientEmail,
         name = this.formData.clientName,
         text = this.formData.projectDescription
-      console.log(!value && (name || text), !value && (email || text), !value && (email || name))
+      //console.log(!value && (name || text), !value && (email || text), !value && (email || name))
       switch (field) {
         case 'clientEmail':
           this.errors.clientEmail =

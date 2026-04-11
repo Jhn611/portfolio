@@ -1,4 +1,6 @@
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MyCard from './components/MyCard.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
@@ -6,6 +8,7 @@ import LearnWindow from './components/LearnWindow.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
 import LanguageToggle from './components/LanguageToggle.vue'
 import { useTextStore } from './stores/text'
+
 export default {
   data() {
     const store = useTextStore()
@@ -37,11 +40,6 @@ export default {
     },
   },
   methods: {
-    handleScroll() {
-      this.scrollTop = window.scrollY
-      document.body.style.cssText = `--scrollTop: ${this.scrollTop}px`
-    },
-
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -50,35 +48,65 @@ export default {
       el.style.left = event.pageX + 'px'
       el.style.top = event.pageY + 'px'
     },
-    // startTyping() {
-    //   this.interval = setInterval(() => {
-    //     if (this.index < this.fullText.length) {
-    //       this.displayedText += this.fullText[this.index]
-    //       this.index++
-    //     } else {
-    //       clearInterval(this.interval)
-    //     }
-    //   }, 100)
-    // },
     checkScreen() {
       this.isMobile = window.innerWidth < 525
     },
     handleModalClose() {
       console.log('Модальное окно закрыто')
     },
+    initGSAP() {
+      gsap.registerPlugin(ScrollTrigger)
+
+      // 1. Параллакс слоёв (оставляем как тебе нравится)
+      const layers = [
+        { selector: '.bg-layer.first', multiplier: 0.25 },
+        { selector: '.bg-layer.second', multiplier: 0.82 },
+        { selector: '.bg-layer.third', multiplier: 0.62 },
+        { selector: '.bg-layer.fourth', multiplier: 0.98 },
+        { selector: '.bg-layer.fifth', multiplier: 0.58 },
+      ]
+
+      layers.forEach(({ selector, multiplier }) => {
+        gsap.to(selector, {
+          y: () => window.innerHeight * multiplier * 1.8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.main-first',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        })
+      })
+
+      // 2. ГЛОБАЛЬНЫЙ scrollTop — реальные пиксели по всей странице
+      ScrollTrigger.create({
+        trigger: 'body', // следим за всей страницей
+        start: 'top top',
+        end: () => document.documentElement.scrollHeight, // до самого низа
+        scrub: 0.8,
+        onUpdate: () => {
+          this.scrollTop = Math.round(window.scrollY) // Самый точный способ!
+        },
+      })
+
+      // Авто-обновление при ресайзе и загрузке
+      const refresh = () => ScrollTrigger.refresh()
+      window.addEventListener('resize', refresh)
+      setTimeout(refresh, 500) // на случай ленивой загрузки изображений
+    },
   },
   watch() {},
   created() {},
 
   mounted() {
-    // this.startTyping()
+    this.initGSAP()
     window.addEventListener('resize', this.checkScreen)
-    window.addEventListener('scroll', this.handleScroll)
   },
 
   unmounted() {
-    window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('resize', this.checkScreen)
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
   },
 }
 </script>
@@ -99,7 +127,6 @@ export default {
           <svg class="clip-svg" style="position: absolute; width: 0; height: 0">
             <defs>
               <clipPath id="customShape" clipPathUnits="objectBoundingBox">
-                <!-- Основная форма с закруглениями всех углов -->
                 <path
                   v-if="!isMobile"
                   d="
@@ -150,12 +177,12 @@ export default {
             </defs>
           </svg>
 
+          <div class="bg-layer zero"></div>
           <div class="bg-layer first"></div>
           <div class="bg-layer second"></div>
           <div class="bg-layer third"></div>
           <div class="bg-layer fourth"></div>
           <div class="bg-layer fifth"></div>
-          <div class="bg-layer zero"></div>
         </div>
       </div>
       <div class="main-second">
@@ -180,7 +207,7 @@ export default {
           <p class="p" v-html="lang.block3_P_part2"></p>
         </div>
         <div class="main-third__stack-block">
-          <StackLikeApps />
+          <StackLikeA pps />
           <LearnWindow :scroll="scrollTop" @closed="handleModalClose" />
         </div>
       </div>
@@ -205,14 +232,14 @@ export default {
         </div>
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl3.png" alt="" />
+            <img src="./assets/imgs/anime_girl2.JPG" alt="" />
           </div>
         </div>
       </div>
       <div class="main-fourth" v-if="!isMobile">
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl3.png" alt="" />
+            <img src="./assets/imgs/anime_girl2.JPG" alt="" />
           </div>
         </div>
         <div class="main-fourth__text_block">
