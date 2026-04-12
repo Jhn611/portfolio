@@ -56,8 +56,8 @@ export default {
     },
     initGSAP() {
       gsap.registerPlugin(ScrollTrigger)
+      ScrollTrigger.normalizeScroll(true)
 
-      // 1. Параллакс слоёв (оставляем как тебе нравится)
       const layers = [
         { selector: '.bg-layer.first', multiplier: 0.25 },
         { selector: '.bg-layer.second', multiplier: 0.82 },
@@ -79,21 +79,21 @@ export default {
         })
       })
 
-      // 2. ГЛОБАЛЬНЫЙ scrollTop — реальные пиксели по всей странице
+
       ScrollTrigger.create({
-        trigger: 'body', // следим за всей страницей
+        trigger: 'body',
         start: 'top top',
-        end: () => document.documentElement.scrollHeight, // до самого низа
+        end: () => document.documentElement.scrollHeight,
         scrub: 0.8,
         onUpdate: () => {
-          this.scrollTop = Math.round(window.scrollY) // Самый точный способ!
+          this.scrollTop = Math.round(window.scrollY)
         },
       })
 
-      // Авто-обновление при ресайзе и загрузке
+
       const refresh = () => ScrollTrigger.refresh()
       window.addEventListener('resize', refresh)
-      setTimeout(refresh, 500) // на случай ленивой загрузки изображений
+      setTimeout(refresh, 500)
     },
   },
   watch() {},
