@@ -41,15 +41,14 @@ export default {
     },
   },
   methods: {
-
     updateScroll() {
-    const current = Math.round(window.scrollY)
-    if (current !== this.lastScroll) {
-      this.scrollTop = current
-      this.lastScroll = current
-    }
-    this.rafId = requestAnimationFrame(() => this.updateScroll())
-  },
+      const current = Math.round(window.scrollY)
+      if (current !== this.lastScroll) {
+        this.scrollTop = current
+        this.lastScroll = current
+      }
+      this.rafId = requestAnimationFrame(() => this.updateScroll())
+    },
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -68,15 +67,15 @@ export default {
       gsap.registerPlugin(ScrollTrigger)
       ScrollTrigger.normalizeScroll(true)
       ScrollTrigger.config({
-          ignoreMobileResize: true,
-          syncInterval: 300,
-        })
+        ignoreMobileResize: true,
+        syncInterval: 300,
+      })
 
-        ScrollTrigger.normalizeScroll({
-          allowNestedScroll: true,
-          lockAxis: false,
-        })
-              const layers = [
+      ScrollTrigger.normalizeScroll({
+        allowNestedScroll: true,
+        lockAxis: false,
+      })
+      const layers = [
         { selector: '.bg-layer.first', multiplier: 0.25 },
         { selector: '.bg-layer.second', multiplier: 0.82 },
         { selector: '.bg-layer.third', multiplier: 0.62 },
@@ -98,7 +97,6 @@ export default {
           },
         })
       })
-
 
       ScrollTrigger.create({
         trigger: 'body',
@@ -252,14 +250,14 @@ export default {
         </div>
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl_noize.jpg" alt="" />
           </div>
         </div>
       </div>
       <div class="main-fourth" v-if="!isMobile">
         <div class="main-fourth__img">
           <div class="main-fourth__img-conteiner">
-            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl_noize.jpg" alt="" />
           </div>
         </div>
         <div class="main-fourth__text_block">
