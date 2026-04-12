@@ -21,6 +21,7 @@ export default {
       store,
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
+      lastScroll: 0,
       modelInp: '',
       showVideoModal: false,
     }
@@ -40,6 +41,15 @@ export default {
     },
   },
   methods: {
+
+    updateScroll() {
+    const current = Math.round(window.scrollY)
+    if (current !== this.lastScroll) {
+      this.scrollTop = current
+      this.lastScroll = current
+    }
+    this.rafId = requestAnimationFrame(() => this.updateScroll())
+  },
     copyEmail(event) {
       console.log(event.clientX, event.clientY)
       navigator.clipboard.writeText('ivantimofeev1912@gmail.com')
@@ -57,8 +67,16 @@ export default {
     initGSAP() {
       gsap.registerPlugin(ScrollTrigger)
       ScrollTrigger.normalizeScroll(true)
+      ScrollTrigger.config({
+          ignoreMobileResize: true,
+          syncInterval: 300,
+        })
 
-      const layers = [
+        ScrollTrigger.normalizeScroll({
+          allowNestedScroll: true,
+          lockAxis: false,
+        })
+              const layers = [
         { selector: '.bg-layer.first', multiplier: 0.25 },
         { selector: '.bg-layer.second', multiplier: 0.82 },
         { selector: '.bg-layer.third', multiplier: 0.62 },
@@ -75,6 +93,8 @@ export default {
             start: 'top top',
             end: 'bottom top',
             scrub: 0.8,
+            //fastScrollEnd: true,
+            anticipatePin: 1,
           },
         })
       })
@@ -86,14 +106,14 @@ export default {
         end: () => document.documentElement.scrollHeight,
         scrub: 0.8,
         onUpdate: () => {
-          this.scrollTop = Math.round(window.scrollY)
+          this.updateScroll()
         },
       })
-
 
       const refresh = () => ScrollTrigger.refresh()
       window.addEventListener('resize', refresh)
       setTimeout(refresh, 500)
+      //window.addEventListener('load', () => ScrollTrigger.refresh())
     },
   },
   watch() {},
