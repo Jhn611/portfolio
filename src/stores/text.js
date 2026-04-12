@@ -11,19 +11,21 @@ export const useTextStore = defineStore('textStore', {
       block2_H3_part2: `Goals`,
       block2_P_part2: `Gain work experience, more knowledge and skills in my field.<br />
         Currently looking for an internship<br />
-        where I can work while studying at the university.`,
+        where I can work while studying at the university.<br />
+I'm happy to participate in one-off projects and hackathons.`,
       block3_H2: `Skills`,
       block3_H3_part1: `General knowledge`,
-      block3_P_part1: `I have experience with Python, C++, C#,<br />
-    PostgreSQL, Vue.js, React.js, JavaScript,<br />
-    SASS, SCSS, CSS, html`,
+      block3_P_part1: `I have experience with Vue.js, React.js, <br />
+      JavaScript, TypeScript, SASS, SCSS, <br />
+      CSS, HTML, Python, C++, C#,<br />
+      PostgreSQL, Flutter + Dart<br />`,
       block3_H3_part2: `Tech stacks`,
-      block3_P_part2: `My main stack is Vue.js<br />
-    I write using JavaScript for the functional part of the project,<br />
-    "complex" animations, backend integration, etc.,<br />
-    SASS preprocessor for comfortable and concise<br />
-    style writing,<br />
-    classic html for markup.`,
+      block3_P_part2: `My main stacks are React and Vue.<br />
+I most often write using JavaScript for the functional part of the project,<br />
+"complex" animations, backend integration, etc.<br />
+I prefer the SASS preprocessor for comfortable and concise<br />
+style writing,<br />
+and classic HTML for markup.`,
       block4_H2: `Me`,
       block4_H3: `My interests`,
       block4_P: `In my free time I enjoy<br />
@@ -62,19 +64,22 @@ export const useTextStore = defineStore('textStore', {
       block2_H3_part2: `Цели`,
       block2_P_part2: ` Получить опыт работы, больше знаний и навыков в своей области.<br />
             На данный момент ищу стажировку,<br />
-            на которой смогу работать параллельно учёбе в вузе.`,
+            на которой смогу работать параллельно учёбе в вузе.<br />
+            Я буду рад принять участие в разовых проектах и хакатонах`,
       block3_H2: `Навыки`,
       block3_H3_part1: `Общие знания`,
-      block3_P_part1: `У меня есть опыт работы с Python, C++, C#,<br />
-    PostgreSQL, Vue.js, React.js, JavaScript,<br />
-    SASS, SCSS, CSS, html`,
+      block3_P_part1: `У меня есть опыт работы с Vue.js, React.js, <br />
+      JavaScript, TypeScript, SASS, SCSS, <br />
+      CSS, HTML, Python, C++, C#,<br />
+      PostgreSQL, Flutter + Dart<br />
+    `,
       block3_H3_part2: `Стеки`,
-      block3_P_part2: `Моим основным стеком является Vue.js<br />
-    Я пишу используя JavaScript для функциональной части проекта,<br />
+      block3_P_part2: `Мои основные стеки - React и Vue.<br />
+    Чаще всего пишу используя JavaScript для функциональной части проекта,<br />
     "сложных" анимаций, связки с бекэндом и т.д.,<br />
-    препроцессор SASS для комфортного и лаконичного<br />
+    Предпочитаю препроцессор SASS для комфортного и лаконичного<br />
     написания стилей,<br />
-    классический html для разметки.`,
+    И классический HTML для разметки.`,
       block4_H2: `Я`,
       block4_H3: `Мои интересы`,
       block4_P: `Свободное время я люблю проводить за<br />
