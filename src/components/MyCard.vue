@@ -87,7 +87,7 @@ export default {
       </div>
       <div class="card">
         <div class="card-img-block">
-          <img class="card-img-upper" src="../assets/imgs/my_photo_v2.png" alt="" />
+          <img class="card-img-upper" src="../assets/imgs/my_photo_v2_compressed.png" alt="" />
           <img class="card-img" src="../assets/imgs/my_photo_v2_bg.jpg" alt="" />
         </div>
         <h4 class="card-text" v-html="lang.card_name"></h4>
