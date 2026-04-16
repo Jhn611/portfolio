@@ -26,7 +26,7 @@ export default {
         upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
         lowerImage.style.transform = `scale(1.5)`
         setTimeout(() => {
-          upperImage.style.transform = `translate(0, 0) scale(1.05)` // Возвращаем на место
+          upperImage.style.transform = `translate(0, 0) scale(1.05)` 
           lowerImage.style.transform = `scale(1)`
         }, 50)
         setTimeout(() => {

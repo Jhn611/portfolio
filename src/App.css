@@ -182,7 +182,7 @@ a {
 .main-fourth__img img {
   border-radius: 11px;
   width: 400px;
-  height: 517px;
+  height: 516px;
   scale: 1.2;
 }
 .main-fourth__text_block {
@@ -877,6 +877,60 @@ input::-webkit-inner-spin-button {
     width: 500px;
     height: 500px;
   }
+  .card {
+    padding: 10px 0 0 0;
+    width: 360px;
+    height: 520px;
+  }
+  .card-img {
+    margin: 0 0 10px 0;
+    width: 340px;
+    height: 380px;
+  }
+  .card-img-upper {
+    margin: 0 0 10px 0;
+    width: 340px;
+    height: 380px;
+  }
+  .card-img-block {
+    margin: 0 0 10px 0;
+    width: 340px;
+    height: 380px;
+  }
+  .card-text {
+    padding: 0 0 4px 10px;
+    font-weight: 600;
+    font-size: 26px;
+  }
+  .card-text-p {
+    padding: 0 0 2px 0;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .card-text-p-img {
+    padding: 0 4px 0 0;
+    width: 20px;
+    height: 20px;
+  }
+  .card-back {
+    padding: 5px 0 5px 0;
+    width: 360px;
+    height: 520px;
+  }
+  .card-back-img {
+    width: 350px;
+    height: 510px;
+  }
+  .card-container {
+    width: 360px;
+    height: 520px;
+  }
+  .main-fourth__img img {
+    border-radius: 11px;
+    width: 500px;
+    height: 645px;
+    scale: 1.2;
+  }
 }
 @media screen and (min-width: 2700px) {
   .bg-layer.first {
@@ -898,6 +952,12 @@ input::-webkit-inner-spin-button {
   .bg-layer.fifth {
     width: 600px;
     height: 600px;
+  }
+  .main-fourth__img img {
+    border-radius: 11px;
+    width: 600px;
+    height: 774px;
+    scale: 1.2;
   }
 }
 @media screen and (max-width: 1400px) {
@@ -1013,7 +1073,7 @@ input::-webkit-inner-spin-button {
   .main-fourth__img img {
     border-radius: 11px;
     width: 300px;
-    height: 388px;
+    height: 387px;
   }
   .main-fourth__text_block {
     width: 95%;
