@@ -2,6 +2,7 @@
 import { useClientRequestStore } from '@/stores/form.js'
 import { useTextStore } from '@/stores/text.js'
 import { storeToRefs } from 'pinia'
+import CustomInput from './CustomInput.vue'
 
 export default {
   data() {
@@ -22,6 +23,9 @@ export default {
         projectDescription: false,
       },
     }
+  },
+  components: {
+    CustomInput,
   },
   computed: {
     lang() {
@@ -58,35 +62,25 @@ export default {
     <h2 class="rubic" v-html="lang.form_H2"></h2>
 
     <form class="form" @submit.prevent="handleSubmit" novalidate>
-      <label class="input">
-        <input
-          id="clientEmail"
-          v-model="formData.clientEmail"
-          class="input__field"
-          @input="updateField('clientEmail', $event.target.value)"
-          @blur="validateField('clientEmail', formData.clientEmail)"
-          type="email"
-          :class="{ invalid: errors.clientEmail }"
-          placeholder=" "
-        />
-        <span class="input__label" v-html="lang.form_label1"></span>
-        <span class="error raleway" v-if="errors.clientEmail">{{ errors.clientEmail }}</span>
-      </label>
+      <CustomInput
+        input-id="clientEmail"
+        :model-value="formData.clientEmail"
+        :errors="errors"
+        :lang="lang"
+        :label="lang.form_label1"
+        @update:modelValue="updateField('clientEmail', $event)"
+        @blur-field="validateField('clientEmail', $event)"
+      />
 
-      <label class="input">
-        <input
-          class="input__field"
-          id="clientName"
-          v-model="formData.clientName"
-          @input="updateField('clientName', $event.target.value)"
-          @blur="validateField('clientName', formData.clientName)"
-          type="text"
-          placeholder=" "
-          :class="{ invalid: errors.clientName }"
-        />
-        <span class="input__label" v-html="lang.form_label2"></span>
-        <span class="error raleway" v-if="errors.clientName">{{ errors.clientName }}</span>
-      </label>
+      <CustomInput
+        input-id="clientName"
+        :model-value="formData.clientName"
+        :errors="errors"
+        :lang="lang"
+        :label="lang.form_label2"
+        @update:modelValue="updateField('clientName', $event)"
+        @blur-field="validateField('clientName', $event)"
+      />
 
       <label class="input input__textarea">
         <textarea
