@@ -132,15 +132,14 @@ export default {
 <template>
   <div class="page">
     <main class="main">
+      <div class="toggle-container">
+        <ThemeToggle :scroll="scrollTop" />
+        <LanguageToggle :scroll="scrollTop" />
+      </div>
       <div class="main-first">
         <div class="main-first__text-block">
           <h1 class="h1" v-html="lang.block1_H1"></h1>
         </div>
-        <div class="toggle-container">
-          <ThemeToggle :scroll="scrollTop" />
-          <LanguageToggle :scroll="scrollTop" />
-        </div>
-
         <div class="bg">
           <svg class="clip-svg" style="position: absolute; width: 0; height: 0">
             <defs>
