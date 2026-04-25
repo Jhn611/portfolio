@@ -26,7 +26,7 @@
     --black: #000000
     --black-transparent-hight: rgba(255, 255, 255, 0.7)
     --black-transparent-medium: rgba(12, 12, 12, 0.32)
-    --black-transparent-pre-low: rgba(0, 0, 0, 0.2)
+    --black-transparent-pre-low: rgba(0, 0, 0, 0.19)
     --black-transparent-low: rgba(0,0,0,0.08)
     --coral: #ff4444
     --light-coral: #ff5f56
@@ -385,7 +385,7 @@ a
 .bg-layer.zero
   background-image: url("./assets/imgs/zero.png")
   z-index: -6
-  box-shadow: inset 0 0 12px var(--black-transparent-low)
+  box-shadow: inset 0 0 12px 2px var(--black-transparent-pre-low)
   background-color: var(--white-grey)
   width: 100%
   height: 100%
@@ -748,6 +748,8 @@ input::-webkit-inner-spin-button
     .bg-layer.fifth
         width: 400px
         height: 400px
+    .bg-layer.zero
+        box-shadow: inset 0 0 12px 3px var(--black-transparent-pre-low)
 
 @media  screen and (min-width: 2100px)
     html
@@ -770,7 +772,9 @@ input::-webkit-inner-spin-button
         height: 500px
     .bg-layer.fifth
         width: 500px
-        height: 500px      
+        height: 500px
+    .bg-layer.zero
+        box-shadow: inset 0 0 12px 4px var(--black-transparent-pre-low)      
     .card
         padding: 10px 0 0 0 
         width: 360px
@@ -835,6 +839,8 @@ input::-webkit-inner-spin-button
     .bg-layer.fifth
         width: 600px
         height: 600px 
+    .bg-layer.zero
+        box-shadow: inset 0 0 12px 6px var(--black-transparent-pre-low)
 
     .main-fourth
         &__img
