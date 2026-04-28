@@ -1,6 +1,6 @@
 # My portfolio
 
-link - https://jhn611.github.io/portfolio/
+link - https://ivanjhn.ru/ or https://jhn611.github.io/portfolio/
 
 ## Project Setup
 
@@ -21,7 +21,6 @@ npm run build
 ```
 
 GitHub Pages uses `/portfolio/` by default, so a regular build already works for Pages.
-
 For Docker or any deployment from the site root, override the base path during build:
 
 ```sh
