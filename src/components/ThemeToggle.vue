@@ -26,7 +26,7 @@ export default {
     switch_theme() {
       console.log(this.theme_flag)
       if (!this.theme_flag) {
-        document.documentElement.style.setProperty('--white', '#000000')
+        document.documentElement.style.setProperty('--white', '#090909')
         document.documentElement.style.setProperty('--white-grey', '#1e1e1e')
         document.documentElement.style.setProperty('--white-blue-grey', '#141515')
         document.documentElement.style.setProperty('--white-light-grey', '#0c0c0c')
@@ -34,22 +34,22 @@ export default {
         document.documentElement.style.setProperty('--pre-grey', '#3b3b3b')
         document.documentElement.style.setProperty('--grey', '#c0c0c0')
         document.documentElement.style.setProperty('--dark-grey', '#3e3e3e')
-        document.documentElement.style.setProperty('--black', '#ffffff')
+        document.documentElement.style.setProperty('--black', '#f6f6f6')
         document.documentElement.style.setProperty(
           '--black-transparent-hight',
-          'rgba(255, 255, 255, 0.7)',
+          'rgba(159, 154, 210, 0.75)',
         )
         document.documentElement.style.setProperty(
           '--black-transparent-medium',
-          'rgba(245, 245, 245, 0.32)',
+          'rgba(159, 154, 210, 0.34)',
         )
         document.documentElement.style.setProperty(
           '--black-transparent-pre-low',
-          'rgba(255, 255, 255, 0.2)',
+          'rgba(159, 154, 210, 0.22)',
         )
         document.documentElement.style.setProperty(
           '--black-transparent-low',
-          'rgba(255,255,255,0.08)',
+          'rgba(159, 154, 210, 0.10)',
         )
         document.documentElement.style.setProperty('--coral', '#b52e2e')
         document.documentElement.style.setProperty('--light-coral', '#ff5f56')
@@ -59,8 +59,9 @@ export default {
         document.documentElement.style.setProperty('--img', '1')
         document.documentElement.style.setProperty('--img-reverse', '0')
         document.documentElement.style.setProperty('--img-opacity', '0.85')
+        document.documentElement.style.setProperty('--reset-btn-bg', '#dedfdf')
       } else {
-        document.documentElement.style.setProperty('--white', '#ffffff')
+        document.documentElement.style.setProperty('--white', '#f1f0f7')
         document.documentElement.style.setProperty('--white-grey', '#f4f4f4')
         document.documentElement.style.setProperty('--white-blue-grey', '#e9ecef')
         document.documentElement.style.setProperty('--white-light-grey', '#f8f9fa')
@@ -68,28 +69,32 @@ export default {
         document.documentElement.style.setProperty('--pre-grey', '#cccccc')
         document.documentElement.style.setProperty('--grey', '#555')
         document.documentElement.style.setProperty('--dark-grey', '#3e3e3e')
-        document.documentElement.style.setProperty('--black', '#000000')
+        document.documentElement.style.setProperty('--black', '#090909')
         document.documentElement.style.setProperty(
           '--black-transparent-hight',
-          'rgba(0, 0, 0, 0.7)',
+          'rgba(61, 57, 81, 0.7)',
         )
         document.documentElement.style.setProperty(
           '--black-transparent-medium',
-          'rgba(12, 12, 12, 0.32)',
+          'rgba(61, 57, 81, 0.24)',
         )
         document.documentElement.style.setProperty(
           '--black-transparent-pre-low',
-          'rgba(0, 0, 0, 0.2)',
+          'rgba(61, 57, 81, 0.19)',
         )
-        document.documentElement.style.setProperty('--black-transparent-low', 'rgba(0,0,0,0.08)')
+        document.documentElement.style.setProperty(
+          '--black-transparent-low',
+          'rgba(61, 57, 81, 0.08)',
+        )
         document.documentElement.style.setProperty('--coral', '#ff4444')
         document.documentElement.style.setProperty('--light-coral', '#ff5f56')
         document.documentElement.style.setProperty('--emerald', '#42b983')
         document.documentElement.style.setProperty('--dark-emerald', '#3aa876')
-        document.documentElement.style.setProperty('--dark-blue', '#4f5749')
+        document.documentElement.style.setProperty('--dark-blue', '#57577f')
         document.documentElement.style.setProperty('--img', '0')
         document.documentElement.style.setProperty('--img-reverse', '1')
         document.documentElement.style.setProperty('--img-opacity', '1')
+        document.documentElement.style.setProperty('--reset-btn-bg', '#e8eaeb')
       }
     },
   },

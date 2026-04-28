@@ -15,7 +15,7 @@
   src: url("./assets/fonts/Rubik_Puddles/RubikPuddles-Regular.ttf");
 }
 :root {
-  --white: #ffffff;
+  --white: #f1f0f7;
   --white-grey: #f4f4f4;
   --white-blue-grey: #e9ecef;
   --white-light-grey: #f8f9fa;
@@ -23,11 +23,11 @@
   --pre-grey: #cccccc;
   --grey: #555;
   --dark-grey: #3e3e3e;
-  --black: #000000;
-  --black-transparent-hight: rgba(255, 255, 255, 0.7);
-  --black-transparent-medium: rgba(12, 12, 12, 0.32);
-  --black-transparent-pre-low: rgba(0, 0, 0, 0.19);
-  --black-transparent-low: rgba(0,0,0,0.08);
+  --black: #090909;
+  --black-transparent-hight: rgba(61, 57, 81, 0.7);
+  --black-transparent-medium: rgba(46, 40, 50, 0.24);
+  --black-transparent-pre-low: rgba(61, 57, 81, 0.19);
+  --black-transparent-low: rgba(61, 57, 81, 0.08);
   --coral: #ff4444;
   --light-coral: #ff5f56;
   --emerald: #42b983;
@@ -37,6 +37,7 @@
   --img-reverse: 1;
   --img-opacity: 1;
   --white-no-switch: #ffffff;
+  --reset-btn-bg: #f8f9fa;
 }
 
 html {
@@ -582,7 +583,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   cursor: move;
   transition: all 0.3s ease;
   -webkit-user-select: none;
@@ -619,6 +619,7 @@ a {
   border-radius: 12px;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 0 0 3px 2px var(--black-transparent-pre-low);
   pointer-events: none;
 }
 
@@ -703,11 +704,11 @@ input::-webkit-inner-spin-button {
   display: block;
   width: 100%;
   border: 1px solid var(--white-no-switch);
-  padding: 0 0 0 14px;
+  padding: 0 12px 0 14px;
   color: var(--white-no-switch);
   background: transparent;
   border-radius: 1px;
-  width: 400px;
+  width: 388px;
   height: 40px;
   font-size: 1rem;
   font-family: Raleway;
@@ -715,7 +716,7 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 .input__field__textarea {
-  padding: 12px 0 0 14px;
+  padding: 12px 12px 0 14px;
 }
 .input__field__s {
   width: 300px;
@@ -807,7 +808,7 @@ input::-webkit-inner-spin-button {
 
 .reset-btn {
   padding: 0.5rem 1rem;
-  background-color: var(--white-light-grey);
+  background-color: var(--reset-btn-bg);
   border: 1px solid var(--light-grey);
   border-radius: 4px;
   cursor: pointer;
@@ -1269,7 +1270,7 @@ input::-webkit-inner-spin-button {
   }
   .reset-btn {
     padding: 0.5rem 1rem;
-    background-color: var(--white-light-grey);
+    background-color: var(--reset-btn-bg);
     border: 1px solid var(--light-grey);
     border-radius: 4px;
     cursor: pointer;

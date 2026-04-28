@@ -9,6 +9,7 @@
   background-color: var(--white-grey);
   border-radius: 20px;
   border: 1px solid var(--light-grey);
+  box-shadow: 0 0 2px 2px var(--black-transparent-low);
   width: 110px;
   height: 45px;
   z-index: 2000;
