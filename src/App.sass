@@ -32,7 +32,8 @@
     --light-coral: #ff5f56
     --emerald: #42b983
     --dark-emerald: #3aa876
-    --dark-blue: #4f5749
+    --dark-blue: #57577f
+    --light-blue: #464667
     --img: 0
     --img-reverse: 1
     --img-opacity: 1
@@ -155,6 +156,36 @@ a
             color: var(--black)
 
     &-fourth
+        display: flex
+        flex-direction: row
+        justify-content: space-evenly
+        align-items: center
+        width: 100%
+        height: 100vh
+        &__img
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 50%  
+            height: 90%
+        //     img
+        //         border-radius: 11px
+        //         width: 400px
+        //         height: 516px
+        //         scale: 1.2
+                
+        &__text_block
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: start
+            width: 25%
+            height: 90%
+            color: var(--black)
+            // &__link
+            //     display: flex
+            //     flex-direction: row
+    &-five
         display: flex
         flex-direction: row
         justify-content: space-around
@@ -452,6 +483,15 @@ a
     font-family: Raleway
     font-weight: 200
     margin: 0 0 35px 0
+
+
+.a
+    font-size: 1.5rem
+    font-family: Raleway
+    font-weight: 400
+    margin: 0 0 35px 0
+    color: var(--light-blue)
+    cursor: pointer
 
 .h1-y2k
     margin: 0 0 24px 0
@@ -819,7 +859,14 @@ input::-webkit-inner-spin-button
         width: 360px
         height: 520px
 
-    .main-fourth
+    // .main-fourth
+    //     &__img
+    //         img
+    //             border-radius: 11px
+    //             width: 500px
+    //             height: 645px
+    //             scale: 1.2
+    .main-five
         &__img
             img
                 border-radius: 11px
@@ -846,7 +893,14 @@ input::-webkit-inner-spin-button
     .bg-layer.zero
         box-shadow: inset 0 0 12px 6px var(--black-transparent-pre-low)
 
-    .main-fourth
+    // .main-fourth
+    //     &__img
+    //         img
+    //             border-radius: 11px
+    //             width: 600px
+    //             height: 774px
+    //             scale: 1.2
+    .main-five
         &__img
             img
                 border-radius: 11px
@@ -941,6 +995,35 @@ input::-webkit-inner-spin-button
                 height: 60%
 
         &-fourth
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            align-items: center
+            width: 100%
+            height: 110vh
+            &__img
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 95%
+                height: 50%
+            //     img
+            //         border-radius: 11px
+            //         width: 300px
+            //         height: 387px
+                    
+            &__text_block
+                display: flex
+                justify-content: center
+                align-items: start
+                width: 95%
+                height: 50%
+                color: var(--black)
+                // &__link
+                //     display: flex
+                //     flex-direction: row
+
+        &-five
             display: flex
             flex-direction: column
             justify-content: space-around
@@ -1057,6 +1140,10 @@ input::-webkit-inner-spin-button
         font-size: 17px
         font-family: Raleway
         font-weight: 200
+    .a
+        font-size: 17px
+        font-family: Raleway
+        font-weight: 400
 
     .input 
         width: 286px
@@ -1175,6 +1262,19 @@ input::-webkit-inner-spin-button
                 height: 60%
 
         &-fourth
+            height: 135vh
+            // &__img
+            //     height: 60%
+            //     img
+            //         height: 388px
+                    
+            &__text_block
+                height: 40%
+                // &__link
+                //     display: flex
+                //     flex-direction: row
+                
+        &-five
             height: 135vh
             &__img
                 height: 60%

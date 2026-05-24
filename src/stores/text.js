@@ -26,9 +26,15 @@ I most often write using JavaScript for the functional part of the project,<br /
 I prefer the SASS preprocessor for comfortable and concise<br />
 style writing,<br />
 and classic HTML for markup.`,
-      block4_H2: `Me`,
-      block4_H3: `My interests`,
-      block4_P: `In my free time I enjoy<br />
+      block4_H2: `Projects`,
+      block4_H3: `Online code editor`,
+      block4_P: `For my own needs, I built an online JavaScript code editor<br />
+    designed for writing simple code and solving small tasks in this language.<br />
+    It supports displaying objects and lists, and also correctly handles promises and timeouts.<br />
+    The project is available at the <a class="a" href="https://onlineeditor.ivanjhn.ru/" target="_blank">link</a> - <a class="a" href="https://onlineeditor.ivanjhn.ru/" target="_blank">https://onlineeditor.ivanjhn.ru/</a>`,
+      block5_H2: `Me`,
+      block5_H3: `My interests`,
+      block5_P: `In my free time I enjoy<br />
     drawing, gaming<br />
     and studying interesting animations and frontend tricks.`,
       form_H2: `Write to me`,
@@ -80,9 +86,12 @@ and classic HTML for markup.`,
     Предпочитаю препроцессор SASS для комфортного и лаконичного<br />
     написания стилей,<br />
     И классический HTML для разметки.`,
-      block4_H2: `Я`,
-      block4_H3: `Мои интересы`,
-      block4_P: `Свободное время я люблю проводить за<br />
+      block4_H2: `Проекты`,
+      block4_H3: `Онлайн редакотор кода`,
+      block4_P: `В рамках своих потребностей я реализовал онлайн редактор JavaScrip кода, <br />который преднозначен для написания простого кода и решения задачек на этом языке.<br />В нем реализовано отображение объектов и списков, а так же корректно обрботаны промисы и таймауты. <br />Проект доступен по <a class="a" href="https://onlineeditor.ivanjhn.ru/" target="_blank">ссылке</a> - <a class="a" href="https://onlineeditor.ivanjhn.ru/" target="_blank">https://onlineeditor.ivanjhn.ru/</a>`,
+      block5_H2: `Я`,
+      block5_H3: `Мои интересы`,
+      block5_P: `Свободное время я люблю проводить за<br />
     рисованием, играми<br />
     и изучением интересных анимаций и фишек во фронтенде.`,
       form_H2: `Напишите мне`,
