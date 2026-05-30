@@ -1,5 +1,7 @@
 <script>
 import { useTextStore } from '@/stores/text'
+// import learnMp4 from '@/assets/video/learn1.mp4'
+import learnWebm from '@/assets/video/learn2.webm'
 export default {
   props: {
     scroll: {
@@ -20,6 +22,8 @@ export default {
       dragOffsetX: 0,
       dragOffsetY: 0,
       isDragging: false,
+      // learnMp4,
+      learnWebm,
     }
   },
   computed: {
@@ -157,8 +161,10 @@ export default {
         muted
         playsinline
         ref="videoPlayer"
-        src="../assets/video/learn1.mp4"
-      ></video>
+      >
+        <source :src="learnWebm" type="video/webm" />
+        <!-- <source :src="learnMp4" type="video/mp4" /> -->
+      </video>
     </div>
   </transition>
 </template>

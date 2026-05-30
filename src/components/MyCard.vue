@@ -7,6 +7,9 @@ export default {
       store,
       isFlipped: true,
       startFlip: true,
+      parallaxFrame: null,
+      mouseX: 0,
+      mouseY: 0,
     }
   },
   props: {
@@ -20,13 +23,16 @@ export default {
   methods: {
     toggleFlip() {
       this.isFlipped = !this.isFlipped
-      const upperImage = document.querySelector('.card-img-upper')
-      const lowerImage = document.querySelector('.card-img')
+      const upperImage = this.$refs.upperImage
+      const lowerImage = this.$refs.lowerImage
+
+      if (!upperImage || !lowerImage) return
+
       if (!this.isFlipped) {
         upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
         lowerImage.style.transform = `scale(1.5)`
         setTimeout(() => {
-          upperImage.style.transform = `translate(0, 0) scale(1.05)` 
+          upperImage.style.transform = `translate(0, 0) scale(1.05)`
           lowerImage.style.transform = `scale(1)`
         }, 50)
         setTimeout(() => {
@@ -34,26 +40,56 @@ export default {
         }, 800)
       } else {
         document.removeEventListener('mousemove', this.handleParallax)
+        this.cancelParallaxFrame()
         upperImage.style.transform = `translate(-100px, 50px) scale(1.25)`
         lowerImage.style.transform = `scale(1.5)`
       }
     },
     handleParallax(event) {
       if (this.isFlipped) {
-        const upperImage = document.querySelector('.card-img-upper')
-        const lowerImage = document.querySelector('.card-img')
-        upperImage.style.transform = 'translate(0, 0)'
-        lowerImage.style.transform = 'translate(0, 0)'
+        this.resetParallax()
         return
       }
 
-      const cardBlock = document.querySelector('.card-img-block')
-      const upperImage = document.querySelector('.card-img-upper')
-      const { left, top, width, height } = cardBlock.getBoundingClientRect()
-      const x = (event.clientX - (left + width / 2)) / 200
-      const y = (event.clientY - (top + height / 2)) / 200
+      this.mouseX = event.clientX
+      this.mouseY = event.clientY
 
-      upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
+      if (this.parallaxFrame) return
+
+      this.parallaxFrame = requestAnimationFrame(() => {
+        const cardBlock = this.$refs.cardBlock
+        const upperImage = this.$refs.upperImage
+
+        if (this.isFlipped || !cardBlock || !upperImage) {
+          this.parallaxFrame = null
+          return
+        }
+
+        const { left, top, width, height } = cardBlock.getBoundingClientRect()
+        const x = (this.mouseX - (left + width / 2)) / 200
+        const y = (this.mouseY - (top + height / 2)) / 200
+
+        upperImage.style.transform = `translate(${x}px, ${y}px) scale(1.05)`
+        this.parallaxFrame = null
+      })
+    },
+    cancelParallaxFrame() {
+      if (this.parallaxFrame) {
+        cancelAnimationFrame(this.parallaxFrame)
+        this.parallaxFrame = null
+      }
+    },
+    resetParallax() {
+      const upperImage = this.$refs.upperImage
+      const lowerImage = this.$refs.lowerImage
+
+      if (upperImage) {
+        upperImage.style.transform = 'translate(0, 0)'
+      }
+
+      if (lowerImage) {
+        lowerImage.style.transform = 'translate(0, 0)'
+      }
     },
   },
   watch: {
@@ -75,6 +111,7 @@ export default {
 
   unmounted() {
     document.removeEventListener('mousemove', this.handleParallax)
+    this.cancelParallaxFrame()
   },
 }
 </script>
@@ -86,9 +123,19 @@ export default {
         <img class="card-back-img" src="../assets/imgs/Card_back.svg" alt="" />
       </div>
       <div class="card">
-        <div class="card-img-block">
-          <img class="card-img-upper" src="../assets/imgs/my_photo_v2_compressed.png" alt="" />
-          <img class="card-img" src="../assets/imgs/my_photo_v2_bg.jpg" alt="" />
+        <div class="card-img-block" ref="cardBlock">
+          <img
+            class="card-img-upper"
+            ref="upperImage"
+            src="../assets/imgs/my_photo_v2_compressed.png"
+            alt=""
+          />
+          <img
+            class="card-img"
+            ref="lowerImage"
+            src="../assets/imgs/my_photo_v2_bg.jpg"
+            alt=""
+          />
         </div>
         <h4 class="card-text" v-html="lang.card_name"></h4>
         <p class="card-text-p">

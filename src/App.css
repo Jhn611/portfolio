@@ -402,7 +402,7 @@ a {
 }
 
 .bg-layer.first {
-  background-image: url("./assets/imgs/shape5_v2.png");
+  background-image: url("./assets/imgs/shape5_v2.webp");
   left: 40%;
   top: 40%;
   width: 300px;
@@ -411,7 +411,7 @@ a {
 }
 
 .bg-layer.second {
-  background-image: url("./assets/imgs/shape4_v2.png");
+  background-image: url("./assets/imgs/shape4_v2.webp");
   left: 60%;
   top: 0%;
   width: 300px;
@@ -420,7 +420,7 @@ a {
 }
 
 .bg-layer.third {
-  background-image: url("./assets/imgs/shape3_v2.png");
+  background-image: url("./assets/imgs/shape3_v2.webp");
   left: 20%;
   top: 10%;
   width: 300px;
@@ -429,7 +429,7 @@ a {
 }
 
 .bg-layer.fourth {
-  background-image: url("./assets/imgs/shape2_v2.png");
+  background-image: url("./assets/imgs/shape2_v2.webp");
   left: -5%;
   top: 2%;
   width: 300px;
@@ -438,7 +438,7 @@ a {
 }
 
 .bg-layer.fifth {
-  background-image: url("./assets/imgs/shape1_v2.png");
+  background-image: url("./assets/imgs/shape1_v2.webp");
   left: 85%;
   top: 13%;
   width: 300px;
@@ -1170,7 +1170,7 @@ input::-webkit-inner-spin-button {
     -webkit-backface-visibility: hidden;
   }
   .bg-layer.first {
-    background-image: url("./assets/imgs/shape5_v2.png");
+    background-image: url("./assets/imgs/shape5_v2.webp");
     left: 40%;
     top: 40%;
     width: 200px;
@@ -1178,7 +1178,7 @@ input::-webkit-inner-spin-button {
     z-index: -5;
   }
   .bg-layer.second {
-    background-image: url("./assets/imgs/shape4_v2.png");
+    background-image: url("./assets/imgs/shape4_v2.webp");
     left: 60%;
     top: 0%;
     width: 200px;
@@ -1186,7 +1186,7 @@ input::-webkit-inner-spin-button {
     z-index: -4;
   }
   .bg-layer.third {
-    background-image: url("./assets/imgs/shape3_v2.png");
+    background-image: url("./assets/imgs/shape3_v2.webp");
     left: 20%;
     top: 10%;
     width: 200px;
@@ -1194,7 +1194,7 @@ input::-webkit-inner-spin-button {
     z-index: -3;
   }
   .bg-layer.fourth {
-    background-image: url("./assets/imgs/shape2_v2.png");
+    background-image: url("./assets/imgs/shape2_v2.webp");
     left: -5%;
     top: 2%;
     width: 200px;
@@ -1202,7 +1202,7 @@ input::-webkit-inner-spin-button {
     z-index: -2;
   }
   .bg-layer.fifth {
-    background-image: url("./assets/imgs/shape1_v2.png");
+    background-image: url("./assets/imgs/shape1_v2.webp");
     left: 85%;
     top: 13%;
     width: 200px;

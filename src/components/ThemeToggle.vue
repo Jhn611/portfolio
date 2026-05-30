@@ -8,7 +8,7 @@ export default {
   },
 
   data() {
-    return { theme_flag: false, firstBlock: null }
+    return { theme_flag: true, firstBlock: null }
   },
 
   methods: {
