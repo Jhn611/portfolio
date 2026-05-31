@@ -27,6 +27,7 @@ export default {
       lastScroll: 0,
       rafId: null,
       refreshScrollTrigger: null,
+      refreshScrollTriggerEvent: '',
       modelInp: '',
       showVideoModal: false,
       accordionItems: [
@@ -92,7 +93,12 @@ export default {
     },
     initGSAP() {
       gsap.registerPlugin(ScrollTrigger)
+      const refreshEvents = ScrollTrigger.isTouch
+        ? 'visibilitychange,DOMContentLoaded,load'
+        : 'visibilitychange,DOMContentLoaded,load,resize'
+
       ScrollTrigger.config({
+        autoRefreshEvents: refreshEvents,
         ignoreMobileResize: true,
         syncInterval: 300,
       })
@@ -115,13 +121,14 @@ export default {
             end: 'bottom top',
             scrub: 0.8,
             //fastScrollEnd: true,
-            anticipatePin: 1,
+            invalidateOnRefresh: true,
           },
         })
       })
 
       this.refreshScrollTrigger = () => ScrollTrigger.refresh()
-      window.addEventListener('resize', this.refreshScrollTrigger)
+      this.refreshScrollTriggerEvent = ScrollTrigger.isTouch ? 'orientationchange' : 'resize'
+      window.addEventListener(this.refreshScrollTriggerEvent, this.refreshScrollTrigger)
       setTimeout(this.refreshScrollTrigger, 500)
       //window.addEventListener('load', () => ScrollTrigger.refresh())
     },
@@ -139,8 +146,8 @@ export default {
   unmounted() {
     window.removeEventListener('resize', this.checkScreen)
     window.removeEventListener('scroll', this.handleScroll)
-    if (this.refreshScrollTrigger) {
-      window.removeEventListener('resize', this.refreshScrollTrigger)
+    if (this.refreshScrollTrigger && this.refreshScrollTriggerEvent) {
+      window.removeEventListener(this.refreshScrollTriggerEvent, this.refreshScrollTrigger)
     }
     if (this.rafId) {
       cancelAnimationFrame(this.rafId)
