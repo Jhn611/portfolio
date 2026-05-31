@@ -25,6 +25,8 @@ export default {
       isMobile: window.innerWidth < 525,
       scrollTop: 0,
       lastScroll: 0,
+      rafId: null,
+      refreshScrollTrigger: null,
       modelInp: '',
       showVideoModal: false,
       accordionItems: [
@@ -67,6 +69,11 @@ export default {
         this.scrollTop = current
         this.lastScroll = current
       }
+      this.rafId = null
+    },
+    handleScroll() {
+      if (this.rafId) return
+
       this.rafId = requestAnimationFrame(() => this.updateScroll())
     },
     copyEmail(event) {
@@ -85,16 +92,11 @@ export default {
     },
     initGSAP() {
       gsap.registerPlugin(ScrollTrigger)
-      ScrollTrigger.normalizeScroll(true)
       ScrollTrigger.config({
         ignoreMobileResize: true,
         syncInterval: 300,
       })
 
-      ScrollTrigger.normalizeScroll({
-        allowNestedScroll: true,
-        lockAxis: false,
-      })
       const layers = [
         { selector: '.bg-layer.first', multiplier: 0.25 },
         { selector: '.bg-layer.second', multiplier: 0.82 },
@@ -118,19 +120,9 @@ export default {
         })
       })
 
-      ScrollTrigger.create({
-        trigger: 'body',
-        start: 'top top',
-        end: () => document.documentElement.scrollHeight,
-        scrub: 0.8,
-        onUpdate: () => {
-          this.updateScroll()
-        },
-      })
-
-      const refresh = () => ScrollTrigger.refresh()
-      window.addEventListener('resize', refresh)
-      setTimeout(refresh, 500)
+      this.refreshScrollTrigger = () => ScrollTrigger.refresh()
+      window.addEventListener('resize', this.refreshScrollTrigger)
+      setTimeout(this.refreshScrollTrigger, 500)
       //window.addEventListener('load', () => ScrollTrigger.refresh())
     },
   },
@@ -140,10 +132,19 @@ export default {
   mounted() {
     this.initGSAP()
     window.addEventListener('resize', this.checkScreen)
+    window.addEventListener('scroll', this.handleScroll, { passive: true })
+    this.updateScroll()
   },
 
   unmounted() {
     window.removeEventListener('resize', this.checkScreen)
+    window.removeEventListener('scroll', this.handleScroll)
+    if (this.refreshScrollTrigger) {
+      window.removeEventListener('resize', this.refreshScrollTrigger)
+    }
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId)
+    }
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
   },
 }
