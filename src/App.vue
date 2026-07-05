@@ -285,14 +285,14 @@ export default {
         </div>
         <div class="main-five__img">
           <div class="main-five__img-conteiner">
-            <img src="./assets/imgs/anime_girl_noize.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
           </div>
         </div>
       </div>
       <div class="main-five" v-if="!isMobile">
         <div class="main-five__img">
           <div class="main-five__img-conteiner">
-            <img src="./assets/imgs/anime_girl_noize.jpg" alt="" />
+            <img src="./assets/imgs/anime_girl2.jpg" alt="" />
           </div>
         </div>
         <div class="main-five__text_block">
