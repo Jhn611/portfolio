@@ -1,0 +1,79 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 18090,
+      "protocol": "mixed",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"],
+        "routeOnly": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "sub.ivanjhn.ru",
+            "port": 440,
+            "users": [
+              {
+                "id": "8616c846-c640-41a3-a773-9c9c04fbdb5e",
+                "encryption": "none",
+                "flow": ""
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        },
+        "tlsSettings": {
+          "serverName": "sub.ivanjhn.ru",
+          "allowInsecure": false,
+          "fingerprint": "chrome",
+          "alpn": ["h2", "http/1.1"]
+        }
+      },
+      "mux": {
+        "enabled": false
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "port": "0-65535"
+      }
+    ]
+  }
+}
