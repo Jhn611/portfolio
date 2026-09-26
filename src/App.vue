@@ -7,10 +7,8 @@ import MyForm from './components/MyForm.vue'
 import LearnWindow from './components/LearnWindow.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
 import LanguageToggle from './components/LanguageToggle.vue'
-import AutoSwiper from './components/AutoSwiper.vue'
+import ProjectsBlock from './components/ProjectsBlock/ProjectsBlock.vue'
 import { useTextStore } from './stores/text'
-import onlineEditor1 from './assets/imgs/onlineEditor1.jpg'
-import onlineEditor2 from './assets/imgs/onlineEditor2.jpg'
 
 export default {
   data() {
@@ -30,22 +28,6 @@ export default {
       refreshScrollTriggerEvent: '',
       modelInp: '',
       showVideoModal: false,
-      accordionItems: [
-        {
-          value: 'page1',
-          title: 'Визуал редактора',
-          text: 'Пример работы и визуала редактора',
-          image: onlineEditor1,
-          imageAlt: 'Скриншот первого варианта онлайн-редактора',
-        },
-        {
-          value: 'page2',
-          title: 'Подстройка',
-          text: 'Вариант со сдвинутой консолью',
-          image: onlineEditor2,
-          imageAlt: 'Скриншот второго варианта онлайн-редактора',
-        },
-      ],
     }
   },
   components: {
@@ -56,7 +38,7 @@ export default {
     LearnWindow,
     ThemeToggle,
     LanguageToggle,
-    AutoSwiper,
+    ProjectsBlock,
   },
   computed: {
     lang() {
@@ -269,14 +251,7 @@ export default {
           <p class="p" v-html="lang.block3_P_part2"></p>
         </div>
       </div>
-      <div class="main-fourth">
-        <div class="main-fourth__text_block">
-          <h2 class="h2" v-html="lang.block4_H2"></h2>
-          <h3 class="h3" v-html="lang.block4_H3"></h3>
-          <p class="p" style="margin: 0" v-html="lang.block4_P"></p>
-        </div>
-        <AutoSwiper :items="accordionItems" :interval="3000" />
-      </div>
+      <ProjectsBlock />
       <div class="main-five" v-if="isMobile">
         <div class="main-five__text_block">
           <h2 class="h2" v-html="lang.block5_H2"></h2>
