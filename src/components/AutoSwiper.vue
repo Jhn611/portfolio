@@ -24,28 +24,14 @@ export default {
       type: String,
       default: 'ru',
     },
+    labels: {
+      type: Object,
+      required: true,
+    },
   },
 
   data() {
     return { modules: [A11y, Autoplay, Navigation, Pagination] }
-  },
-
-  computed: {
-    labels() {
-      return this.language === 'ru'
-        ? {
-            openImage: 'Открыть скриншот',
-            previous: 'Предыдущий скриншот',
-            next: 'Следующий скриншот',
-            slide: 'Открыть скриншот {{index}}',
-          }
-        : {
-            openImage: 'Open screenshot',
-            previous: 'Previous screenshot',
-            next: 'Next screenshot',
-            slide: 'Open screenshot {{index}}',
-          }
-    },
   },
 }
 </script>
@@ -108,7 +94,7 @@ export default {
             :href="item.link"
             :tabindex="isActive ? 0 : -1"
           >
-            {{ language === 'ru' ? 'Подробнее' : 'Learn more' }}
+            {{ labels.learnMore }}
           </a>
         </figcaption>
       </figure>
