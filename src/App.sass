@@ -200,9 +200,15 @@ a
             height: 90%
             img
                 border-radius: 11px
-                width: 550px
-                height: 379px
-                scale: 1.2
+                display: block
+                width: auto
+                height: auto
+                max-width: 100%
+                max-height: min(660px, 75vh)
+            &-conteiner
+                display: flex
+                justify-content: center
+                width: 100%
                 
         &__text_block
             display: flex
@@ -892,10 +898,7 @@ input::-webkit-inner-spin-button
     .main-five
         &__img
             img
-                border-radius: 11px
-                width: 605px
-                height: 417px
-                scale: 1.2
+                max-height: min(726px, 75vh)
 
 @media  screen and (min-width: 2700px)
     .bg-layer.first
@@ -926,10 +929,7 @@ input::-webkit-inner-spin-button
     .main-five
         &__img
             img
-                border-radius: 11px
-                width: 701px
-                height: 483px
-                scale: 1.2
+                max-height: min(841px, 75vh)
 
 @media  screen and (max-width: 1400px)
     .h1
@@ -950,8 +950,7 @@ input::-webkit-inner-spin-button
             &__img
                 height: 60%
                 img
-                    width: 460px
-                    height: 317px
+                    max-height: min(552px, 75vh)
 
 @media  screen and (max-width: 525px)
     .main
@@ -1067,9 +1066,7 @@ input::-webkit-inner-spin-button
                 width: 95%
                 height: 60%
                 img
-                    border-radius: 11px
-                    width: 299px
-                    height: 206px
+                    max-height: min(360px, 45vh)
                     
             &__text_block
                 width: 95%
@@ -1327,8 +1324,7 @@ input::-webkit-inner-spin-button
             &__img
                 height: 60%
                 img
-                    width: 270px
-                    height: 186px
+                    max-height: min(324px, 45vh)
                     
             &__text_block
                 height: 40%
