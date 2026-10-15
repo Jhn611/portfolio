@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useTextStore } from './text'
-import axios from 'axios'
+import mailAPI from '@/api/mailAPI'
 
 export const useClientRequestStore = defineStore('clientRequest', {
   state: () => ({
@@ -98,20 +98,7 @@ export const useClientRequestStore = defineStore('clientRequest', {
       this.status.isSuccess = false
 
       try {
-        await axios.post(
-          'https://mail-sender-eta-steel.vercel.app/api/form',
-          {
-            name: this.formData.clientName.trim(),
-            email: this.formData.clientEmail.trim(),
-            text: this.formData.projectDescription.trim(),
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          },
-        )
-
+        await mailAPI.sendMail(this.formData.clientName.trim(), this.formData.clientEmail.trim(), this.formData.projectDescription.trim())
         this.status.isSuccess = true
         return true
       } catch (error) {
