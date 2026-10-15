@@ -1184,7 +1184,7 @@ input::-webkit-inner-spin-button {
     height: 60%;
   }
   .main-five__img img {
-    max-height: min(360px, 45vh);
+    max-height: min(420px, 50vh);
   }
   .main-five__text_block {
     width: 95%;
@@ -1453,10 +1453,9 @@ input::-webkit-inner-spin-button {
     height: 60%;
   }
   .main-five__img img {
-    max-height: min(324px, 45vh);
+    max-height: min(460px, 55vh);
   }
   .main-five__text_block {
     height: 40%;
   }
-}
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
