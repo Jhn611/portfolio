@@ -282,6 +282,36 @@ export default {
 
     <footer class="footer">
       <MyForm />
+      <div class="footer-info">
+        <div class="footer-info__left">
+          <h3 class="h3" v-html="lang.footer_left_H3"></h3>
+          <p class="p" v-html="lang.footer_left_P"></p>
+        </div>
+        <div class="footer-info__right">
+          <p class="card-text-p">
+          <img class="footer-info__right__img" src="./assets/imgs/Map pin.svg" alt="" />
+          <span v-html="lang.card_country"></span>
+        </p>
+        <p class="card-text-p">
+          <img
+            class="footer-info__right__img"
+            style="padding: 0 3px 0 0"
+            src="./assets/imgs/telegram.png"
+            alt=""
+          />
+          @IvanAkaJohnny
+        </p>
+        <p class="card-text-p">
+          <img
+            style="padding: 1px 4px 0 0"
+            class="footer-info__right__img"
+            src="./assets/imgs/Mail.svg"
+            alt=""
+          />
+          ivantimofeev1912@gmail.com
+        </p>
+        </div>
+      </div>
     </footer>
   </div>
 </template>

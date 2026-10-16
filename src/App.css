@@ -17,6 +17,7 @@
 :root {
   --white: #f1f0f7;
   --white-grey: #f4f4f4;
+  --white-transparent-grey: #f4f4f4a5;
   --white-blue-grey: #e9ecef;
   --white-light-grey: #f8f9fa;
   --light-grey: #ddd;
@@ -793,7 +794,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   align-items: start;
-  height: 98%;
+  height: 86%;
 }
 .request-form-container h2 {
   font-weight: 400;
@@ -898,6 +899,27 @@ input::-webkit-inner-spin-button {
 .message-block {
   width: 420px;
   height: 80px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  padding: 20px 0 0 0;
+  border-top: 1px solid var(--white-transparent-grey);
+  color: var(--white-grey);
+}
+.footer-info__left h3 {
+  font-size: 1.5rem;
+}
+.footer-info__left p {
+  font-size: 0.9rem;
+}
+.footer-info__right__img {
+  padding: 0 4px 0 0;
+  width: 14px;
+  height: 14px;
+  filter: invert(var(--img-reverse));
 }
 
 @media screen and (min-width: 1800px) {
@@ -1310,6 +1332,9 @@ input::-webkit-inner-spin-button {
   .input__date {
     width: 362px;
   }
+  .footer {
+    height: 150vh;
+  }
   .request-form-container {
     display: flex;
     flex-direction: column;
@@ -1322,6 +1347,12 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
     color: var(--white-no-switch);
     margin: 60px 0 30px 0;
+  }
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px 10px 20px 10px;
   }
   .form {
     display: flex;
