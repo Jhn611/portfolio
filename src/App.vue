@@ -4,10 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MyCard from './components/MyCard.vue'
 import StackLikeApps from './components/StackLikeApps.vue'
 import MyForm from './components/MyForm.vue'
-import LearnWindow from './components/LearnWindow.vue'
-import ThemeToggle from './components/ThemeToggle.vue'
-import LanguageToggle from './components/LanguageToggle.vue'
+import LearnWindow from './components/LearnWindow/LearnWindow.vue'
+import ThemeToggle from './components/ThemeToggle/ThemeToggle.vue'
+import LanguageToggle from './components/LanguageToggle/LanguageToggle.vue'
 import ProjectsBlock from './components/ProjectsBlock/ProjectsBlock.vue'
+import MyContacts from './components/MyContacts/MyContacts.vue'
 import { useTextStore } from './stores/text'
 
 export default {
@@ -39,6 +40,7 @@ export default {
     ThemeToggle,
     LanguageToggle,
     ProjectsBlock,
+    MyContacts,
   },
   computed: {
     lang() {
@@ -288,32 +290,12 @@ export default {
           <p class="p" v-html="lang.footer_left_P"></p>
         </div>
         <div class="footer-info__right">
-          <p class="card-text-p">
-          <img class="footer-info__right__img" src="./assets/imgs/Map pin.svg" alt="" />
-          <span v-html="lang.card_country"></span>
-        </p>
-        <p class="card-text-p">
-          <img
-            class="footer-info__right__img"
-            style="padding: 0 3px 0 0"
-            src="./assets/imgs/telegram.png"
-            alt=""
-          />
-          @IvanAkaJohnny
-        </p>
-        <p class="card-text-p">
-          <img
-            style="padding: 1px 4px 0 0"
-            class="footer-info__right__img"
-            src="./assets/imgs/Mail.svg"
-            alt=""
-          />
-          ivantimofeev1912@gmail.com
-        </p>
+          <MyContacts filterClass="contacts-no-switch-filter"/>
         </div>
       </div>
     </footer>
   </div>
 </template>
 
-<style src="./App.css"></style>
+<style src="./App.sass"></style>
+<style src="./Global.sass"></style>

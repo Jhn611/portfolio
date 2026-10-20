@@ -1,5 +1,6 @@
 <script>
 import { useTextStore } from '@/stores/text'
+import MyContacts from './MyContacts/MyContacts.vue';
 export default {
   data() {
     const store = useTextStore()
@@ -11,6 +12,9 @@ export default {
       mouseX: 0,
       mouseY: 0,
     }
+  },
+  components: {
+    MyContacts,
   },
   props: {
     scroll: Number,
@@ -138,28 +142,7 @@ export default {
           />
         </div>
         <h4 class="card-text" v-html="lang.card_name"></h4>
-        <p class="card-text-p">
-          <img class="card-text-p-img" src="../assets/imgs/Map pin.svg" alt="" />
-          <span v-html="lang.card_country"></span>
-        </p>
-        <p class="card-text-p">
-          <img
-            class="card-text-p-img"
-            style="padding: 0 3px 0 0"
-            src="../assets/imgs/telegram.png"
-            alt=""
-          />
-          @IvanAkaJohnny
-        </p>
-        <p class="card-text-p">
-          <img
-            style="padding: 1px 4px 0 0"
-            class="card-text-p-img"
-            src="../assets/imgs/Mail.svg"
-            alt=""
-          />
-          ivantimofeev1912@gmail.com
-        </p>
+        <MyContacts/>
       </div>
     </div>
   </div>

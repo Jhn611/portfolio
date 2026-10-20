@@ -1,0 +1,32 @@
+.contacts-text
+    all: unset
+    width: 86%
+    display: flex
+    justify-content: start
+    align-items: center
+    padding: 0 0 2px 0
+    font-family: Rubik
+    font-weight: 300
+    font-size: 0.95rem
+    img
+        padding: 0 4px 0 0
+        width: 14px
+        height: 14px
+        
+.contacts-switch-filter
+    filter: invert(var(--img))
+
+.contacts-no-switch-filter
+    filter: invert(var(--img-reverse-no-switch))
+ 
+@media  screen and (min-width: 2100px)
+    .contacts-text
+        img
+            padding: 0 4px 0 0
+            width: 20px
+            height: 20px
+
+// @media  screen and (max-width: 525px)
+//     .contacts-text
+//         font-size: 0.9rem
+        

@@ -1,5 +1,5 @@
 <script>
-import AutoSwiper from '../AutoSwiper.vue'
+import AutoSwiper from '../AutoSwiper/AutoSwiper.vue'
 import { useTextStore } from '../../stores/text'
 import editorDefault from '../../assets/imgs/onlineEditor1.jpg'
 import editorConsole from '../../assets/imgs/onlineEditor2.jpg'
@@ -98,9 +98,9 @@ export default {
         :aria-labelledby="`${project.id}-title`"
       >
         <div class="projects__text">
-          <span class="projects__number" aria-hidden="true">
+          <!-- <span class="projects__number" aria-hidden="true">
             {{ String(index + 1).padStart(2, '0') }}
-          </span>
+          </span> -->
           <h3 :id="`${project.id}-title`" class="h3 projects__title">{{ project.title }}</h3>
           <p class="p projects__description">{{ project.description }}</p>
           <a class="a projects__link" :href="project.url" target="_blank" rel="noopener noreferrer">

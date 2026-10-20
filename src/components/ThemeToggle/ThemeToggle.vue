@@ -28,7 +28,7 @@ export default {
       if (!this.theme_flag) {
         document.documentElement.style.setProperty('--white', '#090909')
         document.documentElement.style.setProperty('--white-grey', '#1e1e1e')
-        document.documentElement.style.setProperty('--white-blue-grey', '#141515')
+        document.documentElement.style.setProperty('--white-blue-grey', '#e8eaeb')
         document.documentElement.style.setProperty('--white-light-grey', '#0c0c0c')
         document.documentElement.style.setProperty('--light-grey', '#262626')
         document.documentElement.style.setProperty('--pre-grey', '#3b3b3b')
@@ -60,11 +60,11 @@ export default {
         document.documentElement.style.setProperty('--img', '1')
         document.documentElement.style.setProperty('--img-reverse', '0')
         document.documentElement.style.setProperty('--img-opacity', '0.85')
-        document.documentElement.style.setProperty('--reset-btn-bg', '#dedfdf')
+        document.documentElement.style.setProperty('--reset-btn-bg', '#d0d8df')
       } else {
         document.documentElement.style.setProperty('--white', '#f1f0f7')
         document.documentElement.style.setProperty('--white-grey', '#f4f4f4')
-        document.documentElement.style.setProperty('--white-blue-grey', '#e9ecef')
+        document.documentElement.style.setProperty('--white-blue-grey', '#e8eaeb')
         document.documentElement.style.setProperty('--white-light-grey', '#f8f9fa')
         document.documentElement.style.setProperty('--light-grey', '#ddd')
         document.documentElement.style.setProperty('--pre-grey', '#cccccc')
@@ -96,7 +96,7 @@ export default {
         document.documentElement.style.setProperty('--img', '0')
         document.documentElement.style.setProperty('--img-reverse', '1')
         document.documentElement.style.setProperty('--img-opacity', '1')
-        document.documentElement.style.setProperty('--reset-btn-bg', '#e8eaeb')
+        document.documentElement.style.setProperty('--reset-btn-bg', '#d0d8df')
       }
     },
   },
@@ -146,7 +146,7 @@ export default {
         sun_off: !theme_flag,
         sun_on: theme_flag,
       }"
-      src="../assets/imgs/sun.png"
+      src="../../assets/imgs/sun.png"
       alt=""
     />
     <img
@@ -155,7 +155,7 @@ export default {
         moon_on: !theme_flag,
         moon_off: theme_flag,
       }"
-      src="../assets/imgs/moon.png"
+      src="../../assets/imgs/moon.png"
       alt=""
     />
     <div @click="switch_theme_var" class="switcher">
@@ -177,4 +177,4 @@ export default {
   </div>
 </template>
 
-<style src="../styles/ThemeToggle.css"></style>
+<style src="./ThemeToggle.sass"></style>

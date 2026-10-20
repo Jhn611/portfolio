@@ -1,47 +1,3 @@
-@font-face
-    font-family: 'Zvezda' 
-    src: url("./assets/fonts/zvezda_NHZDN/Zvezda NHZDN Bold Italic.ttf")
-
-@font-face
-    font-family: 'Rubik' 
-    src: url("./assets/fonts/Rubik/Rubik-VariableFont_wght.ttf")
-
-@font-face
-    font-family: 'Raleway' 
-    src: url("./assets/fonts/Raleway/Raleway-VariableFont_wght.ttf")
-
-@font-face
-    font-family: 'Rubik_Puddles' 
-    src: url("./assets/fonts/Rubik_Puddles/RubikPuddles-Regular.ttf")
-
-:root
-    --white: #f1f0f7
-    --white-grey: #f4f4f4
-    --white-transparent-grey: #f4f4f4a5
-    --white-blue-grey: #e9ecef
-    --white-light-grey: #f8f9fa
-    --light-grey: #ddd
-    --pre-grey: #cccccc
-    --grey: #555
-    --dark-grey: #3e3e3e
-    --black: #090909
-    --black-transparent-hight: rgba(61, 57, 81, 0.7)
-    --black-transparent-medium: rgba(61, 57, 81, 0.24)
-    --black-transparent-pre-low: rgba(61, 57, 81, 0.19)
-    --black-transparent-low: rgba(61, 57, 81, 0.08)
-    --coral: #ff4444
-    --light-coral: #ff5f56
-    --emerald: #42b983
-    --dark-emerald: #3aa876
-    --dark-blue: #57577f
-    --light-blue: #464667
-    --img: 0
-    --img-reverse: 1
-    --img-reverse-no-switch: 1
-    --img-opacity: 1
-    --white-no-switch: #ffffff
-    --reset-btn-bg: #e8eaeb
-
 
 html
     width: 100%
@@ -229,8 +185,8 @@ a
     display: flex
     flex-direction: column
     align-items: center
-    width: 260px
-    height: 390px
+    width: 280px
+    height: 420px
     border-radius: 10px
     background-color: var(--white-grey)
     box-shadow: 0px 0px 8px 0px var(--black-transparent-medium)
@@ -239,8 +195,8 @@ a
         position: absolute
         z-index: 2
         margin: 0 0 10px 0
-        width: 240px
-        height: 280px
+        width: 260px
+        height: 303px
         border-radius: 10px
         object-fit: cover
         transform: scale(1.5)
@@ -251,8 +207,8 @@ a
             position: absolute
             z-index: 3
             margin: 0 0 10px 0
-            width: 240px
-            height: 280px
+            width: 260px
+            height: 303px
             border-radius: 10px
             object-fit: cover
             transform: translate(-100px, 50px) scale(1.25)
@@ -262,8 +218,8 @@ a
         &-block
             position: relative
             margin: 0 0 10px 0
-            width: 240px
-            height: 280px
+            width: 260px
+            height: 303px
             border-radius: 10px
             overflow: hidden
          
@@ -279,21 +235,6 @@ a
         font-weight: 600
         font-size: 20px
 
-        &-p
-            all: unset
-            width: 86%
-            display: flex
-            justify-content: start
-            align-items: center
-            padding: 0 0 2px 0
-            font-family: Rubik
-            font-weight: 300
-            font-size: 16px
-            &-img
-                padding: 0 4px 0 0
-                width: 14px
-                height: 14px
-                filter: invert(var(--img))
     &-back
         position: absolute
         z-index: 4
@@ -302,15 +243,15 @@ a
         display: flex
         align-items: center
         justify-content: center
-        width: 260px
-        height: 390px
+        width: 280px
+        height: 420px
         border-radius: 10px
         background-color: var(--white-grey)
         box-shadow: 0px 0px 8px 0px var(--black-transparent-medium)
         transform: rotateY(180deg)
         &-img
-            width: 250px
-            height: 380px
+            width: 270px
+            height: 410px
             filter: invert(var(--img))
     
             
@@ -318,8 +259,8 @@ a
     position: relative
     transform-style: preserve-3d
     transition: transform 0.6s
-    width: 260px
-    height: 390px
+    width: 280px
+    height: 420px
 
 .main-first__card-block.flipped .card-container 
     transform: rotateY(180deg)
@@ -393,36 +334,26 @@ a
     background-image: url("./assets/imgs/shape5_v2.webp")
     left: 40% 
     top: 40%
-    width: 300px
-    height: 300px
     z-index: -5
 .bg-layer.second
     background-image: url("./assets/imgs/shape4_v2.webp")
     left: 60%
     top: 0%
-    width: 300px
-    height: 300px
     z-index: -4
 .bg-layer.third
     background-image: url("./assets/imgs/shape3_v2.webp")
     left: 20%
     top: 10%
-    width: 300px
-    height: 300px
     z-index: -3
 .bg-layer.fourth
     background-image: url("./assets/imgs/shape2_v2.webp")
     left: -5%
     top: 2%
-    width: 300px
-    height: 300px
     z-index: -2
 .bg-layer.fifth
     background-image: url("./assets/imgs/shape1_v2.webp")   
     left: 85% 
     top: 13%
-    width: 300px
-    height: 300px
     z-index: -1
 
 .bg-layer.zero
@@ -764,33 +695,32 @@ input::-webkit-inner-spin-button
             display: none
     &:hover
         transform: translateY(-2px)
-
-.submit-btn::before
-    content: ""
-    position: absolute
-    top: -2px
-    left: -2px
-    width: calc(100% + 6px)
-    height: calc(100% + 6px)
-    z-index: 0
-    border-radius: inherit
-    background: radial-gradient(circle at 50% 100%, var(--dark-blue) 0%)
-    transform: translateY(calc(100% + 6px)) scaleX(0.28)
-    transform-origin: 50% 100%
-    transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1)
-
-.submit-btn:hover::before 
-    transform: translateY(0) scaleX(1)
+    &::before
+        content: ""
+        position: absolute
+        top: -2px
+        left: -2px
+        width: calc(100% + 6px)
+        height: calc(100% + 6px)
+        z-index: 0
+        border-radius: inherit
+        background: radial-gradient(circle at 50% 100%, var(--dark-blue) 0%)
+        transform: translateY(calc(100% + 6px)) scaleX(0.28)
+        transform-origin: 50% 100%
+        transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1)
+    &:hover::before 
+        transform: translateY(0) scaleX(1)
 
 .reset-btn 
     padding: 0.5rem 1rem
     background-color: var(--reset-btn-bg)
-    border: 1px solid var(--light-grey)
+    border: 1px solid var(--light-grey-no-switch)
     border-radius: 4px
     cursor: pointer
     transition: all 0.3s
     &:hover 
-        background-color: var(--white-blue-grey)
+        background-color: var(--white-blue-grey) 
+        transform: translateY(-2px)
 
 .success-message 
     color: var(--emerald)
@@ -799,8 +729,9 @@ input::-webkit-inner-spin-button
         margin-bottom: 1rem
 
 .message-block
-        width: 420px
-        height: 80px
+    font-family: Raleway
+    width: 420px
+    height: 80px
 
 .footer-info
     display: flex
@@ -814,12 +745,18 @@ input::-webkit-inner-spin-button
             font-size: 1.5rem
         p
             font-size: 0.9rem
-    &__right                                                                                                                                
+            margin: 0
+    &__right           
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center                                                                                                                     
         &__img
             padding: 0 4px 0 0
             width: 14px
             height: 14px
             filter: invert(var(--img-reverse-no-switch))
+
 
 
 @media  screen and (min-width: 1800px)
@@ -828,23 +765,12 @@ input::-webkit-inner-spin-button
     .input
         &_field
             height: 46px
-    .bg-layer.first
+    .bg-layer   
         width: 400px
-        height: 400px
-    .bg-layer.second
-        width: 400px
-        height: 400px
-    .bg-layer.third
-        width: 400px
-        height: 400px
-    .bg-layer.fourth
-        width: 400px
-        height: 400px
-    .bg-layer.fifth
-        width: 400px
-        height: 400px
+        height: 400px  
     .bg-layer.zero
         box-shadow: inset 0 0 12px 3px var(--black-transparent-pre-low)
+    
 
 @media  screen and (min-width: 2100px)
     html
@@ -853,120 +779,65 @@ input::-webkit-inner-spin-button
         &_field
             height: 48px
             
-    .bg-layer.first
-        width: 500px
-        height: 500px
-    .bg-layer.second
-        width: 500px
-        height: 500px
-    .bg-layer.third
-        width: 500px
-        height: 500px
-    .bg-layer.fourth
-        width: 500px
-        height: 500px
-    .bg-layer.fifth
+    .bg-layer
         width: 500px
         height: 500px
     .bg-layer.zero
-        box-shadow: inset 0 0 12px 4px var(--black-transparent-pre-low)      
+        box-shadow: inset 0 0 12px 4px var(--black-transparent-pre-low)    
+
     .card
         padding: 10px 0 0 0 
-        width: 360px
+        width: 330px
         height: 520px
         &-img
             margin: 0 0 10px 0
-            width: 340px
+            width: 310px
             height: 380px
             &-upper
                 margin: 0 0 10px 0
-                width: 340px
+                width: 310px
                 height: 380px
             &-block
                 margin: 0 0 10px 0
-                width: 340px
+                width: 310px
                 height: 380px
         &-text
             padding: 0 0 4px 10px
             font-weight: 600
             font-size: 26px
-            &-p
-                padding: 0 0 2px 0
-                font-weight: 300
-                font-size: 20px
-                &-img
-                    padding: 0 4px 0 0
-                    width: 20px
-                    height: 20px
+
         &-back
             padding: 5px 0 5px 0 
-            width: 360px
+            width: 330px
             height: 520px
             &-img
-                width: 350px
+                width: 320px
                 height: 510px
 
     .card-container 
-        width: 360px
+        width: 330px
         height: 520px
 
-    // .main-fourth
-    //     &__img
-    //         img
-    //             border-radius: 11px
-    //             width: 500px
-    //             height: 645px
-    //             scale: 1.2
     .main-five
         &__img
             img
                 max-height: min(726px, 75vh)
 
 @media  screen and (min-width: 2700px)
-    .bg-layer.first
+    .bg-layer
         width: 600px
         height: 600px
-    .bg-layer.second
-        width: 600px
-        height: 600px
-    .bg-layer.third
-        width: 600px
-        height: 600px
-    .bg-layer.fourth
-        width: 600px
-        height: 600px
-    .bg-layer.fifth
-        width: 600px
-        height: 600px 
     .bg-layer.zero
         box-shadow: inset 0 0 12px 6px var(--black-transparent-pre-low)
 
-    // .main-fourth
-    //     &__img
-    //         img
-    //             border-radius: 11px
-    //             width: 600px
-    //             height: 774px
-    //             scale: 1.2
     .main-five
         &__img
             img
                 max-height: min(841px, 75vh)
 
 @media  screen and (max-width: 1400px)
-    .h1
-        font-size: 100px
-        font-family: Rubik
-        font-weight: 500
-    .h2
-        font-size: 52px
-    .h3
-        font-size: 28px
-    .p
+    html
         font-size: 18px
-    .card
-        p
-            font-size: 14px
     .main-five
             height: 100vh
             &__img
@@ -1057,12 +928,7 @@ input::-webkit-inner-spin-button
                 justify-content: center
                 align-items: center
                 width: 95%
-                height: 50%
-            //     img
-            //         border-radius: 11px
-            //         width: 300px
-            //         height: 387px
-                    
+                height: 50%                
             &__text_block
                 display: flex
                 justify-content: center
@@ -1070,9 +936,6 @@ input::-webkit-inner-spin-button
                 width: 95%
                 height: 50%
                 color: var(--black)
-                // &__link
-                //     display: flex
-                //     flex-direction: row
 
         &-five
             display: flex
@@ -1094,15 +957,11 @@ input::-webkit-inner-spin-button
                 width: 95%
                 height: 40%
                 color: var(--black)
-
-    .card
-        p
-            font-size: 16px
     
     .bg-layer 
         position: absolute
-        width: 300px
-        height: 300px
+        width: 200px
+        height: 200px
         background-size: cover
         background-position: center
         will-change: transform
@@ -1111,40 +970,20 @@ input::-webkit-inner-spin-button
         -webkit-backface-visibility: hidden
 
     .bg-layer.first
-        background-image: url("./assets/imgs/shape5_v2.webp")
         left: 40% 
         top: 40%
-        width: 200px
-        height: 200px
-        z-index: -5
     .bg-layer.second
-        background-image: url("./assets/imgs/shape4_v2.webp")
         left: 60%
         top: 0%
-        width: 200px
-        height: 200px
-        z-index: -4
     .bg-layer.third
-        background-image: url("./assets/imgs/shape3_v2.webp")
         left: 20%
         top: 10%
-        width: 200px
-        height: 200px
-        z-index: -3
     .bg-layer.fourth
-        background-image: url("./assets/imgs/shape2_v2.webp")
         left: -5%
         top: 2%
-        width: 200px
-        height: 200px
-        z-index: -2
     .bg-layer.fifth
-        background-image: url("./assets/imgs/shape1_v2.webp")
         left: 85% 
         top: 13%
-        width: 200px
-        height: 200px
-        z-index: -1
     
     .stacks
         position: relative
@@ -1234,6 +1073,11 @@ input::-webkit-inner-spin-button
         flex-direction: column
         justify-content: space-evenly
         padding: 20px 10px 20px 10px
+        &__left
+            margin: 0 0 24px 0
+        &__right           
+            align-items: start 
+
 
     .form
         display: flex
@@ -1258,51 +1102,11 @@ input::-webkit-inner-spin-button
         height: 100px
 
     .submit-btn 
-        position: relative
-        overflow: hidden
-        width: 160px
-        padding: 0.75rem
-        background-color: var(--dark-blue)
-        color: white
-        border: none
-        border-radius: 4px
-        font-size: 1rem
-        cursor: pointer
-        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease
-        span
-            position: relative
-            z-index: 1
-        // &:hover 
-        //     background-color: var(--dark-emerald)
-        &:disabled 
-            background-color: var(--pre-grey)
-            cursor: not-allowed
-            &::before
-                display: none
-        &::before
-            content: ""
-            position: absolute
-            inset: 0
-            z-index: 0
-            border-radius: inherit
-            background: radial-gradient(circle, var(--light-blue) 0%, var(--dark-blue) 52%, var(--black-transparent-hight) 100%) 
-            transform: translate(-50%, 0) scale(0)
-            transform-origin: 50% 100%
-            transition: transform 1350ms cubic-bezier(0.19, 1, 0.22, 1)
-        &:hover::before 
-            transform: translate(-50%, -70%) scale(1.42)
+        width: 220px
 
     .reset-btn 
-        padding: 0.5rem 1rem
-        background-color: var(--reset-btn-bg)
-        border: 1px solid var(--light-grey)
-        border-radius: 4px
-        cursor: pointer
-        transition: all 0.3s
         &-block
             height: 50px
-        &:hover 
-            background-color: var(--white-blue-grey)
 
     .success-message 
         color: var(--emerald)
@@ -1317,7 +1121,6 @@ input::-webkit-inner-spin-button
     .main
         &-first
             height: 95vh
-           
             &__text-block
                 height: 20%
             &__card-block
@@ -1338,17 +1141,9 @@ input::-webkit-inner-spin-button
                 height: 60%
 
         &-fourth
-            height: 135vh
-            // &__img
-            //     height: 60%
-            //     img
-            //         height: 388px
-                    
+            height: 135vh  
             &__text_block
                 height: 40%
-                // &__link
-                //     display: flex
-                //     flex-direction: row
                 
         &-five
             height: 100vh

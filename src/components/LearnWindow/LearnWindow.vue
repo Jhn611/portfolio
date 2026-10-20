@@ -169,4 +169,4 @@ export default {
   </transition>
 </template>
 
-<style src="../styles/LearnWindow.css"></style>
+<style src="./LearnWindow.sass"></style>

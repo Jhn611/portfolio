@@ -102,4 +102,4 @@ export default {
   </Swiper>
 </template>
 
-<style src="../styles/AutoSwiper.css"></style>
+<style src="./AutoSwiper.sass"></style>

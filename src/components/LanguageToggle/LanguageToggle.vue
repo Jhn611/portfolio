@@ -96,4 +96,4 @@ export default {
   </div>
 </template>
 
-<style src="../styles/LanguageToggle.css"></style>
+<style src="./LanguageToggle.sass"></style>
