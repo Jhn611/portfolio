@@ -37,7 +37,7 @@ export default {
         },
         {
           id: 'doverhu',
-          url: 'https://doverkhu.ru/',
+          url: 'https://doverkhu.ivanjhn.ru/',
           images: [
             doverhuHome,
             doverhuCatalog,

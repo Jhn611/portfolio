@@ -119,8 +119,9 @@ and classic HTML for markup.`,
       block5_P: `In my free time I enjoy<br />
     drawing, gaming<br />
     and studying interesting animations and frontend tricks.`,
-      footer_left_H3: "Website powered by Jhn (Timofeev Ivan)",
-      footer_left_P: "Thank you for visiting my website. You can get in touch with me by submitting a request via the form, or by messaging me directly on Telegram or via email.",
+      footer_left_H3: 'Website powered by Jhn (Timofeev Ivan)',
+      footer_left_P:
+        'Thank you for visiting my website. You can get in touch with me by submitting a request via the form, or by messaging me directly on Telegram or via email.',
       form_H2: `Write to me`,
       form_label1: `Your email address`,
       form_label2: `How to address you`,
@@ -263,8 +264,9 @@ and classic HTML for markup.`,
       block5_P: `Свободное время я люблю проводить за<br />
     рисованием, играми<br />
     и изучением интересных анимаций и фишек во фронтенде.`,
-      footer_left_H3: "Сайт создал Jhn (Тимофеев Иван)",
-      footer_left_P: "Спасибо что посетили мой сайт вы можете связаться со мной отправив запрос через форму либо написать напрямую в Telegram или по почте.",
+      footer_left_H3: 'Сайт создал Jhn (Тимофеев Иван)',
+      footer_left_P:
+        'Спасибо что посетили мой сайт вы можете связаться со мной отправив запрос через форму либо написать напрямую в Telegram или по почте.',
       form_H2: `Напишите мне`,
       form_label1: `Напишите ваш email`,
       form_label2: `Как к вам обращаться`,
