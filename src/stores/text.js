@@ -17,7 +17,7 @@ I'm happy to participate in one-off projects and hackathons.`,
       block3_H3_part1: `General knowledge`,
       block3_P_part1: `I have experience with Vue.js, React.js, <br />
       JavaScript, TypeScript, SASS, SCSS, <br />
-      CSS, HTML, Python, C++, C#,<br />
+      CSS, HTML, 1С, Python, C++, C#,<br />
       PostgreSQL, Flutter + Dart<br />`,
       block3_H3_part2: `Tech stacks`,
       block3_P_part2: `My main stacks are React and Vue.<br />
@@ -160,7 +160,7 @@ and classic HTML for markup.`,
       block3_H3_part1: `Общие знания`,
       block3_P_part1: `У меня есть опыт работы с Vue.js, React.js, <br />
       JavaScript, TypeScript, SASS, SCSS, <br />
-      CSS, HTML, Python, C++, C#,<br />
+      CSS, HTML, 1С, Python, C++, C#,<br />
       PostgreSQL, Flutter + Dart<br />
     `,
       block3_H3_part2: `Стеки`,
